@@ -14,7 +14,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Head-->
 
 <head>
-   
+
     <meta charset="utf-8" />
     <title>{{config('sys.app_short_name')}} - {{config('sys.app_full_name')}}</title>
     <meta name="description" content="HTML sourced datatables examples" />
@@ -54,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="{{ url('/') }}" style="margin: 0 auto">
-            <img alt="Logo" src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
+            <img alt="Logo"  src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -96,8 +96,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="brand flex-column-auto" id="kt_brand">
                     <!--begin::Logo-->
                     <a href="{{ url('/') }}" class="brand-logo" style="margin: 0 auto";>
-                        <img alt="Logo" src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
-                        
+                        <img alt="Logo" style="height:50px" src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
+
                     </a>
                     <!--end::Logo-->
                     <!--begin::Toggle-->
@@ -141,7 +141,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!--begin::Header Menu-->
                             <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
                                 <!--begin::Header Nav-->
-                                
+
                                 <!--end::Header Nav-->
                             </div>
                             <!--end::Header Menu-->
@@ -149,7 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!--end::Header Menu Wrapper-->
                         <!--begin::Topbar-->
                         <div class="topbar">
-                            
+
                             <!--begin::User-->
                             <div class="topbar-item">
                                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
@@ -180,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Nav-->
-							
+
 							<!--end::Nav-->
 						</div>
 						<!--end::Container-->
@@ -196,7 +196,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<!--begin::Header-->
 			<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
 				<h3 class="font-weight-bold m-0">User Profile
-				
+
 				<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
 					<i class="ki ki-close icon-xs text-muted"></i>
 				</a>
@@ -212,7 +212,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div> -->
 					<div class="d-flex flex-column">
 						<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{$user->full_name}}</a>
-						
+
 						<div class="navi mt-2">
 							<a href="#" class="navi-item">
 								<span class="navi-link p-0 pb-2">
@@ -244,7 +244,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin::Item-->
 					<a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
 						<div class="navi-link">
-							
+
 							<div class="navi-text">
 								<div class="font-weight-bold"><a href="{{route('logout')}}">
                                     <i class="icon-key"></i> Log Out </a></div>
@@ -252,13 +252,13 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</a>
 					<!--end:Item-->
-					
+
 				</div>
 				<!--end::Nav-->
 				<!--begin::Separator-->
 				<div class="separator separator-dashed my-7"></div>
 				<!--end::Separator-->
-				
+
 			</div>
 			<!--end::Content-->
 		</div>
@@ -353,7 +353,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{url('template/metronic')}}/assets/global/plugins/uniform/jquery.uniform.js" type="text/javascript"></script>
     <script src="{{url('template/metronic')}}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script> -->
     <!-- <script src="{{url('template/metronic')}}/assets/global/plugins/select2/select2.min.js" type="text/javascript"></script> -->
-    
+
     <!-- <script src="{{ asset('js/sys.js') }}" type="text/javascript"></script> -->
     <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -388,18 +388,18 @@ License: You must have a valid license purchased only from themeforest(the above
         var table = $('#kt_datatable').DataTable( {
             responsive: true
         } );
- 
-        
+
+
     } );
 
     $(function () {
-  $("#datepicker").datepicker({ 
-        autoclose: true, 
+  $("#datepicker").datepicker({
+        autoclose: true,
         todayHighlight: true
   }).datepicker('update', new Date());
 });
     </script>
-    
+
     @yield('scripts')
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
