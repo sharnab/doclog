@@ -29,7 +29,15 @@ class AppUserController extends Controller
         return view('admin.app_user.index',compact('userList'));
     }
 
-    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.app_user.create');
+    }
 
     /**
      * Display the specified resource.
@@ -48,6 +56,6 @@ class AppUserController extends Controller
      * @param  \App\Model\AssetType  $assetType
      * @return \Illuminate\Http\Response
      */
-    
+
 
 }

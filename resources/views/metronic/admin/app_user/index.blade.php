@@ -22,7 +22,7 @@
                     <li class="breadcrumb-item">
                         <a href="#" class="text-muted">List</a>
                     </li>
-                    
+
                 </ul>
                 <!--end::Breadcrumb-->
             </div>
@@ -31,9 +31,9 @@
         <!--end::Info-->
         <!--begin::Toolbar-->
         <!-- <div class="d-flex align-items-center">
-            
+
             <a href="" class="btn btn-light font-weight-bold btn-sm">Add New</a>
-            
+
         </div> -->
         <!--end::Toolbar-->
     </div>
@@ -50,15 +50,16 @@
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
-                    
                     <h3 class="card-label">App User List</h3>
                 </div>
-
+                <div class="card-title pull-right">
+                    <a href="{{route('user_create')}}" class="btn btn-success font-weight-bold btn-sm">Add New</a>
+                </div>
             </div>
             <div class="card-body">
                 @include('layouts.alert')
                 <!--begin: Datatable-->
-                
+
                 <table class="table table-head-custom" id="kt_datatable" style="margin-top: 13px !important">
                     <thead>
                     <tr>
@@ -80,7 +81,7 @@
                                 <th>
                                     Email
                                 </th>
-                                
+
                                 <th>
                                     Status
                                 </th>
@@ -96,9 +97,9 @@
                                 <td>{{ ++$sl }}</td>
                                 <td>@if($user['profileImage'])
                                         <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{'http://103.9.185.218/ami_probashi_api/files/profileimage/'.$user['profileImage']}}"/>
-                                        
+
                                     @else
-                                        <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{ asset('img/default-avatar.png')}}"/>       
+                                        <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{ asset('img/default-avatar.png')}}"/>
                                     @endif</td>
                                 <td>{{ $user['fullName'] }}</td>
                                 <td>{{ $user['userName'] }}</td>
@@ -115,7 +116,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    
+
                                     <!-- <a href="{{route('user_edit',$user['userId'])}}" class="btn btn-icon-only purple" title="Edit">
                                     <i class="fa fa-edit"></i>
                                     </a> -->
