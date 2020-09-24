@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Model\Country;
 use App\Model\Expatriate;
@@ -16,7 +17,7 @@ use File;
 use Helper;
 use App\Model\AppUser;
 
-class ExpatriateController extends Controller
+class ExpatriateController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -31,7 +32,7 @@ class ExpatriateController extends Controller
         // $userList = User::with('userGroup')->get();
         //print_r(json_encode($religionList));
 
-        return view('admin.app_user.index',compact('userList'));
+        return view('admin.expatriate.index',compact('userList'));
     }
 
     /**
@@ -102,7 +103,11 @@ class ExpatriateController extends Controller
                 'passport_number',
                 'passport_issue_date',
                 'passport_expiry_date',
-                'passport_issue_place'
+                'passport_issue_place',
+                'facebook_id',
+                'linkedin_id',
+                'line_id',
+                'whatsapp_id'
             ]);
 
         $basic_data['active_status']=1;
