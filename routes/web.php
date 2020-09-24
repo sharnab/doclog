@@ -24,21 +24,21 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * App User
      */
-    
+
     //Route::resource('/religion', 'Admin\ReligionController');
-    Route::get('/user','Admin\AppUserController@index')->name('user');
-    Route::get('/user/create','Admin\AppUserController@create')->name('user_create');
-    Route::post('/user/store','Admin\AppUserController@store')->name('user_store');
-    Route::get('/user/{id}/edit','Admin\AppUserController@edit')->name('user_edit');
-    Route::put('/user/{id}/update','Admin\AppUserController@update')->name('user_update');
-    Route::get('/user/{id}/destroy','Admin\AppUserController@destroy')->name('user_destroy');
-    Route::get('/user/{id}/show','Admin\AppUserController@show')->name('user_show');
-   
+    Route::get('/expatriate','Admin\ExpatriateController@index')->name('user');
+    Route::get('/expatriate/create','Admin\ExpatriateController@create')->name('user_create');
+    Route::post('/expatriate/store','Admin\ExpatriateController@store')->name('user_store');
+    Route::get('/expatriate/{id}/edit','Admin\ExpatriateController@edit')->name('user_edit');
+    Route::put('/expatriate/{id}/update','Admin\ExpatriateController@update')->name('user_update');
+    Route::get('/expatriate/{id}/destroy','Admin\ExpatriateController@destroy')->name('user_destroy');
+    Route::get('/expatriate/{id}/show','Admin\ExpatriateController@show')->name('user_show');
+
 
     /**
      * Religion creation
      */
-    
+
     Route::resource('/religion', 'Admin\ReligionController');
     Route::get('/religion','Admin\ReligionController@index')->name('religion');
     Route::get('/religion/create','Admin\ReligionController@create')->name('religion_create');
@@ -50,7 +50,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Language creation
      */
-    
+
     Route::resource('/language', 'Admin\LanguageController');
     Route::get('/language','Admin\LanguageController@index')->name('language');
     Route::get('/language/create','Admin\LanguageController@create')->name('language_create');
@@ -62,7 +62,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Skill creation
      */
-    
+
     Route::resource('/skill', 'Admin\SkillController');
     Route::get('/skill','Admin\SkillController@index')->name('skill');
     Route::get('/skill/create','Admin\SkillController@create')->name('skill_create');
@@ -74,7 +74,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Division creation
      */
-    
+
     Route::resource('/division', 'Admin\DivisionController');
     Route::get('/division','Admin\DivisionController@index')->name('division');
     Route::get('/division/create','Admin\DivisionController@create')->name('division_create');
@@ -86,7 +86,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * District creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/district','Admin\DistrictController@index')->name('district');
     Route::get('/district/create','Admin\DistrictController@create')->name('district_create');
@@ -98,7 +98,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * City Corporation creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/citycorporation','Admin\CityCorporationController@index')->name('citycorporation');
     Route::get('/citycorporation/create','Admin\CityCorporationController@create')->name('citycorporation_create');
@@ -109,7 +109,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Municipal creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/municipal','Admin\MunicipalController@index')->name('municipal');
     Route::get('/municipal/create','Admin\MunicipalController@create')->name('municipal_create');
@@ -121,7 +121,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Union creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/union','Admin\UnionController@index')->name('union');
     Route::get('/union/create','Admin\UnionController@create')->name('union_create');
@@ -133,7 +133,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Upazila creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/upazila','Admin\UpazilaController@index')->name('upazila');
     Route::get('/upazila/create','Admin\UpazilaController@create')->name('upazila_create');
@@ -145,7 +145,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Educational Institute creation
      */
-    
+
     //Route::resource('/division', 'Admin\DivisionController');
     Route::get('/education','Admin\EducationController@index')->name('education');
     Route::get('/education/create','Admin\EducationController@create')->name('education_create');
@@ -157,7 +157,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     /**
      * Splash Screen creation
      */
-    
+
     //Route::resource('/splashscreen', 'Admin\SplashScreenController');
     Route::get('/splashscreen','Admin\SplashScreenController@index')->name('splashscreen');
     Route::get('/splashscreen/create','Admin\SplashScreenController@create')->name('splashscreen_create');
