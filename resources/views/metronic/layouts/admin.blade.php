@@ -37,6 +37,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ asset('assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/pages/wizard/wizard-1.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset('assets/media/logos/ami_probashi.ico')}}" />
 

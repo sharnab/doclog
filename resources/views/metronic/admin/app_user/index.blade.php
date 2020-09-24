@@ -50,6 +50,7 @@
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
+<<<<<<< HEAD
                     <h3 class="card-label">Expatriate List</h3>
                 </div>
                 <div class="card-toolbar">
@@ -132,8 +133,13 @@
                                                 <!--end::Svg Icon-->
 											</span>New Record</a>
                     <!--end::Button-->
+=======
+                    <h3 class="card-label">App User List</h3>
+>>>>>>> 616fa944229e664ba69943c6876df6acf11845f4
                 </div>
-
+                <div class="card-title pull-right">
+                    <a href="{{route('user_create')}}" class="btn btn-success font-weight-bold btn-sm">Add New</a>
+                </div>
             </div>
             <div class="card-body">
                 @include('layouts.alert')
@@ -174,8 +180,13 @@
                             @foreach($userList as $user)
                             <tr>
                                 <td>{{ ++$sl }}</td>
+<<<<<<< HEAD
                                 <td>@if($user['image'])
                                         <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{'http://103.9.185.218/ami_probashi_api/files/profileimage/'.$user['image']}}"/>
+=======
+                                <td>@if($user['profileImage'])
+                                        <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{'http://103.9.185.218/ami_probashi_api/files/profileimage/'.$user['profileImage']}}"/>
+>>>>>>> 616fa944229e664ba69943c6876df6acf11845f4
 
                                     @else
                                         <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{ asset('img/default-avatar.png')}}"/>
@@ -191,7 +202,11 @@
                                 </td>
                                 <td>
 
+<<<<<<< HEAD
                                     <!-- <a href="{{route('user_edit',$user['id'])}}" class="btn btn-icon-only purple" title="Edit">
+=======
+                                    <!-- <a href="{{route('user_edit',$user['userId'])}}" class="btn btn-icon-only purple" title="Edit">
+>>>>>>> 616fa944229e664ba69943c6876df6acf11845f4
                                     <i class="fa fa-edit"></i>
                                     </a> -->
                                     <a href="{{route('user_show',$user['id'])}}" class="btn btn-icon-only purple" title="View">
