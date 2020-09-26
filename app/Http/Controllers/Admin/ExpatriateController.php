@@ -9,6 +9,7 @@ use App\Model\Expatriate;
 use App\Model\Gender;
 use App\Model\Passport;
 use App\Model\Religion;
+use App\Model\VisaInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -58,7 +59,7 @@ class ExpatriateController extends ApiController
         /**
          * call form wizard with reference data
          */
-         return view('admin.app_user.create', compact('religion','gender','countries','country'));
+         return view('admin.expatriate.create', compact('religion','gender','countries','country'));
     }
 
     public function addBasicInfo(Request $request)
@@ -67,7 +68,7 @@ class ExpatriateController extends ApiController
 
         $rules =[
             "passport_number"         => "required",
-            "expiry_date"          => "required",
+            "passport_expiry_date"          => "required",
             "first_name"          => "required",
         ];
         //$request->validate($rules);
@@ -87,9 +88,10 @@ class ExpatriateController extends ApiController
 
         if($isExist||$isExist>0)
         {
-            session()->flash('message', 'This passport already exist in the system');
-            session()->flash('class', '2');
-            return redirect()->route('education_create');
+            $this->respondWithError('This person is already exist');
+//            session()->flash('message', 'This passport already exist in the system');
+//            session()->flash('class', '2');
+//            return redirect()->route('education_create');
         }
 
         /**
@@ -131,7 +133,28 @@ class ExpatriateController extends ApiController
 
         $id = Expatriate::insertGetId($basic_data);
 
+        /**
+         * Passport image uploading
+         */
+
+        $passport_img_path=null;
+        if($request->hasFile('image'))
+        {
+            $passport_img_path = '';
+            $path = public_path('uploads/passport_images/passport');
+            if(!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+
+            $image_name = time().'.'.$request->image->getClientOriginalExtension();
+
+            if($image_name){
+                request()->image->move($path, $image_name);
+                $passport_img_path = "uploads/passport_images/passport/" . $image_name;
+            }
+        }
         $passport_data['expat_id']=$id;
+        $passport_data['image']=$passport_img_path;
         $passport_data['passport_number'] = $basic_data['passport_number'];
         $passport_data['passport_issue_date'] = $basic_data['passport_issue_date'];
         $passport_data['passport_expiry_date'] = $basic_data['passport_expiry_date'];
@@ -153,9 +176,10 @@ class ExpatriateController extends ApiController
     {
 
         $rules =[
-            "passport_number"         => "required",
-            "expiry_date"          => "required",
-            "first_name"          => "required",
+            "visa_type"   => "required",
+            "expiry_date"       => "required",
+            "first_name"        => "required",
+            "expat_id"          => "required",
         ];
         //$request->validate($rules);
 
@@ -170,7 +194,7 @@ class ExpatriateController extends ApiController
         /**
          * Check is passport Number exist
          */
-        $isExist     =Expatriate::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
+        $isExist     =VisaInfo::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
 
         if(!$isExist)
         {
