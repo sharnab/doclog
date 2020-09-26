@@ -369,6 +369,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js')}}"></script>
     <script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js')}}"></script>
+    <script src="{{ asset('assets/js/pages/custom/wizard/wizard-1.js')}}"></script>
     <script src="{{ asset('assets/js/pages/crud/forms/widgets/select2.js')}}"></script>
     <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
     <script src="//www.google.com/jsapi"></script>
@@ -378,6 +379,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <script src="{{ asset('assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- @include('admin.include.jq') -->
 	<script>

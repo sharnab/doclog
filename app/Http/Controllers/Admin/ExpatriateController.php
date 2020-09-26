@@ -52,20 +52,18 @@ class ExpatriateController extends Controller
         $gender=Gender::where('active_status',1)->get()->toArray();
         $countries=Country::whereIn('id',[26,147])->get()->toArray();
         $country=Country::where('id',181)->get()->toArray();
-
-
         /**
          * call form wizard with reference data
          */
-       // return view('admin.bank.create');
+         return view('admin.app_user.create', compact('religion','gender','countries','country'));
     }
 
     public function addBasicInfo(Request $request)
     {
         $request->validate([
-            "passport_number"         => "required",
-            "expiry_date"          => "required",
-            "first_name"          => "required",
+            "passport_number"       => "required",
+            "passport_expiry_date"  => "required",
+            "first_name"            => "required",
         ]);
 
         /**
@@ -73,7 +71,7 @@ class ExpatriateController extends Controller
          */
         $isExist     =Expatriate::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
 
-        if(!$isExist)
+        if($isExist||$isExist>0)
         {
             session()->flash('message', 'This passport already exist in the system');
             session()->flash('class', '2');
@@ -102,7 +100,11 @@ class ExpatriateController extends Controller
                 'passport_number',
                 'passport_issue_date',
                 'passport_expiry_date',
-                'passport_issue_place'
+                'passport_issue_place',
+                'facebook_id',
+                'linkedin_id',
+                'line_id',
+                'whatsapp_id'
             ]);
 
         $basic_data['active_status']=1;
@@ -114,13 +116,13 @@ class ExpatriateController extends Controller
          */
 
         $id = Expatriate::insertGetId($basic_data);
+        return $id;
 
-
-            $educationData = Education::firstOrCreate($data);
-
-            session()->flash('message', 'New Institute Created Successfully !');
-            session()->flash('class', '1');
-            return redirect()->route('education');
+            // $educationData = Education::firstOrCreate($data);
+            //
+            // session()->flash('message', 'New Institute Created Successfully !');
+            // session()->flash('class', '1');
+            // return redirect()->route('education');
 
     }
 
