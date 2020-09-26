@@ -12,36 +12,9 @@ class Passport extends Model
      *
      * @var string
      */
-    protected $table = 'passport_office';
+    protected $table = 'expat_passport';
 
     protected $guarded = ['id'];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    // protected $fillable = [
-    //     "name",
-    //     "short_name",
-    //     "code",
-    //     "email",
-    //     "mobile",
-    //     "address",
-    //     "contact_person",
-    //     "logo",
-    //     "iata",
-    //     "active_status",
-    //     "remarks",
-    //     "created_by",
-    //     "updated_by"
-    // ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
 
     protected $hidden = [];
 
