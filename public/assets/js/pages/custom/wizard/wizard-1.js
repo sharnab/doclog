@@ -97,53 +97,6 @@ var KTWizard1 = function () {
 								message: 'Expiry date is required'
 							}
 						}
-					},
-					package: {
-						validators: {
-							notEmpty: {
-								message: 'Package details is required'
-							}
-						}
-					},
-					weight: {
-						validators: {
-							notEmpty: {
-								message: 'Package weight is required'
-							},
-							digits: {
-								message: 'The value added is not valid'
-							}
-						}
-					},
-					width: {
-						validators: {
-							notEmpty: {
-								message: 'Package width is required'
-							},
-							digits: {
-								message: 'The value added is not valid'
-							}
-						}
-					},
-					height: {
-						validators: {
-							notEmpty: {
-								message: 'Package height is required'
-							},
-							digits: {
-								message: 'The value added is not valid'
-							}
-						}
-					},
-					packagelength: {
-						validators: {
-							notEmpty: {
-								message: 'Package length is required'
-							},
-							digits: {
-								message: 'The value added is not valid'
-							}
-						}
 					}
 				},
 				plugins: {
@@ -158,27 +111,13 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
-					delivery: {
+					bmet_number: {
 						validators: {
 							notEmpty: {
-								message: 'Delivery type is required'
+								message: 'BMET smart card number is required'
 							}
 						}
 					},
-					packaging: {
-						validators: {
-							notEmpty: {
-								message: 'Packaging type is required'
-							}
-						}
-					},
-					preferreddelivery: {
-						validators: {
-							notEmpty: {
-								message: 'Preferred delivery window is required'
-							}
-						}
-					}
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
@@ -192,41 +131,13 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
-					locaddress1: {
+					salary: {
 						validators: {
 							notEmpty: {
-								message: 'Address is required'
+								message: 'Salary/Wage is required'
 							}
 						}
 					},
-					locpostcode: {
-						validators: {
-							notEmpty: {
-								message: 'Postcode is required'
-							}
-						}
-					},
-					loccity: {
-						validators: {
-							notEmpty: {
-								message: 'City is required'
-							}
-						}
-					},
-					locstate: {
-						validators: {
-							notEmpty: {
-								message: 'State is required'
-							}
-						}
-					},
-					loccountry: {
-						validators: {
-							notEmpty: {
-								message: 'Country is required'
-							}
-						}
-					}
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
