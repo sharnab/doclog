@@ -10,7 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/**
+ * Route List
+ */
+
+Route::prefix('address')->namespace('Admin')->group(function (){
+    Route::get('division_list', 'AddressController@divisionList');
+    Route::get('district_list','AddressController@districtList');
+    Route::get('union_list', 'AddressController@unionList');
+    Route::get('upazila_list', 'AddressController@upazilaList');
+
+    Route::get('district_by_division','AddressController@districtByDivision');
+    Route::get('upazila_by_district', 'AddressController@upazilaByDistrict');
+    Route::get('union_by_upazila', 'AddressController@unionByUpazila');
+});
+
+
+
 Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
+
     Route::get('permissions', 'Admin\Role\PermissionsController@index')->name('permissions');
     Route::get('permissions/create-group', 'Admin\Role\PermissionsController@create')->name('create_group');
     Route::post('permissions/store', 'Admin\Role\PermissionsController@store')->name('group_store');

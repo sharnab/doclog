@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Model\Country;
+use App\Model\Division;
 use App\Model\Expatriate;
 use App\Model\Gender;
 use App\Model\Passport;
@@ -56,6 +57,7 @@ class ExpatriateController extends ApiController
         $gender=Gender::where('active_status',1)->get()->toArray();
         $countries=Country::whereIn('id',[26,147])->get()->toArray();
         $country=Country::where('id',181)->get()->toArray();
+        $division=Division::where('active_status',1)->get()->toArray();
         /**
          * call form wizard with reference data
          */

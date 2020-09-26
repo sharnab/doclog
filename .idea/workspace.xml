@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db0a6ae9-a646-41d9-8086-25d7e80f85f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/metronic/admin/expatriate/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AddressController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Address.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,14 +127,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/metronic/admin/expatriate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Model" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/metronic/admin/expatriate" />
       <recent name="$PROJECT_DIR$/app/Model" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
+      <recent name="$PROJECT_DIR$/resources/views/metronic/admin/expatriate" />
       <recent name="$PROJECT_DIR$/resources/views/metronic/admin" />
     </key>
   </component>
@@ -153,7 +157,7 @@
       <workItem from="1600605104119" duration="2273000" />
       <workItem from="1600687201760" duration="1686000" />
       <workItem from="1600843082591" duration="7542000" />
-      <workItem from="1600968522647" duration="14207000" />
+      <workItem from="1600968522647" duration="18565000" />
     </task>
     <servers />
   </component>
