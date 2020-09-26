@@ -50,41 +50,27 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
-					address1: {
+					passport_number: {
 						validators: {
 							notEmpty: {
-								message: 'Address is required'
+								message: 'Passport number is required'
 							}
 						}
 					},
-					postcode: {
+					passport_expiry_date: {
 						validators: {
 							notEmpty: {
-								message: 'Postcode is required'
+								message: 'Expiry date is required'
 							}
 						}
 					},
-					city: {
+					first_name: {
 						validators: {
 							notEmpty: {
-								message: 'City is required'
+								message: 'First name is required'
 							}
 						}
 					},
-					state: {
-						validators: {
-							notEmpty: {
-								message: 'State is required'
-							}
-						}
-					},
-					country: {
-						validators: {
-							notEmpty: {
-								message: 'Country is required'
-							}
-						}
-					}
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
@@ -98,6 +84,20 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
+					visa_type: {
+						validators: {
+							notEmpty: {
+								message: 'Visa type is required'
+							}
+						}
+					},
+					visa_expiry_date: {
+						validators: {
+							notEmpty: {
+								message: 'Expiry date is required'
+							}
+						}
+					},
 					package: {
 						validators: {
 							notEmpty: {

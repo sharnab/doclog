@@ -55,16 +55,15 @@ class ExpatriateController extends ApiController
         $gender=Gender::where('active_status',1)->get()->toArray();
         $countries=Country::whereIn('id',[26,147])->get()->toArray();
         $country=Country::where('id',181)->get()->toArray();
-
-
         /**
          * call form wizard with reference data
          */
-       // return view('admin.bank.create');
+         return view('admin.app_user.create', compact('religion','gender','countries','country'));
     }
 
     public function addBasicInfo(Request $request)
     {
+
 
         $rules =[
             "passport_number"         => "required",
@@ -86,7 +85,7 @@ class ExpatriateController extends ApiController
          */
         $isExist     =Expatriate::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
 
-        if(!$isExist)
+        if($isExist||$isExist>0)
         {
             session()->flash('message', 'This passport already exist in the system');
             session()->flash('class', '2');
@@ -132,9 +131,6 @@ class ExpatriateController extends ApiController
 
         $id = Expatriate::insertGetId($basic_data);
 
-        /**
-         * Insert passport data
-         */
         $passport_data['expat_id']=$id;
         $passport_data['passport_number'] = $basic_data['passport_number'];
         $passport_data['passport_issue_date'] = $basic_data['passport_issue_date'];
@@ -239,6 +235,7 @@ class ExpatriateController extends ApiController
         $expatriate_info =Expatriate::find($id);
 
         return $this->respondWithSuccess('Inserted Successfully',$expatriate_info);
+
 
     }
 

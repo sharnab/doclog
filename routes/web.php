@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     //Route::resource('/religion', 'Admin\ReligionController');
     Route::get('/expatriate','Admin\ExpatriateController@index')->name('user');
     Route::get('/expatriate/create','Admin\ExpatriateController@create')->name('user_create');
+    Route::post('/expatriate/create_basic_info','Admin\ExpatriateController@addBasicInfo')->name('basic_info_create');
     Route::post('/expatriate/store','Admin\ExpatriateController@store')->name('user_store');
     Route::get('/expatriate/{id}/edit','Admin\ExpatriateController@edit')->name('user_edit');
     Route::put('/expatriate/{id}/update','Admin\ExpatriateController@update')->name('user_update');
