@@ -9,7 +9,9 @@ use App\Model\Division;
 use App\Model\Expat;
 use App\Model\ExpatBdBankAccount;
 use App\Model\ExpatBmetInfo;
+use App\Model\ExpatCurrentCountryAddress;
 use App\Model\ExpatCurrentCountryBankAccount;
+use App\Model\ExpatEmergencyContact;
 use App\Model\ExpatEmploymentType;
 use App\Model\ExpatMinistryApproval;
 use App\Model\ExpatMotherCompany;
@@ -110,6 +112,17 @@ class ExpatriateController extends ApiController
         //$this->processVisa($request,$expat_id,1);
         //$this->processArrival($request,$expat_id,1);
 
+    }
+
+    /**
+     * Edit view call with data
+     *
+     */
+    public function edit($id)
+    {
+        $passport = ExpatPassport::find($id);
+
+        return view('admin.passport.edit', compact('passport'));
     }
 
     private function processBasicInfo($request,$type=1,$id=null)
@@ -537,6 +550,179 @@ class ExpatriateController extends ApiController
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
             return ExpatBdBankAccount::where('id',$id)->update($items);
+        }
+
+    }
+    private function processCurrentCountryAddress($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['flat_number']=$request->input('cur_country_addr_flat_number');
+        $items['holding_number']=$request->input('cur_country_addr_holding_number');
+        $items['street']=$request->input('cur_country_addr_flat_number');
+        $items['area']=$request->input('cur_country_addr_street');
+        $items['post_code']=$request->input('cur_country_addr_post_code');
+        $items['city']=$request->input('cur_country_addr_city');
+        $items['country_id']=$request->input('cur_country_addr_country_id');
+        $items['email']=$request->input('cur_country_addr_email');
+        $items['mobile']=$request->input('cur_country_addr_mobile');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatCurrentCountryAddress::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatCurrentCountryAddress::where('id',$id)->update($items);
+        }
+
+    }
+    private function processCurrentCountryEmergency($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['contact_type']=1;
+        $items['name']=$request->input('cur_country_emergency_name');
+        $items['relation']=$request->input('cur_country_emergency_relation');
+        $items['email']=$request->input('cur_country_emergency_email');
+        $items['mobile']=$request->input('cur_country_emergency_mobile');
+        $items['address']=$request->input('cur_country_emergency_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::where('id',$id)->update($items);
+        }
+
+    }
+    private function processBdPermanent($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['location_type']=1;
+        $items['address_type']=1;
+        $items['address']=$request->input('bd_per_address');
+        $items['division_id']=$request->input('bd_per_division_id');
+        $items['district_id']=$request->input('bd_per_district_id');
+        $items['upazila_id']=$request->input('bd_per_upazila_id');
+        $items['union_id']=$request->input('bd_per_union_id');
+        $items['area']=$request->input('bd_per_area');
+        $items['post_office']=$request->input('bd_per_post_office');
+        $items['street']=$request->input('bd_per_street');
+        $items['email']=$request->input('bd_per_email');
+        $items['mobile']=$request->input('bd_per_mobile');
+
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::where('id',$id)->update($items);
+        }
+
+    }
+    private function processBdPresent($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['location_type']=1;
+        $items['address_type']=1;
+        $items['address']=$request->input('bd_present_address');
+        $items['division_id']=$request->input('bd_present_division_id');
+        $items['district_id']=$request->input('bd_present_district_id');
+        $items['upazila_id']=$request->input('bd_present_upazila_id');
+        $items['union_id']=$request->input('bd_present_union_id');
+        $items['area']=$request->input('bd_present_area');
+        $items['post_office']=$request->input('bd_present_post_office');
+        $items['street']=$request->input('bd_present_street');
+        $items['email']=$request->input('bd_present_email');
+        $items['mobile']=$request->input('bd_present_mobile');
+
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::where('id',$id)->update($items);
+        }
+
+    }
+    private function processBdEmergency($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['contact_type']=2;
+        $items['name']=$request->input('bd_emergency_name');
+        $items['relation']=$request->input('bd_emergency_relation');
+        $items['email']=$request->input('bd_emergency_email');
+        $items['mobile']=$request->input('bd_emergency_mobile');
+        $items['address']=$request->input('bd_emergency_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::where('id',$id)->update($items);
+        }
+
+    }
+    private function processDocuments($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['contact_type']=2;
+        $items['name']=$request->input('bd_emergency_name');
+        $items['relation']=$request->input('bd_emergency_relation');
+        $items['email']=$request->input('bd_emergency_email');
+        $items['mobile']=$request->input('bd_emergency_mobile');
+        $items['address']=$request->input('bd_emergency_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmergencyContact::where('id',$id)->update($items);
         }
 
     }
