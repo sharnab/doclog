@@ -24,7 +24,7 @@ var KTWizard1 = function () {
 					KTUtil.scrollTop();
 				} else {
 					swal.fire({
-						text: "Sorry, looks like there are some errors detected, please try again.",
+						text: "Please, fillup the required fields first",
 						icon: "error",
 						buttonsStyling: false,
 						confirmButtonText: "Ok, got it!",
@@ -138,6 +138,46 @@ var KTWizard1 = function () {
 							}
 						}
 					},
+				},
+				plugins: {
+					trigger: new FormValidation.plugins.Trigger(),
+					bootstrap: new FormValidation.plugins.Bootstrap()
+				}
+			}
+		));
+
+		// Step 5
+		_validations.push(FormValidation.formValidation(
+			_formEl,
+			{
+				fields: {
+					// salary: {
+					// 	validators: {
+					// 		notEmpty: {
+					// 			message: 'Salary/Wage is required'
+					// 		}
+					// 	}
+					// },
+				},
+				plugins: {
+					trigger: new FormValidation.plugins.Trigger(),
+					bootstrap: new FormValidation.plugins.Bootstrap()
+				}
+			}
+		));
+
+		// Step 6
+		_validations.push(FormValidation.formValidation(
+			_formEl,
+			{
+				fields: {
+					// salary: {
+					// 	validators: {
+					// 		notEmpty: {
+					// 			message: 'Salary/Wage is required'
+					// 		}
+					// 	}
+					// },
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
