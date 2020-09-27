@@ -7,6 +7,17 @@ use App\Http\Controllers\Controller;
 use App\Model\Country;
 use App\Model\Division;
 use App\Model\Expat;
+use App\Model\ExpatBdBankAccount;
+use App\Model\ExpatBmetInfo;
+use App\Model\ExpatCurrentCountryBankAccount;
+use App\Model\ExpatEmploymentType;
+use App\Model\ExpatMinistryApproval;
+use App\Model\ExpatMotherCompany;
+use App\Model\ExpatRecruitingAgency;
+use App\Model\ExpatSalaryInfo;
+use App\Model\ExpatSupplierCompany;
+use App\Model\ExpatTravelHistory;
+use App\Model\ExpatWorkPermit;
 use App\Model\Gender;
 use App\Model\ExpatPassport;
 use App\Model\Religion;
@@ -87,13 +98,17 @@ class ExpatriateController extends ApiController
         {
             session()->flash('message', 'This passport already exist in the system');
             session()->flash('class', '2');
-            return redirect()->route('education_create');
+            return redirect();
         }
 
         $expat_id = $this->processBasicInfo($request,1);
-        $this->processPassport($request,$expat_id,1);
-        $this->processVisa($request,$expat_id,1);
-        $this->processArrival($request,$expat_id,1);
+
+        session()->flash('message', 'Successfully Submitted');
+        session()->flash('class', '2');
+        return redirect()->route('expatriate');
+       // $this->processPassport($request,$expat_id,1);
+        //$this->processVisa($request,$expat_id,1);
+        //$this->processArrival($request,$expat_id,1);
 
     }
 
@@ -128,6 +143,12 @@ class ExpatriateController extends ApiController
             'whatsapp_id'
         ]);
 
+        if($request->hasFile('profile_image'))
+        {
+            $img_path = $this->uploadFile($request,'profile_image','profile');
+            $items['image']=$img_path;
+        }
+
         $basic_data['active_status']=1;
 
         if($type==1)
@@ -145,7 +166,6 @@ class ExpatriateController extends ApiController
 
 
     }
-
     private function processPassport($request,$expat_id,$type=1,$id=null)
     {
 
@@ -167,17 +187,16 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return ExpatVisaInfo::insert($items);
+            return ExpatPassport::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatVisaInfo::where('id',$id)->update($items);
+            return ExpatPassport::where('id',$id)->update($items);
         }
 
     }
-
     private function processVisa($request,$expat_id,$type=1,$id=null)
     {
 
@@ -209,7 +228,6 @@ class ExpatriateController extends ApiController
         }
 
     }
-
     private function processArrival($request,$expat_id,$type=1,$id=null)
     {
         if($request->hasFile('arrival_immigration_endorsement_file'))
@@ -219,7 +237,7 @@ class ExpatriateController extends ApiController
         }
 
         $items['expat_id']=$expat_id;
-        $items['travel_type']=$request->input('travel_type');
+        $items['travel_type']=1;
         $items['arrival_country_id']=$request->input('arrival_country_id');
         $items['date']=date('Y-m-d',strtotime($request->input('arrival_date')));
         $items['iata_code']=$request->input('arrival_iata_code');
@@ -232,13 +250,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return Trave::insert($items);
+            return ExpatTravelHistory::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatVisaInfo::where('id',$id)->update($items);
+            return ExpatTravelHistory::where('id',$id)->update($items);
         }
 
     }
@@ -259,18 +277,269 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return ExpatVisaInfo::insert($items);
+            return ExpatBmetInfo::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatVisaInfo::where('id',$id)->update($items);
+            return ExpatBmetInfo::where('id',$id)->update($items);
         }
 
     }
+    private function processEmploymentType($request,$expat_id,$type=1,$id=null)
+    {
+        $items['expat_id']=$expat_id;
+        $items['worker_category_id']=$request->input('worker_category_id');
+        $items['worker_type_id']=$request->input('worker_type_id');
 
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatEmploymentType::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatEmploymentType::where('id',$id)->update($items);
+        }
 
+    }
+    private function processMinistryApproval($request,$expat_id,$type=1,$id=null)
+    {
+
+        if($request->hasFile('ministry_approval_file'))
+        {
+            $img_path = $this->uploadFile($request,'ministry_approval_file','ministry_approval');
+            $items['image']=$img_path;
+        }
+
+        $items['expat_id']=$expat_id;
+        $items['memo_number']=$request->input('memo_number');
+        $items['issue_date']=date('Y-m-d',strtotime($request->input('ministry_approval_issue_date')));
+
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatMinistryApproval::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatMinistryApproval::where('id',$id)->update($items);
+        }
+
+    }
+    private function processWorkPermit($request,$expat_id,$type=1,$id=null)
+    {
+
+        if($request->hasFile('work_permit_file'))
+        {
+            $img_path = $this->uploadFile($request,'work_permit_file','work_permit');
+            $items['image']=$img_path;
+        }
+
+        $items['expat_id']=$expat_id;
+        $items['permit_number']=$request->input('work_permit_number');
+        $items['issue_date']=date('Y-m-d',strtotime($request->input('work_permit_issue_date')));
+        $items['expiry_date']=date('Y-m-d',strtotime($request->input('work_permit_expiry_date')));
+
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatWorkPermit::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatWorkPermit::where('id',$id)->update($items);
+        }
+
+    }
+    private function processWorkPlace($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['email']=$request->input('work_place_email');
+        $items['mobile']=$request->input('work_place_mobile');
+        $items['address']=$request->input('work_place_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatWorkPermit::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatWorkPermit::where('id',$id)->update($items);
+        }
+
+    }
+    private function processMotherCompany($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['name']=$request->input('mother_company_name');
+        $items['business_type']=$request->input('mother_company_business_type');
+        $items['email']=$request->input('mother_company_email');
+        $items['mobile']=$request->input('mother_company_mobile');
+        $items['address']=$request->input('mother_company_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatMotherCompany::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatMotherCompany::where('id',$id)->update($items);
+        }
+
+    }
+    private function processSupplierCompany($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['name']=$request->input('supplier_company_name');
+        $items['business_type']=$request->input('supplier_company_business_type');
+        $items['email']=$request->input('supplier_company_email');
+        $items['mobile']=$request->input('supplier_company_mobile');
+        $items['address']=$request->input('supplier_company_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatSupplierCompany::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatSupplierCompany::where('id',$id)->update($items);
+        }
+
+    }
+    private function processRecruitingAgency($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['name']=$request->input('recruiting_agency_name');
+        $items['rl_number']=$request->input('recruiting_agency_rl_number');
+        $items['email']=$request->input('recruiting_agency_email');
+        $items['mobile']=$request->input('recruiting_agency_mobile');
+        $items['address']=$request->input('recruiting_agency_address');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatRecruitingAgency::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatRecruitingAgency::where('id',$id)->update($items);
+        }
+
+    }
+    private function processSalaryInfo($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['amount']=$request->input('salary_amount');
+        $items['currency_id']=$request->input('salary_currency_id');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatSalaryInfo::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatSalaryInfo::where('id',$id)->update($items);
+        }
+
+    }
+    private function processCurrentCountryBankAccount($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['account_name']=$request->input('current_country_bank_account_name');
+        $items['account_number']=$request->input('current_country_bank_account_number');
+        $items['bank_name']=$request->input('current_country_bank_name');
+        $items['branch_name']=$request->input('current_country_branch_name');
+        $items['routing_number']=$request->input('current_country_routing_number');
+        $items['swift']=$request->input('current_country_swift');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatCurrentCountryBankAccount::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatCurrentCountryBankAccount::where('id',$id)->update($items);
+        }
+
+    }
+    private function processBdBankAccount($request,$expat_id,$type=1,$id=null)
+    {
+
+        $items['expat_id']=$expat_id;
+        $items['account_name']=$request->input('bd_bank_account_name');
+        $items['account_number']=$request->input('bd_bank_account_number');
+        $items['bank_name']=$request->input('bd_bank_name');
+        $items['branch_name']=$request->input('bd_branch_name');
+        $items['routing_number']=$request->input('bd_routing_number');
+        $items['swift']=$request->input('bd_swift');
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatBdBankAccount::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatBdBankAccount::where('id',$id)->update($items);
+        }
+
+    }
 
 
 

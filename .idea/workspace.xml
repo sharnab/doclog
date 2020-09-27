@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db0a6ae9-a646-41d9-8086-25d7e80f85f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatBdAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatBdBankAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatBmetInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatCurrentCountryAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatCurrentCountryBankAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatDocument.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatEmergencyContact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatEmploymentType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatMinistryApproval.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatMotherCompany.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatRecruitingAgency.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatSalaryInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatSupplierCompany.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatTravelHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatWorkPermit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ExpatWorkPlace.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/VisaInfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VisaInfoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Expatriate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Expat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/SalesReport.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/VisaInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ExpatVisaInfo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +156,7 @@
       <workItem from="1600843082591" duration="7542000" />
       <workItem from="1600968522647" duration="23429000" />
       <workItem from="1601182179200" duration="7618000" />
-      <workItem from="1601192759928" duration="57000" />
+      <workItem from="1601192759928" duration="5559000" />
     </task>
     <servers />
   </component>
@@ -184,10 +164,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="645" y="82" width="678" height="913" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601192793409">
+    <state x="645" y="82" width="678" height="913" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601192837838">
       <screen x="67" y="167" width="1853" height="913" />
     </state>
-    <state x="645" y="82" width="678" height="913" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.140.1366.768/67.167.1853.913@67.167.1853.913" timestamp="1601192793409" />
+    <state x="645" y="82" width="678" height="913" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.140.1366.768/67.167.1853.913@67.167.1853.913" timestamp="1601192837838" />
     <state x="2049" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600979886401">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
