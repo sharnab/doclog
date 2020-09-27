@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 
 // use App\Http\Requests\EditRequest;
 use File;
-use App\Model\Passport;
+use App\Model\ExpatPassport;
 
 use Helper; // Important
 
@@ -22,7 +22,7 @@ class PassportController extends Controller
      */
     public function index()
     {
-        $passportList = Passport::get();
+        $passportList = ExpatPassport::get();
         // $customerList = User::with('userGroup')->get();
         // print_r(json_encode($customerList));
         return view('admin.passport.index',compact('passportList'));
@@ -67,7 +67,7 @@ class PassportController extends Controller
             "created_by"        => Auth::id(),
         );
 
-        $passportData = Passport::firstOrCreate($data);
+        $passportData = ExpatPassport::firstOrCreate($data);
 
         session()->flash('message', 'New Passport Created Successfully !');
         session()->flash('class', '1');
@@ -93,7 +93,7 @@ class PassportController extends Controller
      */
     public function edit($id)
     {
-        $passport = Passport::find($id);
+        $passport = ExpatPassport::find($id);
 
         return view('admin.passport.edit', compact('passport'));
     }
@@ -139,14 +139,14 @@ class PassportController extends Controller
             "active_status"     => $request->input('active_status'),
             "updated_by"        => Auth::id()
         );
-        $passportData = Passport::where('id',$id)->update($data);
+        $passportData = ExpatPassport::where('id',$id)->update($data);
 
         session()->flash('message', 'Passport Updated Successfully !');
         session()->flash('class', '1');
         return redirect()->route('passport');
-    
+
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -156,7 +156,7 @@ class PassportController extends Controller
      */
     public function destroy($id)
     {
-        $passport = Passport::findOrFail($id);
+        $passport = ExpatPassport::findOrFail($id);
 
         $passport->delete();
         session()->flash('message', 'Passport Removed Successfully !');

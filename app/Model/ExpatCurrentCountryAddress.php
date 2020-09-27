@@ -4,7 +4,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Expatriate extends Model
+class ExpatCurrentCountryAddress extends Model
 {
     protected $primaryKey = 'id';
     /**
@@ -12,7 +12,7 @@ class Expatriate extends Model
      *
      * @var string
      */
-    protected $table = 'expat';
+    protected $table = 'expat_current_country_address';
 
    // protected $guarded = ['id'];
     protected $guarded = ['id'];

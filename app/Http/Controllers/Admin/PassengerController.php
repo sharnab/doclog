@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use File;
 use App\Model\Passenger;
-use App\Model\Passport;
+use App\Model\ExpatPassport;
 use App\Model\Contact;
 use App\Model\Customer;
 use App\Model\User;
@@ -201,7 +201,7 @@ class PassengerController extends Controller
                 $passport_img_path = '';
             }
 
-            $passportData = Passport::firstOrCreate($passport_data);
+            $passportData = ExpatPassport::firstOrCreate($passport_data);
         }
 
         session()->flash('message', 'New Passenger Created Successfully !');

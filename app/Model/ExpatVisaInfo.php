@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VisaInfo extends Model
+class ExpatVisaInfo extends Model
 {
-    protected $table = "visa_info";
+    protected $table = "expat_visa_info";
     /**
      * The attributes that are mass assignable.
      *

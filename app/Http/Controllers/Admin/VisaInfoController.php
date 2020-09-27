@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
-use App\Model\VisaInfo;
+use App\Model\ExpatVisaInfo;
 use App\Model\Country;
 use App\Model\Passenger;
 
@@ -22,7 +22,7 @@ class VisaInfoController extends Controller
      */
     public function index()
     {
-        $visaInfoList = VisaInfo::get();
+        $visaInfoList = ExpatVisaInfo::get();
 
         return view('admin.visainfo.index',compact('visaInfoList'));
     }
@@ -87,7 +87,7 @@ class VisaInfoController extends Controller
 
 
 
-        $VisaInfoData = VisaInfo::firstOrCreate($data);
+        $VisaInfoData = ExpatVisaInfo::firstOrCreate($data);
 
         session()->flash('message', 'New Visa Info Created Successfully !');
         session()->flash('class', '1');
@@ -113,7 +113,7 @@ class VisaInfoController extends Controller
      */
     public function edit($id)
     {
-        $visaInfo = VisaInfo::find($id);
+        $visaInfo = ExpatVisaInfo::find($id);
         $allPassengers = $this->getPassengers();
         $allCountries = $this->getCountry();
         return view('admin.visainfo.edit', compact('visaInfo', 'allPassengers', 'allCountries'));
@@ -139,10 +139,10 @@ class VisaInfoController extends Controller
         ]);
 
         if(Input::get('delete')){
-            $del = VisaInfo::find($id);
+            $del = ExpatVisaInfo::find($id);
             File::delete($del->attachment);
             $data = array("attachment" => '',);
-            $userData = VisaInfo::where('id',$id)->update($data);
+            $userData = ExpatVisaInfo::where('id',$id)->update($data);
 
             session()->flash('message', 'Attachment image has been removed Successfully !');
             session()->flash('class', '1');
@@ -179,7 +179,7 @@ class VisaInfoController extends Controller
                 "updated_by"    => Auth::id()
             );
 
-            $VisaInfoData = VisaInfo::where('id',$id)->update($data);
+            $VisaInfoData = ExpatVisaInfo::where('id',$id)->update($data);
 
             session()->flash('message', 'Visa Info Updated Successfully !');
             session()->flash('class', '1');

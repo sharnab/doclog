@@ -6,11 +6,11 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Model\Country;
 use App\Model\Division;
-use App\Model\Expatriate;
+use App\Model\Expat;
 use App\Model\Gender;
-use App\Model\Passport;
+use App\Model\ExpatPassport;
 use App\Model\Religion;
-use App\Model\VisaInfo;
+use App\Model\ExpatVisaInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -31,7 +31,7 @@ class ExpatriateController extends ApiController
 
     public function index()
     {
-        $userList = Expatriate::get();
+        $userList = Expat::get();
         //$skillList = Skill::paginate(config('common.pagination.per_page'));
         // $userList = User::with('userGroup')->get();
         //print_r(json_encode($religionList));
@@ -81,7 +81,7 @@ class ExpatriateController extends ApiController
         /**
          * Check is passport Number exist
          */
-        $isExist     =Expatriate::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
 
         if($isExist||$isExist>0)
         {
@@ -135,12 +135,12 @@ class ExpatriateController extends ApiController
             //Insert
             $basic_data['created_by']=Auth::id();
             $basic_data['created_at']=date('Y-m-d H:i:s');
-            return Expatriate::insertGetId($basic_data);
+            return Expat::insertGetId($basic_data);
         }else{
             //Update
             $basic_data['updated_by']=Auth::id();
             $basic_data['updated_at']=date('Y-m-d H:i:s');
-            Expatriate::where('id',$id)->update($basic_data);
+            Expat::where('id',$id)->update($basic_data);
         }
 
 
@@ -167,13 +167,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return VisaInfo::insert($items);
+            return ExpatVisaInfo::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return VisaInfo::where('id',$id)->update($items);
+            return ExpatVisaInfo::where('id',$id)->update($items);
         }
 
     }
@@ -199,13 +199,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-           return VisaInfo::insert($items);
+           return ExpatVisaInfo::insert($items);
         }else{
             //Update data
            // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-           return VisaInfo::where('id',$id)->update($items);
+           return ExpatVisaInfo::where('id',$id)->update($items);
         }
 
     }
@@ -232,13 +232,40 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return VisaInfo::insert($items);
+            return Trave::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return VisaInfo::where('id',$id)->update($items);
+            return ExpatVisaInfo::where('id',$id)->update($items);
+        }
+
+    }
+    private function processBMET($request,$expat_id,$type=1,$id=null)
+    {
+        if($request->hasFile('bmet_file'))
+        {
+            $img_path = $this->uploadFile($request,'bmet_file','bmet');
+            $items['bmet_file']=$img_path;
+        }
+
+        $items['expat_id']=$expat_id;
+        $items['bmet_number']=$request->input('bmet_number');
+
+        if($type==1)
+        {
+            //Insert data
+            $items['active_status']=1;
+            $items['created_by']=Auth::id();
+            $items['created_at']=date('Y-m-d H:i:s');
+            return ExpatVisaInfo::insert($items);
+        }else{
+            //Update data
+            // $items['active_status']=1;
+            $items['updated_by']=Auth::id();
+            $items['updated_at']=date('Y-m-d H:i:s');
+            return ExpatVisaInfo::where('id',$id)->update($items);
         }
 
     }
@@ -247,7 +274,7 @@ class ExpatriateController extends ApiController
 
 
 
-    
+
     private function uploadFile($request,$file_name,$folder_name)
     {
 
