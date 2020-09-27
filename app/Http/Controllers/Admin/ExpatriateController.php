@@ -68,11 +68,11 @@ class ExpatriateController extends ApiController
         $gender=Gender::where('active_status',1)->get()->toArray();
         $countries=Country::whereIn('id',[26,147])->get()->toArray();
         $country=Country::where('id',181)->get()->toArray();
-        $division=Division::where('active_status',1)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
         /**
          * call form wizard with reference data
          */
-         return view('admin.expatriate.create', compact('religion','gender','countries','country'));
+         return view('admin.expatriate.create', compact('religion','gender','countries','country','divisions'));
     }
 
     public function store(Request $request)
