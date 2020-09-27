@@ -379,7 +379,13 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>National ID:</label>
-                                                        <input name="nid" type="text" class="form-control form-control-solid" placeholder="Enter national id number" />
+                                                        <div class="input-group date">
+                                                            <input name="nid" type="text" class="form-control form-control-solid" placeholder="Enter national id number" />
+                                                            <label class="btn btn-default">
+                                                                <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="nid_image" id="nid_image" type="file" hidden></span>
+                                                            </label>
+                                                        </div>
+
                                                         {{-- <span class="form-text text-muted">Please enter your national id number</span> --}}
                                                     </div>
                                                 </div>
@@ -547,7 +553,7 @@
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" style="font-size: 20px"> <input type="file" hidden></span>
+                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="immigration_endorsement_file" id="immigration_endorsement_file" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
@@ -570,7 +576,7 @@
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="visa_type" type="text" class="form-control form-control-solid" placeholder="Enter visa type" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" style="font-size: 20px"> <input type="file" hidden></span>
+                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="visa_type_file" id="visa_type_file" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa type</span> --}}
@@ -691,7 +697,7 @@
                                                         <div class="input-group date">
                                                             <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="bmet_file" id="bmet_image" type="file" hidden></span>
+                                                                <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="bmet_file" id="bmet_file" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport number</span> --}}
@@ -723,7 +729,7 @@
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="memo_number" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="ministry_approval_file" type="file" hidden></span>
+                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="ministry_approval_file" id="ministry_approval_file" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter airport iata code</span> --}}
@@ -744,7 +750,65 @@
                                     </div>
                                     <div class="card card-custom gutter-b" style="margin: 25px 0">
                                         <div class="card-header">
-                                            <h3 class="card-title">Work Permit Information</h3>
+                                            <h3 class="card-title">Work Place Information</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Permit Number:</label>
+                                                        <div class="input-group date mb-2" style="width: 98%">
+                                                            <input name="work_permit_number" type="text" class="form-control form-control-solid" placeholder="Enter your work permit number" />
+                                                            <label class="btn btn-default">
+                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="work_permit_file" id="work_permit_file" type="file" hidden></span>
+                                                            </label>
+                                                        {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Type Of Worker:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="work_place_mobile" type="text" class="form-control form-control-solid" placeholder="Enter type of worker" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Issue Date:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="work_permit_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit issue date" id="kt_datepicker_3" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Expiry Date:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="work_permit_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit expiry date" id="kt_datepicker_3" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-custom gutter-b" style="margin: 25px 0">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Work Place Information</h3>
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
@@ -752,16 +816,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="work_place_email" type="email" class="form-control form-control-solid" placeholder="Enter your work place email" />
-                                                            <label class="btn btn-default">
-                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="work_permit_file" type="file" hidden></span>
-                                                            </label>
-                                                        {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
-                                                        </div>
+                                                        <input name="work_place_email" type="email" class="form-control form-control-solid" placeholder="Enter your work place email" />
                                                     </div>
-                                                    <!--end::Input-->
                                                 </div>
+                                                    <!--end::Input-->
                                                 <div class="col-xl-6">
                                                     <!--begin::Input-->
                                                     <div class="form-group">
@@ -1004,9 +1062,10 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Currency:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="salary_currency_id" type="text" class="form-control form-control-solid" placeholder="Enter Currency" />
-                                                        </div>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="currency" required>
+                                                            <option value="1">USD</option>
+                                                            <option value="2">BDT</option>
+                                                        </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
                                                 </div>
@@ -1684,11 +1743,11 @@
                                                         <div data-repeater-item="" class="form-group row">
                                                             <div class="col-lg-5">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="Document" />
+                                                                    <input type="text" class="form-control" name="document_title" placeholder="Document" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
-                                                                <input type="file" name=""/>
+                                                                <input type="file" name="document_file"/>
                                                             </div>
                                                             <div class="col-lg-1">
                                                                 <a href="javascript:;" data-repeater-delete="" class="btn font-weight-bold btn-danger btn-icon">
@@ -1856,6 +1915,52 @@
             confirmButtonText: 'Got it!',
             confirmButtonClass: 'btn btn-primary font-weight-bold'
         });
+    });
+
+    $('input[name="passport_image"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="nid_image"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="immigration_endorsement_file"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="visa_type_file"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="bmet_file"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="ministry_approval_file"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+    $('input[name="work_permit_file"]').change(function(e){
+        fileUploader(e, $(this));
+    });
+
+
+    function fileUploader(data, loc){
+        var fileName = data.target.files[0].name;
+        var fileExt = fileName.split('.').pop();
+
+        if(fileExt === 'jpg'||fileExt === 'JPG'||fileExt === 'jpeg'||fileExt === 'JPEG'||fileExt === 'png'||fileExt === 'PNG'||fileExt === 'gif'||fileExt === 'GIF'||fileExt === 'pdf'||fileExt === 'PDF'){
+            loc.parent().addClass('fas fa-check icon-lg text-success');
+            loc.parent().removeClass('flaticon-upload');
+        } else {
+            loc.value = '';
+            alert('Please upload either Image or PDF file');
+        }
+    }
+
+    $('#kt_datepicker_3, #kt_datepicker_3_validate').datepicker({
+        autoclose: true
     });
 
     // var KTFormRepeater = function() {
