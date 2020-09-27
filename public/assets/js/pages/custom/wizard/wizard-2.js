@@ -24,7 +24,7 @@ var KTWizard2 = function () {
 					KTUtil.scrollTop();
 				} else {
 					swal.fire({
-						text: "Sorry, looks like there are some errors detected, please try again.",
+						text: "Please fillup the required fields first",
 						icon: "error",
 						buttonsStyling: false,
 						confirmButtonText: "Ok, got it!",

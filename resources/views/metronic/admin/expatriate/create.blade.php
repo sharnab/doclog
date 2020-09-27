@@ -1387,7 +1387,7 @@
                                                         <label>Division:</label>
                                                         <select class="form-control per_division" id="kt_select_1" name="permanent_division_id" required>
                                                             <option value='null'>Select Division</option>
-                                                            @foreach ($divisions as $division)
+                                                            @foreach ($division as $division)
                                                             <option value="{{ $division['id'] }}">
                                                                 {{ $division['title_en'] }}
                                                             </option>
