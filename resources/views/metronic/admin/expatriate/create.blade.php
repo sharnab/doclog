@@ -6,41 +6,47 @@
         margin-top: 2px;
         margin-left: -2px;
     }
-    .custom-file-input {
-  color: transparent;
-}
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom-file-input::before {
-  content: 'Select some files';
-  color: black;
-  display: inline-block;
-  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-}
-.custom-file-input:hover::before {
-  border-color: black;
-}
-.custom-file-input:active {
-  outline: 0;
-}
-.custom-file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-}
 
-body {
-  padding: 20px;
-}
+    .custom-file-input {
+        color: transparent;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .custom-file-input::before {
+        content: 'Select some files';
+        color: black;
+        display: inline-block;
+        background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        text-shadow: 1px 1px #fff;
+        font-weight: 700;
+        font-size: 10pt;
+    }
+
+    .custom-file-input:hover::before {
+        border-color: black;
+    }
+
+    .custom-file-input:active {
+        outline: 0;
+    }
+
+    .custom-file-input:active::before {
+        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+
+    body {
+        padding: 20px;
+    }
 </style>
 @endsection
 
@@ -128,8 +134,8 @@ body {
                                             <!--begin::Wizard Step 2 Nav-->
                                             <div class="wizard-step" data-wizard-type="step">
                                                 <div class="wizard-label">
-                                                    <i class="wizard-icon flaticon-profile-1"></i>
-                                                    <h3 class="wizard-title">2. Employment Information</h3>
+                                                    <i class="wizard-icon flaticon-paper-plane"></i>
+                                                    <h3 class="wizard-title">2. Visa & Arrival Info</h3>
                                                 </div>
                                                 <span class="svg-icon svg-icon-xl wizard-arrow">
                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
@@ -149,8 +155,8 @@ body {
                                             <!--begin::Wizard Step 3 Nav-->
                                             <div class="wizard-step" data-wizard-type="step">
                                                 <div class="wizard-label">
-                                                    <i class="wizard-icon flaticon-paper-plane"></i>
-                                                    <h3 class="wizard-title">3. Visa & Arrival Info</h3>
+                                                    <i class="wizard-icon flaticon-profile-1"></i>
+                                                    <h3 class="wizard-title">3. Employment Information</h3>
                                                 </div>
                                                 <span class="svg-icon svg-icon-xl wizard-arrow">
                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
@@ -170,8 +176,8 @@ body {
                                             <!--begin::Wizard Step 4 Nav-->
                                             <div class="wizard-step" data-wizard-type="step">
                                                 <div class="wizard-label">
-                                                    <i class="wizard-icon flaticon-mail-1"></i>
-                                                    <h3 class="wizard-title">4. Contact Info</h3>
+                                                    <i class="wizard-icon flaticon-coins"></i>
+                                                    <h3 class="wizard-title">4. Financial Information</h3>
                                                 </div>
                                                 <span class="svg-icon svg-icon-xl wizard-arrow">
                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
@@ -191,8 +197,8 @@ body {
                                             <!--begin::Wizard Step 5 Nav-->
                                             <div class="wizard-step" data-wizard-type="step">
                                                 <div class="wizard-label">
-                                                    <i class="wizard-icon flaticon-coins"></i>
-                                                    <h3 class="wizard-title">5. Financial Information</h3>
+                                                    <i class="wizard-icon flaticon-mail-1"></i>
+                                                    <h3 class="wizard-title">5. Contact Info</h3>
                                                 </div>
                                                 <span class="svg-icon svg-icon-xl wizard-arrow last">
                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
@@ -247,15 +253,10 @@ body {
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                {{-- <div class="form-group">
-    																<label>Address Line 1</label>
-    																<input type="text" class="form-control form-control-solid form-control-lg" name="address1" placeholder="Address Line 1" value="Address Line 1" />
-    																<span class="form-text text-muted">Please enter your Address.</span>
-    															</div> --}}
                                                                 <div class="col-xl-6">
                                                                     <!--begin::Input-->
                                                                     <div class="form-group">
-                                                                        <label>Passport Number:</label>
+                                                                        <label><mark style="color: red; background: white">*</mark>Passport Number:</label>
                                                                         <div class="input-group date">
                                                                             <input name="passport_number" type="text" class="form-control form-control-solid" placeholder="Enter passport number" style="width: 90%" />
                                                                             <label class="btn btn-default">
@@ -282,7 +283,7 @@ body {
                                                                 <div class="col-xl-6">
                                                                     <!--begin::Input-->
                                                                     <div class="form-group">
-                                                                        <label>Expiry Date:</label>
+                                                                        <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
                                                                         <div class="input-group date mb-2">
                                                                             <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" />
                                                                         </div>
@@ -311,7 +312,7 @@ body {
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="form-group">
-                                                                        <label>First Name:</label>
+                                                                        <label><mark style="color: red; background: white">*</mark>First Name:</label>
                                                                         <input name="first_name" type="text" class="form-control form-control-solid" placeholder="Enter first name" />
                                                                         {{-- <span class="form-text text-muted">Please enter your first name</span> --}}
                                                                     </div>
@@ -366,9 +367,9 @@ body {
                                                                         <label>Nationality:</label>
                                                                         <select class="form-control nationality" id="kt_select_1" name="nationality" required>
                                                                             @foreach ($country as $nationality)
-                                                                                <option value="{{ $nationality['id'] }}">
-                                                                                    {{ $nationality['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $nationality['id'] }}">
+                                                                                {{ $nationality['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter your nationality</span> --}}
@@ -397,9 +398,9 @@ body {
                                                                         <label>Birth Place:</label>
                                                                         <select class="form-control birth_country" id="kt_select_1" name="birth_country_id" required>
                                                                             @foreach ($country as $birth_place)
-                                                                                <option value="{{ $birth_place['id'] }}">
-                                                                                    {{ $birth_place['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $birth_place['id'] }}">
+                                                                                {{ $birth_place['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter your place of birth</span> --}}
@@ -413,9 +414,9 @@ body {
                                                                         <select class="form-control religion" id="kt_select_1" name="gender" required>
                                                                             <option value='null'>Select Gender</option>
                                                                             @foreach ($gender as $gender)
-                                                                                <option value="{{ $gender['id'] }}">
-                                                                                    {{ $gender['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $gender['id'] }}">
+                                                                                {{ $gender['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter your spouse's name</span> --}}
@@ -427,9 +428,9 @@ body {
                                                                         <select class="form-control religion" id="kt_select_1" name="religion_id" required>
                                                                             <option value='null'>Select Religion</option>
                                                                             @foreach ($religion as $religion)
-                                                                                <option value="{{ $religion['id'] }}">
-                                                                                    {{ $religion['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $religion['id'] }}">
+                                                                                {{ $religion['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter your religion</span> --}}
@@ -440,8 +441,8 @@ body {
                                                                 <div class="col-lg-6">
                                                                     <div class="form-group">
                                                                         <label>Email:</label>
-                                                                        <input name="email" type="email" class="form-control form-control-solid" placeholder="Enter full name" />
-                                                                        <span class="form-text text-muted">We'll never share your email with anyone else</span>
+                                                                        <input name="email" type="email" class="form-control form-control-solid" placeholder="Enter your email" />
+                                                                        {{--  --}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
@@ -495,11 +496,7 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
-                                                <!--end::Wizard Step 1-->
-                                                <!--begin::Wizard Step 2-->
-                                            <form class="form form-horizontal" id="kt_form employeeInfo" role="form" method="POST" action="{{ route('agency_store') }}" enctype="multipart/form-data">
-                                                {{ csrf_field() }}
+
                                                 <div class="pb-5" data-wizard-type="step-content">
                                                     <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
                                                         <div class="card-header">
@@ -524,9 +521,9 @@ body {
                                                                         <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" required>
                                                                             <option value='null'>Select Country</option>
                                                                             @foreach ($countries as $country)
-                                                                                <option value="{{ $country['id'] }}">
-                                                                                    {{ $country['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $country['id'] }}">
+                                                                                {{ $country['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -549,9 +546,9 @@ body {
                                                                         <label>Immigration Endorsement Date:</label>
                                                                         <div class="input-group date mb-2" style="width: 98%">
                                                                             <input name="immigration_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" />
-                                                                                <label class="btn btn-default">
-                                                                                    <span class="flaticon-upload" style="font-size: 20px"> <input type="file" hidden></span>
-                                                                                </label>
+                                                                            <label class="btn btn-default">
+                                                                                <span class="flaticon-upload" style="font-size: 20px"> <input type="file" hidden></span>
+                                                                            </label>
                                                                         </div>
                                                                         {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
                                                                     </div>
@@ -569,7 +566,7 @@ body {
                                                                 <div class="col-xl-6">
                                                                     <!--begin::Input-->
                                                                     <div class="form-group">
-                                                                        <label>Visa Type:</label>
+                                                                        <label><mark style="color: red; background: white">*</mark>Visa Type:</label>
                                                                         <div class="input-group date mb-2" style="width: 98%">
                                                                             <input name="visa_type" type="text" class="form-control form-control-solid" placeholder="Enter visa type" />
                                                                             <label class="btn btn-default">
@@ -606,11 +603,13 @@ body {
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <!--begin::Select-->
+                                                                    {{-- <div class="form-group">
+                                                                            <label><mark style="color: red; background: white">*</mark>First Name:</label>
+                                                                            <input name="first_name" type="text" class="form-control form-control-solid" placeholder="Enter first name" />
+                                                                        </div> --}}
                                                                     <div class="form-group">
-                                                                        <label>Expiry Date:</label>
-                                                                        <div class="input-group date mb-2">
-                                                                            <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" />
-                                                                        </div>
+                                                                        <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
+                                                                        <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" />
                                                                         {{-- <span class="form-text text-muted">Please enter visa expiry date</span> --}}
                                                                     </div>
                                                                     <!--end::Select-->
@@ -630,9 +629,9 @@ body {
                                                                         <select class="form-control departure_country" id="kt_select_6" name="departure_country_id" required>
                                                                             <option value='null'>Select Country</option>
                                                                             @foreach ($countries as $country)
-                                                                                <option value="{{ $country['id'] }}">
-                                                                                    {{ $country['title'] }}
-                                                                                </option>
+                                                                            <option value="{{ $country['id'] }}">
+                                                                                {{ $country['title'] }}
+                                                                            </option>
                                                                             @endforeach
                                                                         </select>
                                                                         {{-- <span class="form-text text-muted">Please enter departure country</span> --}}
@@ -677,158 +676,976 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--end::Wizard Step 2-->
-                                                <!--begin::Wizard Step 3-->
+
                                                 <div class="pb-5" data-wizard-type="step-content">
-                                                    <h4 class="mb-10 font-weight-bold text-dark">Select your Services</h4>
-                                                    <!--begin::Select-->
-                                                    <div class="form-group">
-                                                        <label>Delivery Type</label>
-                                                        <select name="delivery" class="form-control form-control-solid form-control-lg">
-                                                            <option value="">Select a Service Type Option</option>
-                                                            <option value="overnight" selected="selected">Overnight Delivery (within 48 hours)</option>
-                                                            <option value="express">Express Delivery (within 5 working days)</option>
-                                                            <option value="basic">Basic Delivery (within 5 - 10 working days)</option>
-                                                        </select>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">BMET Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label><mark style="color: red; background: white">*</mark>BMET Smart Card Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Category of Worker:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="worker_category" type="text" class="form-control form-control-solid" placeholder="Enter Category of Worker" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!--end::Select-->
-                                                    <!--begin::Select-->
-                                                    <div class="form-group">
-                                                        <label>Packaging Type</label>
-                                                        <select name="packaging" class="form-control form-control-solid form-control-lg">
-                                                            <option value="">Select a Packaging Type Option</option>
-                                                            <option value="regular" selected="selected">Regular Packaging</option>
-                                                            <option value="oversized">Oversized Packaging</option>
-                                                            <option value="fragile">Fragile Packaging</option>
-                                                            <option value="frozen">Frozen Packaging</option>
-                                                        </select>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Ministry Approval Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Memo Number:</label>
+                                                                        <div class="input-group date mb-2" style="width: 98%">
+                                                                            <input name="memo_no" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" />
+                                                                            <label class="btn btn-default">
+                                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="memo_image" type="file" hidden></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <input name="memo_no" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" />
+                                                                        {{-- <span class="form-text text-muted">Please enter airport iata code</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Issue Date:</label>
+                                                                        <input name="memo_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" />
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!--end::Select-->
-                                                    <!--begin::Select-->
-                                                    <div class="form-group">
-                                                        <label>Preferred Delivery Window</label>
-                                                        <select name="preferreddelivery" class="form-control form-control-solid form-control-lg">
-                                                            <option value="">Select a Preferred Delivery Option</option>
-                                                            <option value="morning" selected="selected">Morning Delivery (8:00AM - 11:00AM)</option>
-                                                            <option value="afternoon">Afternoon Delivery (11:00AM - 3:00PM)</option>
-                                                            <option value="evening">Evening Delivery (3:00PM - 7:00PM)</option>
-                                                        </select>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Work Permit Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <input name="wp_email" type="email" class="form-control form-control-solid" placeholder="Enter your work place email" />
+                                                                        {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="wp_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your work place contact number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="wp_address" type="text" class="form-control form-control-solid" placeholder="Enter your work place address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!--end::Select-->
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Mother Company's Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <input name="mc_name" class="form-control form-control-solid" placeholder="Enter your mother company's name" />
+                                                                        {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Business Type:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mc_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's business type" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <input name="mc_email" type="email" class="form-control form-control-solid" placeholder="Enter your mother company's email" />
+                                                                        {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mc_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's contact number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mc_address" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Supplier Company Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <input name="sc_name" class="form-control form-control-solid" placeholder="Enter your supplier company's name" />
+                                                                        {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Business Type:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="sc_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's business type" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <input name="sc_email" type="email" class="form-control form-control-solid" placeholder="Enter your supplier company's email" />
+                                                                        {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="sc_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's contact number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="sc_address" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Recruiting Agency Information</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <input name="ra_name" class="form-control form-control-solid" placeholder="Enter your recruiting agency's name" />
+                                                                        {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Business Type:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="ra_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your  recruiting agency's business type" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <input name="ra_email" type="email" class="form-control form-control-solid" placeholder="Enter your recruiting agency's email" />
+                                                                        {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="ra_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's contact number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter entries</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="ra_address" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!--end::Wizard Step 3-->
-                                                <!--begin::Wizard Step 4-->
+
                                                 <div class="pb-5" data-wizard-type="step-content">
-                                                    <h4 class="mb-10 font-weight-bold text-dark">Setup Your Delivery Location</h4>
-                                                    <!--begin::Input-->
-                                                    <div class="form-group">
-                                                        <label>Address Line 1</label>
-                                                        <input type="text" class="form-control form-control-solid form-control-lg" name="locaddress1" placeholder="Address Line 1" value="Address Line 1" />
-                                                        <span class="form-text text-muted">Please enter your Address.</span>
-                                                    </div>
-                                                    <!--end::Input-->
-                                                    <!--begin::Input-->
-                                                    <div class="form-group">
-                                                        <label>Address Line 2</label>
-                                                        <input type="text" class="form-control form-control-solid form-control-lg" name="locaddress2" placeholder="Address Line 2" value="Address Line 2" />
-                                                        <span class="form-text text-muted">Please enter your Address.</span>
-                                                    </div>
-                                                    <!--end::Input-->
-                                                    <div class="row">
-                                                        <div class="col-xl-6">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group">
-                                                                <label>Postcode</label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="locpostcode" placeholder="Postcode" value="3072" />
-                                                                <span class="form-text text-muted">Please enter your Postcode.</span>
-                                                            </div>
-                                                            <!--end::Input-->
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Salary Information</h3>
                                                         </div>
-                                                        <div class="col-xl-6">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group">
-                                                                <label>City</label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="loccity" placeholder="City" value="Preston" />
-                                                                <span class="form-text text-muted">Please enter your City.</span>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label><mark style="color: red; background: white">*</mark>Salary/Wage:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="salary" type="text" class="form-control form-control-solid" placeholder="Enter salary/wage" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Currency:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="currency" type="text" class="form-control form-control-solid" placeholder="Enter Currency" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <!--end::Input-->
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-xl-6">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group">
-                                                                <label>State</label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="locstate" placeholder="State" value="VIC" />
-                                                                <span class="form-text text-muted">Please enter your State.</span>
-                                                            </div>
-                                                            <!--end::Input-->
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Bank Account Information(Current Country)</h3>
                                                         </div>
-                                                        <div class="col-xl-6">
-                                                            <!--begin::Select-->
-                                                            <div class="form-group">
-                                                                <label>Country</label>
-                                                                <select name="loccountry" class="form-control form-control-solid form-control-lg">
-                                                                    <option value='1'>Bangladesh</option>
-                                                                </select>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Account Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Account Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
                                                             </div>
-                                                            <!--end::Select-->
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Bank Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Branch Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Routing Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Swift:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Bank Account(Bangladesh)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Account Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Account Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Bank Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Branch Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Routing Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Swift:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--end::Wizard Step 4-->
-                                                <!--begin::Wizard Step 5-->
+
                                                 <div class="pb-5" data-wizard-type="step-content">
-                                                    <!--begin::Section-->
-                                                    <h4 class="mb-10 font-weight-bold text-dark">Review your Details and Submit</h4>
-                                                    <h6 class="font-weight-bolder mb-3">Current Address:</h6>
-                                                    <div class="text-dark-50 line-height-lg">
-                                                        <div>Address Line 1</div>
-                                                        <div>Address Line 2</div>
-                                                        <div>Melbourne 3000, VIC, Australia</div>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Address (Current Country)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label><mark style="color: red; background: white">*</mark>Flat Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="flat_no" type="text" class="form-control form-control-solid" placeholder="Enter flat number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Holding/House number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="house_no" type="text" class="form-control form-control-solid" placeholder="Enter holding/house number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Street:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="street" type="text" class="form-control form-control-solid" placeholder="Enter street name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Area:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="area" type="text" class="form-control form-control-solid" placeholder="Enter area name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Post Code:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>City:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="city" type="text" class="form-control form-control-solid" placeholder="Enter city name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Country:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="country" type="text" class="form-control form-control-solid" placeholder="Enter country" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="current_email" type="email" class="form-control form-control-solid" placeholder="Enter your current country email" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="current_mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="separator separator-dashed my-5"></div>
-                                                    <!--end::Section-->
-                                                    <!--begin::Section-->
-                                                    <h6 class="font-weight-bolder mb-3">Delivery Details:</h6>
-                                                    <div class="text-dark-50 line-height-lg">
-                                                        <div>Package: Complete Workstation (Monitor, Computer, Keyboard &amp; Mouse)</div>
-                                                        <div>Weight: 25kg</div>
-                                                        <div>Dimensions: 110cm (w) x 90cm (h) x 150cm (L)</div>
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Emergency Contact(Current Country)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Relationship:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_email" type="email" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-8">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label>Post Code:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="emg_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="separator separator-dashed my-5"></div>
-                                                    <!--end::Section-->
-                                                    <!--begin::Section-->
-                                                    <h6 class="font-weight-bolder mb-3">Delivery Service Type:</h6>
-                                                    <div class="text-dark-50 line-height-lg">
-                                                        <div>Overnight Delivery with Regular Packaging</div>
-                                                        <div>Preferred Morning (8:00AM - 11:00AM) Delivery</div>
+
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Permanent Address(Bangladesh)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Street/Para:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="permanent_street_name" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Division:</label>
+                                                                        <select class="form-control per_division" id="kt_select_1" name="permanent_division_id" required>
+                                                                            <option value='null'>Select Division</option>
+                                                                            @foreach ($divisions as $division)
+                                                                            <option value="{{ $division['id'] }}">
+                                                                                {{ $division['title_en'] }}
+                                                                            </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Dristrict:</label>
+                                                                        <select class="form-control per_district" id="kt_select_1" name="permanent_district_id" required>
+                                                                            <option value='null'>Select District</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Thana/Upazilla:</label>
+                                                                        <select class="form-control per_upazila" id="kt_select_1" name="permanent_thana_id" required>
+                                                                            <option value='null'>Select Thana/Upazilla</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Word/Union:</label>
+                                                                        <select class="form-control per_union" id="kt_select_1" name="permanent_union_id" required>
+                                                                            <option value='null'>Select Word/Union</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Area/Village:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="permanent_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Post Office:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="permanent_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="separator separator-dashed my-5"></div>
-                                                    <!--end::Section-->
-                                                    <!--begin::Section-->
-                                                    <h6 class="font-weight-bolder mb-3">Delivery Address:</h6>
-                                                    <div class="text-dark-50 line-height-lg">
-                                                        <div>Address Line 1</div>
-                                                        <div>Address Line 2</div>
-                                                        <div>Preston 3072, VIC, Australia</div>
+
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Mailing Address(Bangladesh)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Street/Para:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mailing_street_name" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Division:</label>
+                                                                        <select class="form-control per_division" id="kt_select_1" name="mailing_division_id" required>
+                                                                            <option value='null'>Select Division</option>
+                                                                            @foreach ($divisions as $division)
+                                                                            <option value="{{ $division['id'] }}">
+                                                                                {{ $division['title_en'] }}
+                                                                            </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Dristrict:</label>
+                                                                        <select class="form-control per_district" id="kt_select_1" name="mailing_district_id" required>
+                                                                            <option value='null'>Select District</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Thana/Upazilla:</label>
+                                                                        <select class="form-control per_upazila" id="kt_select_1" name="mailing_thana_id" required>
+                                                                            <option value='null'>Select Thana/Upazilla</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Word/Union:</label>
+                                                                        <select class="form-control per_union" id="kt_select_1" name="mailing_union_id" required>
+                                                                            <option value='null'>Select Word/Union</option>
+                                                                        </select>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Area/Village:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mailing_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Select-->
+                                                                    <div class="form-group">
+                                                                        <label>Post Office:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="mailing_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+                                                                    <!--end::Select-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!--end::Section-->
+
+                                                    <div class="card card-custom gutter-b example example-compact" style="margin: 25px 0">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Emergency Contact(Bangladesh)</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Relationship:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Email:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_email" type="email" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Contact Number:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-8">
+                                                                    <!--begin::Input-->
+                                                                    <div class="form-group">
+                                                                        <label>Address:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                    <!--end::Input-->
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label>Post Code:</label>
+                                                                        <div class="input-group date mb-2">
+                                                                            <input name="bd_emg_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
+                                                                        </div>
+                                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                <!--end::Wizard Step 5-->
-                                                <!--begin::Wizard Actions-->
+
                                                 <div class="d-flex justify-content-between border-top mt-5 pt-10">
                                                     <div class="mr-2">
                                                         <button class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                                     </div>
                                                     <div>
-                                                        <button class="btn btn-success font-weight-bold text-uppercase px-9 py-4 submit" data-wizard-type="action-next">Submit & Next</button>
-                                                        {{-- <button class="btn btn-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-next">Next Step</button> --}}
+                                                        <button class="btn btn-success font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
+                                                        <button class="btn btn-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-next">Next Step</button>
                                                     </div>
                                                 </div>
-                                                <!--end::Wizard Actions-->
-                                            </form>
-                                            <!--end::Wizard Form-->
                                         </div>
                                     </div>
                                     <!--end::Wizard Body-->
@@ -870,143 +1687,67 @@ body {
 
 @endsection
 @section('scripts')
-<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
 <script type="text/javascript">
-    var id = '';
-    $('.submit').on('click', function () {
-        var submittedForm = $(this).closest('form').prev();
-        var className = submittedForm.attr('class');
-        if(className.search('basicInfo') > 0){
-            let first_name = $('.basicInfo input[name=first_name]').val();
-            let last_name = $('.basicInfo input[name=last_name]').val();
-            let father_name = $('.basicInfo input[name=father_name]').val();
-            let mother_name = $('.basicInfo input[name=mother_name]').val();
-            let marital_status = $('.basicInfo input[name=marital_status]').val();
-            let spouse_name = $('.basicInfo input[name=spouse_name]').val();
-            let nid = $('.basicInfo input[name=nid]').val();
-            let nationality = $('.basicInfo input[name=nationality]').val();
-            let date_of_birth = formatDate($('.basicInfo input[name=date_of_birth]').val());
-            let birth_country_id = $('.basicInfo input[name=birth_country_id]').val();
-            let gender = $('.basicInfo input[name=gender]').val();
-            let religion_id = $('.basicInfo input[name=religion_id]').val();
-            let email = $('.basicInfo input[name=email]').val();
-            let mobile = $('.basicInfo input[name=mobile]').val();
-            let passport_number = $('.basicInfo input[name=passport_number]').val();
-            let passport_issue_date = '';
 
-            if($('.basicInfo input[name=passport_issue_date]').val() != ''){
-                passport_issue_date = formatDate($('.basicInfo input[name=passport_issue_date]').val());
-            }
+$('.per_division').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/district_by_division?division_id=', '.per_district')
+});
 
-            let passport_expiry_date = formatDate($('.basicInfo input[name=passport_expiry_date]').val());
-            let passport_issue_place = $('.basicInfo input[name=passport_issue_place]').val();
-            let facebook_id = $('.basicInfo input[name=facebook_id]').val();
-            let linkedin_id = $('.basicInfo input[name=linkedin_id]').val();
-            let line_id = $('.basicInfo input[name=line_id]').val();
-            let whatsapp_id = $('.basicInfo input[name=whatsapp_id]').val();
-            let _token   = $('meta[name="csrf-token"]').attr('content');
+$('.per_district').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/upazila_by_district?district_id=', '.per_upazila')
+});
 
-            $.ajax({
-                // headers: {
-                //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                // }
-                url: "/admin/expatriate/create_basic_info",
-                type:"POST",
-                data:{
-                    first_name: first_name,
-                    last_name: last_name,
-                    father_name: father_name,
-                    mother_name: mother_name,
-                    marital_status: marital_status,
-                    spouse_name: spouse_name,
-                    nid: nid,
-                    nationality: nationality,
-                    date_of_birth: date_of_birth,
-                    birth_country_id: birth_country_id,
-                    gender: gender,
-                    religion_id: religion_id,
-                    email: email,
-                    mobile: mobile,
-                    passport_number: passport_number,
-                    passport_issue_date: passport_issue_date,
-                    passport_expiry_date: passport_expiry_date,
-                    passport_issue_place: passport_issue_place,
-                    facebook_id: facebook_id,
-                    linkedin_id: linkedin_id,
-                    line_id: line_id,
-                    whatsapp_id: whatsapp_id,
-                    _token: '{{csrf_token()}}'
-                },
-                success:function(data, textStatus, xhr){
-                    if(xhr.status == 200) {
-                        id = data;
-                        $('.success').text(textStatus);
-                    } else {
-                        console.log(textStatus);
+$('.per_upazila').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/union_by_upazila?upazila_id=', '.per_union')
+});
+
+$('.mail_division').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/district_by_division?division_id=', '.mail_district')
+});
+
+$('.mail_district').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/upazila_by_district?district_id=', '.mail_upazila')
+});
+
+$('.mail_upazila').on('change', function (){
+    var l = window.location;
+    var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    setData($(this).val(), base_url+'/../address/union_by_upazila?upazila_id=', '.mail_union')
+});
+
+function setData(id, url, className) {
+    jQuery.ajax({
+        type: "GET",
+        url: url + id,
+        dataType: "JSON",
+        success: function (data) {
+            console.log(data.data);
+            jQuery(className).empty();
+            jQuery(className).prop("selected", false)
+            jQuery(className).attr('disabled', 'disabled');
+            if (data !== '') {
+                jQuery(className).append(
+                    function() {
+                        return $.map(data.data, function(el, i) {
+                        	return '<option value=' + el.id + '>' + el.title_en + '</option>';
+                        });
                     }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert(errorThrown);
-                    return false;
-                 }
-            });
-        };
-    });
-
-    function formatDate(date) {
-        var d = new Date(date),
-            month = '' + (d.getMonth() + 1),
-            day = '' + d.getDate(),
-            year = d.getFullYear();
-
-        if (month.length < 2)
-            month = '0' + month;
-        if (day.length < 2)
-            day = '0' + day;
-
-        return [year, month, day].join('-');
-    }
-
-    // $('.basicInfo').validate({
-    //     console.log('here');
-    //     submitHandler: function(form) {
-    //         $.ajax({
-    //             url: form.action,
-    //             type: form.method,
-    //             data: $(form).serialize(),
-    //             success: function(response) {
-    //                 $('#answers').html(response);
-    //             }
-    //         });
-    //     }
-    // });
-
-    // $(document).ready(function() {
-        // $('.nationality', '.martial_status').select2();
-
-    // });
-
-    function validation_check(item, index){
-        if( document.getElementById(item) == "" ) {
-            return false;
-         }
-    }
-
-    $('input[name="passport_image"]').change(function(e){
-        fileUploader(e, $(this));
-    });
-
-    function fileUploader(data, loc){
-        var fileName = data.target.files[0].name;
-        var fileExt = fileName.split('.').pop();
-
-        if(fileExt === 'jpg'||fileExt === 'JPG'||fileExt === 'jpeg'||fileExt === 'JPEG'||fileExt === 'png'||fileExt === 'PNG'||fileExt === 'gif'||fileExt === 'GIF'||fileExt === 'pdf'||fileExt === 'PDF'){
-            loc.parent().addClass('fas fa-check icon-lg text-success');
-            loc.parent().removeClass('flaticon-upload');
-        } else {
-            loc.value = '';
-            alert('Please upload either Image or PDF file');
+                );
+                jQuery(className).removeAttr('disabled');
+            }
         }
-    }
+    });
+}
+
 </script>
 @endsection
