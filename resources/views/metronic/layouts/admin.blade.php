@@ -372,6 +372,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{ asset('assets/js/pages/custom/wizard/wizard-1.js')}}"></script>
     <script src="{{ asset('assets/js/pages/crud/forms/widgets/select2.js')}}"></script>
     <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+    <script src="{{ asset('assets/js/pages/crud/forms/widgets/form-repeater.js')}}"></script>
     <script src="//www.google.com/jsapi"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->

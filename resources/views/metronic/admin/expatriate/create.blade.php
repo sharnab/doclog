@@ -691,7 +691,7 @@
                                                         <div class="input-group date">
                                                             <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="bmet_file" id="passport_image" type="file" hidden></span>
+                                                                <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="bmet_file" id="bmet_image" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport number</span> --}}
@@ -758,6 +758,7 @@
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="work_permit_file" type="file" hidden></span>
                                                             </label>
                                                         {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
+                                                        </div>
                                                     </div>
                                                     <!--end::Input-->
                                                 </div>
@@ -1387,7 +1388,7 @@
                                                         <label>Division:</label>
                                                         <select class="form-control per_division" id="kt_select_1" name="permanent_division_id" required>
                                                             <option value='null'>Select Division</option>
-                                                            @foreach ($division as $division)
+                                                            @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
                                                                 {{ $division['title_en'] }}
                                                             </option>
@@ -1721,7 +1722,9 @@
                                     </div>
                                 </div>
                         </div>
+
                     </div>
+
                     <!--end::Wizard Body-->
                 </div>
             </div>
