@@ -2,121 +2,55 @@
 @section('extra_css')
 
 <style type="text/css">
+
+    @media print {
+
+       #print_area {
+         display: : none;
+       }
+    }
+
+
+
+    .table {
+        display: table;
+        border-spacing: 2px;
+    }
+
+    .row {
+        display: table-row;
+    }
+
+    .row>div {
+        display: table-cell;
+        border: solid 1px #ccc;
+        padding: 2px;
+    }
+
     div.checker {
         margin-top: 2px;
         margin-left: -2px;
     }
+
+    .end-padding {
+        padding-right: 10px !important;
+    }
+
+    .left-cell {
+        width: 25% !important;
+    }
+
+    .right-cell {
+        width: 25% !important;
+    }
+
 </style>
 @endsection
 
 @section('content')
-<!--begin::Subheader-->
-<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-        <!--begin::Info-->
-        <div class="d-flex align-items-center flex-wrap mr-1">
-            <!--begin::Page Heading-->
-            <div class="d-flex align-items-baseline mr-5">
-                <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold my-2 mr-5">Profile 3</h5>
-                <!--end::Page Title-->
-                <!--begin::Breadcrumb-->
-                <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                    <li class="breadcrumb-item">
-                        <a href="" class="text-muted">Apps</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="" class="text-muted">Profile</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="" class="text-muted">Profile 3</a>
-                    </li>
-                </ul>
-                <!--end::Breadcrumb-->
-            </div>
-            <!--end::Page Heading-->
-        </div>
-        <!--end::Info-->
-        <!--begin::Toolbar-->
-        <div class="d-flex align-items-center">
-            <!--begin::Actions-->
-            <a href="#" class="btn btn-light font-weight-bold btn-sm">Actions</a>
-            <!--end::Actions-->
-            <!--begin::Dropdown-->
-            <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="svg-icon svg-icon-success svg-icon-2x">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24" />
-                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" fill="#000000" />
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 m-0">
-                    <!--begin::Navigation-->
-                    <ul class="navi navi-hover">
-                        <li class="navi-header font-weight-bold py-4">
-                            <span class="font-size-lg">Choose Label:</span>
-                            <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
-                        </li>
-                        <li class="navi-separator mb-3 opacity-70"></li>
-                        <li class="navi-item">
-                            <a href="#" class="navi-link">
-                                <span class="navi-text">
-                                        <span class="label label-xl label-inline label-light-success">Customer</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="navi-item">
-                            <a href="#" class="navi-link">
-                                <span class="navi-text">
-                                        <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="navi-item">
-                            <a href="#" class="navi-link">
-                                <span class="navi-text">
-                                        <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="navi-item">
-                            <a href="#" class="navi-link">
-                                <span class="navi-text">
-                                        <span class="label label-xl label-inline label-light-primary">Member</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="navi-item">
-                            <a href="#" class="navi-link">
-                                <span class="navi-text">
-                                        <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="navi-separator mt-3 opacity-70"></li>
-                        <li class="navi-footer py-4">
-                            <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                <i class="ki ki-plus icon-sm"></i>Add new</a>
-                        </li>
-                    </ul>
-                    <!--end::Navigation-->
-                </div>
-            </div>
-            <!--end::Dropdown-->
-        </div>
-        <!--end::Toolbar-->
-    </div>
-</div>
-<!--end::Subheader-->
+
 <!--begin::Entry-->
-<div class="d-flex flex-column-fluid">
+<div class="d-flex flex-column-fluid" id="print_area">
     <!--begin::Container-->
     <div class="container">
         <!-- begin::Card-->
@@ -124,98 +58,669 @@
             <div class="card-body p-0">
                 <!-- begin: Invoice-->
                 <!-- begin: Invoice header-->
-                <div class="row justify-content-center py-8 px-8 py-md-27 px-md-0">
-                    <div class="col-md-9">
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row">
-                            <h1 class="display-4 font-weight-boldest mb-10">INVOICE</h1>
-                            <div class="d-flex flex-column align-items-md-end px-0">
+                <div class="row justify-content-center py-8 px-6 py-md-2 px-md-0">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row py-md-5" style="padding-bottom: 0 !important; height: 50px;">
+                            <span class="opacity-100" style="text-align: center; padding-right: 8%">
+                                <img src="{{url('/img/govt_seal.png')}}" style="width: 5%; text-align: center" />
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-between pb-10 pb-md-2 py-md-10 flex-column flex-md-row" style="padding-bottom: 0 !important; height: 80px">
+                            <h1 class="display-6 font-weight-bold mb-6 col-md-10" style="text-align: center; margin-bottom: 0 !important; padding-left: 15%">Government of the People's Republic of Bangladesh</h1>
+                            <div class=" col-md-2">
                                 <!--begin::Logo-->
-                                <a href="#" class="mb-5">
-                                    <img src="assets/media/logos/logo-dark.png" alt="" />
-                                </a>
-                                <!--end::Logo-->
-                                <span class="d-flex flex-column align-items-md-end opacity-70">
-                                    <span>Cecilia Chapman, 711-2880 Nulla St, Mankato</span>
-                                    <span>Mississippi 96522</span>
+                                <span class="d-flex flex-column align-items-md-center opacity-80">
+                                    <img src="{{url('/uploads/demo-user.png')}}" style="width: 70%; text-align: center" />
                                 </span>
+                                <!--end::Logo-->
                             </div>
                         </div>
-                        <div class="border-bottom w-100"></div>
-                        <div class="d-flex justify-content-between pt-6">
-                            <div class="d-flex flex-column flex-root">
-                                <span class="font-weight-bolder mb-2">DATA</span>
-                                <span class="opacity-70">Dec 12, 2017</span>
-                            </div>
-                            <div class="d-flex flex-column flex-root">
-                                <span class="font-weight-bolder mb-2">INVOICE NO.</span>
-                                <span class="opacity-70">GS 000014</span>
-                            </div>
-                            <div class="d-flex flex-column flex-root">
-                                <span class="font-weight-bolder mb-2">INVOICE TO.</span>
-                                <span class="opacity-70">Iris Watson, P.O. Box 283 8562 Fusce RD.
-                                <br />Fredrick Nebraska 20620</span>
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
+                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Bureau of Manpower, Employment and Training (BMET)</h3>
+                        </div>
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
+                            <h8 class="display-8 mb-6 col-md-10" style="text-align: center; padding-left: 12%">
+                                Website: www.bmet.org.bd, e-mail: registration
+                                @bmet.org.bd
+                            </h8>
+                        </div>
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
+                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important; padding-top: 5px !important">JOB SEEKER'S REGISTRATION FORM</h3>
+                        </div>
+                        <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
+                            <div class="col-md-11">
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Personal Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Passport Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">Issue Place</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Issue Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Expiry Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4"></td>
+                                                <td class="border-top-0 py-4"></td>
+                                                <td class="border-top-0 py-4 pr-10" colspan="2"></td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" colspan="2"></td>
+                                                <td class="border-top-0 py-4" colspan="2">(First name)</td>
+                                                <td class="border-top-0 py-4 pr-10" colspan="2">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Father's Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Mother's Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Marital Status</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">Spouse's Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(First name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 py-4 pl-10">National ID</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class=" border-top-0 py-4">Nationality</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(First name)</td>
+
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Date of Birth</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Birth Place</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 py-4 pl-10">Sex</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class=" border-top-0 py-4">Religion</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 py-4 pl-10">Email Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">LineID</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Facebook ID</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Whatapp ID</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">LinkedIn ID</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Visa & Arrival Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Arrival Country</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4" style='width: 26%'>(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 25%">Entry Date</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4">Airport IATA Code</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">Immigration Endorsement Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Visa Type</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Entry</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Issue Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Expiry Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {{-- page break for printing --}}
+                                <P style="page-break-before: always">
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employee Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">BMET Smart Card Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">Category Of Workers</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Memo No</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Issue Date</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Permit Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Type Of Worker</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Mother Company Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Supplier Company Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Recruiting Agency Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">RL No</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Financial Information</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Salary/Wages</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class=" border-top-0 py-4" style="width: 25%">Currency</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Bank Account In Current Country</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Branch Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">SWIFT</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {{-- page break for printing --}}
+                                <P style="page-break-before: always">
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Information About Bank Account In Bangladesh</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Branch Name</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">SWIFT</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Address In Current Country</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Flat Number</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 25%">Holding/House Number</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Street</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan='3'>(First name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Area</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Post Code</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">City</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Country</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Emergency Contact In Current Country</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                                <td class="border-top-0 pl-0">:</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 25%">Relationship</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">(Last name)</td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class=" border-top-0 pl-10 py-4">Address</td>
+                                                <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4" colspan='4'>(First name)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Adresses In Bangladesh</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Mailing Address</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="font-weight-bold">
+                                                                <td class="border-top-0 pl-10 py-4" style="width: 50%">Street/Para</td>
+                                                                <td class="border-top-0 pl-0">:</td>
+                                                                <td class="border-top-0 py-4" style="width: 60%">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Division</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">District</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Word/Union</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Area/Village</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Post Office</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Contact Number</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td colspan="3">
+                                                    <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Permanent Address</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="font-weight-bold">
+                                                                <td class="border-top-0 pl-10 py-4" style="width: 58%">Street/Para</td>
+                                                                <td class="border-top-0 pl-0">:</td>
+                                                                <td class="border-top-0 py-4" style="width: 60%">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Division</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">District</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Word/Union</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Area/Village</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Post Office</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Contact Number</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end: Invoice header-->
                 <!-- begin: Invoice body-->
-                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
-                    <div class="col-md-9">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="pl-0 font-weight-bold text-muted text-uppercase">Description</th>
-                                        <th class="text-right font-weight-bold text-muted text-uppercase">Hours</th>
-                                        <th class="text-right font-weight-bold text-muted text-uppercase">Rate</th>
-                                        <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="font-weight-boldest">
-                                        <td class="pl-0 pt-7">Creative Design</td>
-                                        <td class="text-right pt-7">80</td>
-                                        <td class="text-right pt-7">$40.00</td>
-                                        <td class="text-danger pr-0 pt-7 text-right">$3200.00</td>
-                                    </tr>
-                                    <tr class="font-weight-boldest border-bottom-0">
-                                        <td class="border-top-0 pl-0 py-4">Front-End Development</td>
-                                        <td class="border-top-0 text-right py-4">120</td>
-                                        <td class="border-top-0 text-right py-4">$40.00</td>
-                                        <td class="text-danger border-top-0 pr-0 py-4 text-right">$4800.00</td>
-                                    </tr>
-                                    <tr class="font-weight-boldest border-bottom-0">
-                                        <td class="border-top-0 pl-0 py-4">Back-End Development</td>
-                                        <td class="border-top-0 text-right py-4">210</td>
-                                        <td class="border-top-0 text-right py-4">$60.00</td>
-                                        <td class="text-danger border-top-0 pr-0 py-4 text-right">$12600.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- end: Invoice body-->
                 <!-- begin: Invoice footer-->
-                <div class="row justify-content-center bg-gray-100 py-8 px-8 py-md-10 px-md-0">
-                    <div class="col-md-9">
+                <div class="row justify-content-left py-8 px-8 py-md-0 px-md-15">
+                    <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="font-weight-bold text-muted text-uppercase">BANK</th>
-                                        <th class="font-weight-bold text-muted text-uppercase">ACC.NO.</th>
-                                        <th class="font-weight-bold text-muted text-uppercase">DUE DATE</th>
-                                        <th class="font-weight-bold text-muted text-uppercase">TOTAL AMOUNT</th>
-                                    </tr>
-                                </thead>
+                            <table class="table" style="border: 0px">
                                 <tbody>
                                     <tr class="font-weight-bolder">
-                                        <td>BARCLAYS UK</td>
-                                        <td>12345678909</td>
-                                        <td>Jan 07, 2018</td>
-                                        <td class="text-danger font-size-h3 font-weight-boldest">20,600.00</td>
+                                        <td style="border: 0px" colspan="2">
+                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal
+                                            consequences due to false declarations, formation or use of fake documents.
+                                        </td>
+                                    </tr>
+                                    <tr class="font-weight-bolder">
+                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>
+                                    </tr>
+                                    <tr class="font-weight-bolder">
+                                        <td style="border: 0px; text-align: center">
+                                            Signature of DEMO Official
+                                        </td>
+                                        <td style="border: 0px; text-align: center">
+                                            Applicant's Signature
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -224,11 +729,12 @@
                 </div>
                 <!-- end: Invoice footer-->
                 <!-- begin: Invoice action-->
-                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 noprint">
                     <div class="col-md-9">
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download Invoice</button>
                             <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">Print Invoice</button>
+
                         </div>
                     </div>
                 </div>

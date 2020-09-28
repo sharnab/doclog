@@ -21,7 +21,7 @@ var KTImageInputDemo = function () {
                 title: 'Image successfully canceled !',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonText: 'Awesome!',
+                confirmButtonText: 'OK!',
                 confirmButtonClass: 'btn btn-primary font-weight-bold'
             });
 		});
@@ -31,7 +31,7 @@ var KTImageInputDemo = function () {
                 title: 'Image successfully changed !',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonText: 'Awesome!',
+                confirmButtonText: 'OK!',
                 confirmButtonClass: 'btn btn-primary font-weight-bold'
             });
 		});
@@ -54,7 +54,7 @@ var KTImageInputDemo = function () {
                 title: 'Image successfully changed !',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonText: 'Awesome!',
+                confirmButtonText: 'OK!',
                 confirmButtonClass: 'btn btn-primary font-weight-bold'
             });
 		});
@@ -64,7 +64,7 @@ var KTImageInputDemo = function () {
                 title: 'Image successfully changed !',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonText: 'Awesome!',
+                confirmButtonText: 'OK!',
                 confirmButtonClass: 'btn btn-primary font-weight-bold'
             });
 		});
