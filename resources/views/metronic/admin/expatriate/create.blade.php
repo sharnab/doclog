@@ -448,7 +448,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="email" type="email" class="form-control form-control-solid" placeholder="Enter your email" />
+                                                        <input name="email" type="text" class="form-control form-control-solid" placeholder="Enter your email" />
                                                         {{-- --}}
                                                     </div>
                                                 </div>
@@ -576,7 +576,7 @@
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="visa_type" type="text" class="form-control form-control-solid" placeholder="Enter visa type" />
                                                             <label class="btn btn-default">
-                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="visa_type_file" id="visa_type_file" type="file" hidden></span>
+                                                                <span class="flaticon-upload" style="font-size: 20px"> <input name="visa_file" id="visa_type_file" type="file" hidden></span>
                                                             </label>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa type</span> --}}
@@ -588,7 +588,7 @@
                                                     <div class="form-group">
                                                         <label>Entries:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="entries" type="text" class="form-control form-control-solid" placeholder="Enter entries" />
+                                                            <input name="entry_type" type="text" class="form-control form-control-solid" placeholder="Enter entries" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -623,64 +623,64 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card card-custom gutter-b" style="margin: 25px 0">
-                                        <div class="card-header">
-                                            <h3 class="card-title">Departure Information</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Departure Country:</label>
-                                                        <select class="form-control departure_country" id="kt_select_6" name="departure_country_id" required>
-                                                            <option value='null'>Select Country</option>
-                                                            @foreach ($countries as $country)
-                                                            <option value="{{ $country['id'] }}">
-                                                                {{ $country['title'] }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                        {{-- <span class="form-text text-muted">Please enter departure country</span> --}}
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <!--begin::Select-->
-                                                    <div class="form-group">
-                                                        <label>Return Date:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="return_date" type="text" class="form-control form-control-solid" placeholder="Enter return date" id="kt_datepicker_3" />
-                                                        </div>
-                                                        {{-- <span class="form-text text-muted">Please enter return date</span> --}}
-                                                    </div>
-                                                    <!--end::Select-->
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xl-6">
-                                                    <!--begin::Input-->
-                                                    <div class="form-group">
-                                                        <label>Airport IATA Code:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="departure_iata_code" type="text" class="form-control form-control-solid" placeholder="Enter departure iata code" />
-                                                        </div>
-                                                        {{-- <span class="form-text text-muted">Please enter departure airport's iata code</span> --}}
-                                                    </div>
-                                                    <!--end::Input-->
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <!--begin::Select-->
-                                                    <div class="form-group">
-                                                        <label>Immigration Endorsement Date:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" />
-                                                        </div>
-                                                        {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
-                                                    </div>
-                                                    <!--end::Select-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="card card-custom gutter-b" style="margin: 25px 0">--}}
+{{--                                        <div class="card-header">--}}
+{{--                                            <h3 class="card-title">Departure Information</h3>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <div class="row">--}}
+{{--                                                <div class="col-lg-6">--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>Departure Country:</label>--}}
+{{--                                                        <select class="form-control departure_country" id="kt_select_6" name="departure_country_id" required>--}}
+{{--                                                            <option value='null'>Select Country</option>--}}
+{{--                                                            @foreach ($countries as $country)--}}
+{{--                                                            <option value="{{ $country['id'] }}">--}}
+{{--                                                                {{ $country['title'] }}--}}
+{{--                                                            </option>--}}
+{{--                                                            @endforeach--}}
+{{--                                                        </select>--}}
+{{--                                                        --}}{{-- <span class="form-text text-muted">Please enter departure country</span> --}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-xl-6">--}}
+{{--                                                    <!--begin::Select-->--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>Return Date:</label>--}}
+{{--                                                        <div class="input-group date mb-2">--}}
+{{--                                                            <input name="return_date" type="text" class="form-control form-control-solid" placeholder="Enter return date" id="kt_datepicker_3" />--}}
+{{--                                                        </div>--}}
+{{--                                                        --}}{{-- <span class="form-text text-muted">Please enter return date</span> --}}
+{{--                                                    </div>--}}
+{{--                                                    <!--end::Select-->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="row">--}}
+{{--                                                <div class="col-xl-6">--}}
+{{--                                                    <!--begin::Input-->--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>Airport IATA Code:</label>--}}
+{{--                                                        <div class="input-group date mb-2">--}}
+{{--                                                            <input name="departure_iata_code" type="text" class="form-control form-control-solid" placeholder="Enter departure iata code" />--}}
+{{--                                                        </div>--}}
+{{--                                                        --}}{{-- <span class="form-text text-muted">Please enter departure airport's iata code</span> --}}
+{{--                                                    </div>--}}
+{{--                                                    <!--end::Input-->--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-xl-6">--}}
+{{--                                                    <!--begin::Select-->--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>Immigration Endorsement Date:</label>--}}
+{{--                                                        <div class="input-group date mb-2">--}}
+{{--                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" />--}}
+{{--                                                        </div>--}}
+{{--                                                        --}}{{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
+{{--                                                    </div>--}}
+{{--                                                    <!--end::Select-->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
 
                                 <div class="pb-5" data-wizard-type="step-content">
@@ -750,7 +750,7 @@
                                     </div>
                                     <div class="card card-custom gutter-b" style="margin: 25px 0">
                                         <div class="card-header">
-                                            <h3 class="card-title">Work Place Information</h3>
+                                            <h3 class="card-title">Work Permit Information</h3>
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
@@ -773,7 +773,7 @@
                                                     <div class="form-group">
                                                         <label>Type Of Worker:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_place_mobile" type="text" class="form-control form-control-solid" placeholder="Enter type of worker" />
+                                                            <input name="worker_type_id" type="text" class="form-control form-control-solid" placeholder="Enter type of worker" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -816,7 +816,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="work_place_email" type="email" class="form-control form-control-solid" placeholder="Enter your work place email" />
+                                                        <input name="work_place_email" type="text" class="form-control form-control-solid" placeholder="Enter your work place email" />
                                                     </div>
                                                 </div>
                                                     <!--end::Input-->
@@ -879,7 +879,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="mother_company_email" type="email" class="form-control form-control-solid" placeholder="Enter your mother company's email" />
+                                                        <input name="mother_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's email" />
                                                         {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -943,7 +943,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="supplier_company_email" type="email" class="form-control form-control-solid" placeholder="Enter your supplier company's email" />
+                                                        <input name="supplier_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's email" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -1007,7 +1007,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="recruiting_agency_email" type="email" class="form-control form-control-solid" placeholder="Enter your recruiting agency's email" />
+                                                        <input name="recruiting_agency_email" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's email" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -1062,7 +1062,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Currency:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="currency" required>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" required>
                                                             <option value="1">USD</option>
                                                             <option value="2">BDT</option>
                                                         </select>
@@ -1250,7 +1250,7 @@
                                                     <div class="form-group">
                                                         <label>Flat Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="flat_no" type="text" class="form-control form-control-solid" placeholder="Enter flat number" />
+                                                            <input name="cur_country_addr_flat_number" type="text" class="form-control form-control-solid" placeholder="Enter flat number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1260,7 +1260,7 @@
                                                     <div class="form-group">
                                                         <label>Holding/House number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="house_no" type="text" class="form-control form-control-solid" placeholder="Enter holding/house number" />
+                                                            <input name="cur_country_addr_holding_number" type="text" class="form-control form-control-solid" placeholder="Enter holding/house number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1272,7 +1272,7 @@
                                                     <div class="form-group">
                                                         <label>Street:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="street" type="text" class="form-control form-control-solid" placeholder="Enter street name" />
+                                                            <input name="cur_country_addr_street_number" type="text" class="form-control form-control-solid" placeholder="Enter street name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1285,7 +1285,7 @@
                                                     <div class="form-group">
                                                         <label>Area:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="area" type="text" class="form-control form-control-solid" placeholder="Enter area name" />
+                                                            <input name="cur_country_addr_area" type="text" class="form-control form-control-solid" placeholder="Enter area name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1295,7 +1295,7 @@
                                                     <div class="form-group">
                                                         <label>Post Code:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
+                                                            <input name="cur_country_addr_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1307,7 +1307,7 @@
                                                     <div class="form-group">
                                                         <label>City:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="city" type="text" class="form-control form-control-solid" placeholder="Enter city name" />
+                                                            <input name="cur_country_addr_city" type="text" class="form-control form-control-solid" placeholder="Enter city name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1316,8 +1316,16 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Country:</label>
+
                                                         <div class="input-group date mb-2">
-                                                            <input name="country" type="text" class="form-control form-control-solid" placeholder="Enter country" />
+                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5"  required>
+                                                                <option value='null'>Select Country</option>
+                                                                @foreach ($countries as $country)
+                                                                    <option value="{{ $country['id'] }}">
+                                                                        {{ $country['title'] }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1329,7 +1337,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_email" type="email" class="form-control form-control-solid" placeholder="Enter your current country email" />
+                                                            <input name="cur_country_addr_email" type="text" class="form-control form-control-solid" placeholder="Enter your current country email" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1339,7 +1347,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" />
+                                                            <input name="cur_country_addr_mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1358,7 +1366,7 @@
                                                     <div class="form-group">
                                                         <label>Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="emg_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                            <input name="cur_country_emergency_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1368,7 +1376,7 @@
                                                     <div class="form-group">
                                                         <label>Relationship:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="emg_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                            <input name="cur_country_emergency_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1380,7 +1388,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="emg_email" type="email" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="cur_country_emergency_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1391,7 +1399,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="emg_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="cur_country_emergency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1404,21 +1412,13 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="emg_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                            <input name="cur_country_emergency_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
                                                     <!--end::Input-->
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <div class="form-group">
-                                                        <label>Post Code:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="emg_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
-                                                        </div>
-                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -1433,7 +1433,7 @@
                                                     <div class="form-group">
                                                         <label>Street/Para:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="permanent_street_name" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                            <input name="bd_per_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1445,7 +1445,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="permanent_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id" required>
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
@@ -1461,7 +1461,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="permanent_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" required>
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1475,7 +1475,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="permanent_thana_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" required>
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1486,7 +1486,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="permanent_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" required>
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1501,7 +1501,7 @@
                                                     <div class="form-group">
                                                         <label>Area/Village:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="permanent_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                            <input name="bd_per_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1512,12 +1512,36 @@
                                                     <div class="form-group">
                                                         <label>Post Office:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="permanent_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                            <input name="bd_per_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
                                                     {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
                                                     <!--end::Select-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Email:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="bd_per_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Contact Number:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="bd_per_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
                                                 </div>
                                             </div>
                                         </div>
@@ -1533,7 +1557,7 @@
                                                     <div class="form-group">
                                                         <label>Street/Para:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mailing_street_name" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                            <input name="bd_present_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1545,7 +1569,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="mailing_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id" required>
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
@@ -1561,7 +1585,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="mailing_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" required>
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1575,7 +1599,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="mailing_thana_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" required>
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1586,7 +1610,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="mailing_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" required>
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1601,7 +1625,7 @@
                                                     <div class="form-group">
                                                         <label>Area/Village:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mailing_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                            <input name="bd_present_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1612,12 +1636,36 @@
                                                     <div class="form-group">
                                                         <label>Post Office:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mailing_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                            <input name="bd_present_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
                                                     {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
                                                     <!--end::Select-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Email:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="bd_present_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Contact Number:</label>
+                                                        <div class="input-group date mb-2">
+                                                            <input name="bd_present_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                        </div>
+                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
+                                                    </div>
+                                                    <!--end::Input-->
                                                 </div>
                                             </div>
                                         </div>
@@ -1633,7 +1681,7 @@
                                                     <div class="form-group">
                                                         <label>Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emg_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                            <input name="bd_emergency_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1643,7 +1691,7 @@
                                                     <div class="form-group">
                                                         <label>Relationship:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emg_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                            <input name="bd_emergency_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1655,7 +1703,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emg_email" type="email" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="bd_emergency_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1666,7 +1714,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emg_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="bd_emergency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1679,20 +1727,11 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emg_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                            <input name="bd_emergency_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
                                                     <!--end::Input-->
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="form-group">
-                                                        <label>Post Code:</label>
-                                                        <div class="input-group date mb-2">
-                                                            <input name="bd_emg_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
-                                                        </div>
-                                                        {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

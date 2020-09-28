@@ -22,6 +22,7 @@ class Customer extends Model
         "personal_no",
         "nationality",
         "gender",
+        "religion_id",
         "place_of_birth",
         "date_of_birth",
         "passport_no",
@@ -36,7 +37,6 @@ class Customer extends Model
         "emergency_address",
         "billing_address",
         "sales_executive_id",
-        "active_status",
         "created_by",
         "updated_by"
     ];

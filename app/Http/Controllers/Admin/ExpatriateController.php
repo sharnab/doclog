@@ -21,6 +21,7 @@ use App\Model\ExpatSalaryInfo;
 use App\Model\ExpatSupplierCompany;
 use App\Model\ExpatTravelHistory;
 use App\Model\ExpatWorkPermit;
+use App\Model\ExpatWorkPlace;
 use App\Model\Gender;
 use App\Model\ExpatPassport;
 use App\Model\Religion;
@@ -97,19 +98,18 @@ class ExpatriateController extends ApiController
             $img_path = $this->uploadFile($request,'profile_image','profile');
             $items['image']=$img_path;
         }
-        exit();
 
         /**
          * Check is passport Number exist
          */
-        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
-
-        if($isExist||$isExist>0)
-        {
-            session()->flash('message', 'This passport already exist in the system');
-            session()->flash('class', '2');
-            return back();
-        }
+//        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
+//
+//        if($isExist||$isExist>0)
+//        {
+//            session()->flash('message', 'This passport already exist in the system');
+//            session()->flash('class', '2');
+//            return back();
+//        }
 
         $expat_id = $this->processBasicInfo($request,1);
         $this->processPassport($request,$expat_id,1);
@@ -166,15 +166,12 @@ class ExpatriateController extends ApiController
             'spouse_name',
             'nid',
             'nationality',
-            'date_of_birth',
             'birth_country_id',
             'gender',
             'religion_id',
             'email',
             'mobile',
             'passport_number',
-            'passport_issue_date',
-            'passport_expiry_date',
             'passport_issue_place',
             'facebook_id',
             'linkedin_id',
@@ -182,17 +179,39 @@ class ExpatriateController extends ApiController
             'whatsapp_id'
         ]);
 
+        if($request->has('date_of_birth'))
+        {
+            $basic_data['date_of_birth']=date('Y-m-d',strtotime($request->input('date_of_birth')));
+        }
+
+        if($request->has('passport_issue_date'))
+        {
+            $basic_data['passport_issue_date']=date('Y-m-d',strtotime($request->input('passport_issue_date')));
+        }
+
+        if($request->has('passport_expiry_date'))
+        {
+            $basic_data['passport_expiry_date']=date('Y-m-d',strtotime($request->input('passport_expiry_date')));
+        }
+
         if($request->hasFile('profile_image'))
         {
             $img_path = $this->uploadFile($request,'profile_image','profile');
             $basic_data['image']=$img_path;
         }
 
-        $basic_data['active_status']=1;
+        if($request->hasFile('nid_image'))
+        {
+            $img_path = $this->uploadFile($request,'nid_image','nid');
+            $basic_data['nid_image']=$img_path;
+        }
+
+
 
         if($type==1)
         {
             //Insert
+            $basic_data['active_status']=1;
             $basic_data['created_by']=Auth::id();
             $basic_data['created_at']=date('Y-m-d H:i:s');
             return Expat::insertGetId($basic_data);
@@ -216,9 +235,19 @@ class ExpatriateController extends ApiController
 
         $items['expat_id']=$expat_id;
         $items['passport_number'] = $request->input('passport_number');
-        $items['passport_issue_date'] = $request->input('passport_issue_date');
-        $items['passport_expiry_date'] = $request->input('passport_expiry_date');
-        $items['passport_issue_place'] = $request->input('passport_issue_place');
+
+        if($request->has('passport_issue_date'))
+        {
+            $items['issue_date']=date('Y-m-d',strtotime($request->input('passport_issue_date')));
+        }
+
+        if($request->has('passport_expiry_date'))
+        {
+            $items['expiry_date']=date('Y-m-d',strtotime($request->input('passport_expiry_date')));
+        }
+
+
+        $items['issue_place'] = $request->input('passport_issue_place');
 
         if($type==1)
         {
@@ -242,13 +271,21 @@ class ExpatriateController extends ApiController
         if($request->hasFile('visa_file'))
         {
             $img_path = $this->uploadFile($request,'visa_file','visa');
-            $items['visa_file']=$img_path;
+            $items['image']=$img_path;
         }
 
         $items['expat_id']=$expat_id;
         $items['visa_type']=$request->input('visa_type');
-        $items['issue_date']=$request->input('visa_issue_date');
-        $items['expiry_date']=$request->input('visa_expiry_date');
+        if($request->has('visa_issue_date'))
+        {
+            $items['issue_date']=date('Y-m-d',strtotime($request->input('visa_issue_date')));
+        }
+
+        if($request->has('visa_expiry_date'))
+        {
+            $items['expiry_date']=date('Y-m-d',strtotime($request->input('visa_expiry_date')));
+        }
+
         $items['entry_type']=$request->input('visa_entry_type');
 
         if($type==1)
@@ -269,18 +306,25 @@ class ExpatriateController extends ApiController
     }
     private function processArrival($request,$expat_id,$type=1,$id=null)
     {
-        if($request->hasFile('arrival_immigration_endorsement_file'))
+        if($request->hasFile('immigration_endorsement_file'))
         {
-            $img_path = $this->uploadFile($request,'arrival_immigration_endorsement_file','immigration_endorsement');
+            $img_path = $this->uploadFile($request,'immigration_endorsement_file','immigration_endorsement');
             $items['immigration_endorsement_file']=$img_path;
         }
 
         $items['expat_id']=$expat_id;
         $items['travel_type']=1;
         $items['arrival_country_id']=$request->input('arrival_country_id');
-        $items['date']=date('Y-m-d',strtotime($request->input('arrival_date')));
+        if($request->has('arrival_date'))
+        {
+            $items['date']=date('Y-m-d',strtotime($request->input('arrival_date')));
+        }
         $items['iata_code']=$request->input('arrival_iata_code');
-        $items['immigration_endorsement_date']=date('Y-m-d',strtotime($request->input('immigration_endorsement_date')));
+        if($request->has('immigration_endorsement_date'))
+        {
+            $items['immigration_endorsement_date']=date('Y-m-d',strtotime($request->input('immigration_endorsement_date')));
+        }
+
 
 
         if($type==1)
@@ -304,7 +348,7 @@ class ExpatriateController extends ApiController
         if($request->hasFile('bmet_file'))
         {
             $img_path = $this->uploadFile($request,'bmet_file','bmet');
-            $items['bmet_file']=$img_path;
+            $items['image']=$img_path;
         }
 
         $items['expat_id']=$expat_id;
@@ -359,7 +403,11 @@ class ExpatriateController extends ApiController
 
         $items['expat_id']=$expat_id;
         $items['memo_number']=$request->input('memo_number');
-        $items['issue_date']=date('Y-m-d',strtotime($request->input('ministry_approval_issue_date')));
+        if($request->has('ministry_approval_issue_date'))
+        {
+            $items['issue_date']=date('Y-m-d',strtotime($request->input('ministry_approval_issue_date')));
+
+        }
 
         if($type==1)
         {
@@ -388,8 +436,17 @@ class ExpatriateController extends ApiController
 
         $items['expat_id']=$expat_id;
         $items['permit_number']=$request->input('work_permit_number');
-        $items['issue_date']=date('Y-m-d',strtotime($request->input('work_permit_issue_date')));
-        $items['expiry_date']=date('Y-m-d',strtotime($request->input('work_permit_expiry_date')));
+
+        if($request->has('work_permit_issue_date'))
+        {
+            $items['issue_date']=date('Y-m-d',strtotime($request->input('work_permit_issue_date')));
+        }
+
+        if($request->has('work_permit_expiry_date'))
+        {
+            $items['expiry_date']=date('Y-m-d',strtotime($request->input('work_permit_expiry_date')));
+        }
+
 
         if($type==1)
         {
@@ -420,13 +477,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return ExpatWorkPermit::insert($items);
+            return ExpatWorkPlace::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatWorkPermit::where('id',$id)->update($items);
+            return ExpatWorkPlace::where('id',$id)->update($items);
         }
 
     }
@@ -585,8 +642,8 @@ class ExpatriateController extends ApiController
         $items['expat_id']=$expat_id;
         $items['flat_number']=$request->input('cur_country_addr_flat_number');
         $items['holding_number']=$request->input('cur_country_addr_holding_number');
-        $items['street']=$request->input('cur_country_addr_flat_number');
-        $items['area']=$request->input('cur_country_addr_street');
+        $items['street']=$request->input('cur_country_addr_street_number');
+        $items['area']=$request->input('cur_country_addr_area');
         $items['post_code']=$request->input('cur_country_addr_post_code');
         $items['city']=$request->input('cur_country_addr_city');
         $items['country_id']=$request->input('cur_country_addr_country_id');
@@ -639,7 +696,7 @@ class ExpatriateController extends ApiController
 
         $items['expat_id']=$expat_id;
         $items['location_type']=1;
-        $items['address_type']=1;
+        $items['address_type']=2; //permanent Address
         $items['address']=$request->input('bd_per_address');
         $items['division_id']=$request->input('bd_per_division_id');
         $items['district_id']=$request->input('bd_per_district_id');
@@ -657,13 +714,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::insert($items);
+            return ExpatBdAddress::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::where('id',$id)->update($items);
+            return ExpatBdAddress::where('id',$id)->update($items);
         }
 
     }
@@ -690,13 +747,13 @@ class ExpatriateController extends ApiController
             $items['active_status']=1;
             $items['created_by']=Auth::id();
             $items['created_at']=date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::insert($items);
+            return ExpatBdAddress::insert($items);
         }else{
             //Update data
             // $items['active_status']=1;
             $items['updated_by']=Auth::id();
             $items['updated_at']=date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::where('id',$id)->update($items);
+            return ExpatBdAddress::where('id',$id)->update($items);
         }
 
     }
@@ -837,6 +894,7 @@ class ExpatriateController extends ApiController
 
         if($image_name){
             request()->$file_name->move($path, $image_name);
+           // request()->file($file_name)->move($path, $image_name);
             $passport_img_path = "uploads/".$folder_name."/" . $image_name;
         }
 
