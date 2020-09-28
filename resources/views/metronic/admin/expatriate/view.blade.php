@@ -6,7 +6,7 @@
     @media print {
 
        #print_area {
-         display: : none;
+         display: none;
        }
     }
 
@@ -100,7 +100,7 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Passport Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{$item['first_name']}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">Issue Place</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4 pr-10">(Last name)</td>

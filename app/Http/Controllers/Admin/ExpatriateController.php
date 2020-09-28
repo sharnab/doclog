@@ -1124,9 +1124,8 @@ class ExpatriateController extends ApiController
     public function show($id)
     {
         $country_list = Country::all();
-       $items= $this->getExpatInfo($id);
-       dd($items);
-        //return view('admin.app_user.view');
+       $item= $this->getExpatInfo($id);
+        return view('admin.expatriate.view',compact('item','country_list'));
     }
 
     /**
