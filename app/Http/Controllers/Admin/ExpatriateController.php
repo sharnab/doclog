@@ -145,10 +145,14 @@ class ExpatriateController extends ApiController
      */
     public function edit($id)
     {
-        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
         $items= $this->getExpatInfo($id);
 
-        return view('admin.passport.edit', compact('passport'));
+        return view('admin.expatriate.edit', compact('items','country_list','religion','gender','countries','country','divisions'));
     }
 
     private function processBasicInfo($request,$type=1,$id=null)
@@ -1120,7 +1124,7 @@ class ExpatriateController extends ApiController
         $country_list = Country::all();
        $items= $this->getExpatInfo($id);
        dd($items);
-        //return view('admin.app_user.view');
+        // return view('admin.expatriate.view');
     }
 
     /**
