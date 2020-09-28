@@ -245,7 +245,7 @@
                     <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                         <div class="col-xl-12">
                             <!--begin::Wizard Form-->
-                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" method="POST" name="basicInfo" action="{{ route('basic_info_create') }}" enctype="multipart/form-data">
+                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" method="POST" name="basicInfo" action="{{ route('user_store') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!--begin::Wizard Step 1-->
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
@@ -1713,8 +1713,8 @@
                                                         <div class="image-input-wrapper"></div>
                                                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen icon-sm text-muted"></i>
-                                                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
-                                                            <input type="hidden" name="profile_avatar_remove" />
+                                                            <input type="file" name="profile_image" accept=".png, .jpg, .jpeg" />
+                                                            <input type="hidden" name="profile_image_remove" />
                                                         </label>
                                                         <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
                                                             <i class="ki ki-bold-close icon-xs text-muted"></i>
@@ -1828,37 +1828,37 @@
     $('.per_division').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/district_by_division?division_id=', '.per_district')
+        setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.per_district')
     });
 
     $('.per_district').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/upazila_by_district?district_id=', '.per_upazila')
+        setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.per_upazila')
     });
 
     $('.per_upazila').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/union_by_upazila?upazila_id=', '.per_union')
+        setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.per_union')
     });
 
     $('.mail_division').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/district_by_division?division_id=', '.mail_district')
+        setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.mail_district')
     });
 
     $('.mail_district').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/upazila_by_district?district_id=', '.mail_upazila')
+        setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.mail_upazila')
     });
 
     $('.mail_upazila').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-        setData($(this).val(), base_url + '/../address/union_by_upazila?upazila_id=', '.mail_union')
+        setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union')
     });
 
     function setData(id, url, className) {

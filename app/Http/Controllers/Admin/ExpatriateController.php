@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Country;
 use App\Model\Division;
 use App\Model\Expat;
+use App\Model\ExpatBdAddress;
 use App\Model\ExpatBdBankAccount;
 use App\Model\ExpatBmetInfo;
 use App\Model\ExpatCurrentCountryAddress;
@@ -82,14 +83,21 @@ class ExpatriateController extends ApiController
 
 
         $rules =[
-            "passport_number"         => "required",
+            "passport_number"               => "required",
             "passport_expiry_date"          => "required",
-            "first_name"          => "required",
-            "visa_type"          => "required",
-            "visa_expiry_date"          => "required",
+            "first_name"                    => "required",
+            "visa_type"                     => "required",
+            "visa_expiry_date"              => "required",
         ];
+
         $request->validate($rules);
 
+        if($request->hasFile('profile_image'))
+        {
+            $img_path = $this->uploadFile($request,'profile_image','profile');
+            $items['image']=$img_path;
+        }
+        exit();
 
         /**
          * Check is passport Number exist
@@ -100,17 +108,34 @@ class ExpatriateController extends ApiController
         {
             session()->flash('message', 'This passport already exist in the system');
             session()->flash('class', '2');
-            return redirect();
+            return back();
         }
 
         $expat_id = $this->processBasicInfo($request,1);
+        $this->processPassport($request,$expat_id,1);
+        $this->processVisa($request,$expat_id,1);
+        $this->processArrival($request,$expat_id,1);
+        $this->processBMET($request,$expat_id,1);
+        $this->processEmploymentType($request,$expat_id,1);
+        $this->processMinistryApproval($request,$expat_id,1);
+        $this->processWorkPermit($request,$expat_id,1);
+        $this->processWorkPlace($request,$expat_id,1);
+        $this->processMotherCompany($request,$expat_id,1);
+        $this->processSupplierCompany($request,$expat_id,1);
+        $this->processRecruitingAgency($request,$expat_id,1);
+        $this->processSalaryInfo($request,$expat_id,1);
+        $this->processCurrentCountryBankAccount($request,$expat_id,1);
+        $this->processBdBankAccount($request,$expat_id,1);
+        $this->processCurrentCountryAddress($request,$expat_id,1);
+        $this->processCurrentCountryEmergency($request,$expat_id,1);
+        $this->processBdPermanent($request,$expat_id,1);
+        $this->processBdPresent($request,$expat_id,1);
+        $this->processBdEmergency($request,$expat_id,1);
+        $this->processDocuments($request,$expat_id,1);
 
         session()->flash('message', 'Successfully Submitted');
         session()->flash('class', '2');
-        return redirect()->route('expatriate');
-       // $this->processPassport($request,$expat_id,1);
-        //$this->processVisa($request,$expat_id,1);
-        //$this->processArrival($request,$expat_id,1);
+        return redirect()->route('user');
 
     }
 
@@ -120,7 +145,8 @@ class ExpatriateController extends ApiController
      */
     public function edit($id)
     {
-        $passport = ExpatPassport::find($id);
+        $country_list = Country::all();
+        $items= $this->getExpatInfo($id);
 
         return view('admin.passport.edit', compact('passport'));
     }
@@ -159,7 +185,7 @@ class ExpatriateController extends ApiController
         if($request->hasFile('profile_image'))
         {
             $img_path = $this->uploadFile($request,'profile_image','profile');
-            $items['image']=$img_path;
+            $basic_data['image']=$img_path;
         }
 
         $basic_data['active_status']=1;
@@ -728,6 +754,74 @@ class ExpatriateController extends ApiController
     }
 
 
+    private function getExpatInfo($expat_id)
+    {
+
+        /**
+         * Relational Array
+         */
+        $withArray = ['visa','arrival','bmet','employmentType','ministryApproval','workPermit',
+            'workPlace','motherCompany','supplierCompany','recruitingAgency','salaryInfo',
+            'currentCountryBankAccount','bdBankAccount','currentCountryAddress','currentCountryEmergency',
+            'bdEmergency'];
+        /**
+         * Get Expat Basic with relational data
+         */
+       $items= Expat::with($withArray)->where('id',$expat_id)->get();
+
+       if(empty($items))
+       {
+           return false;
+       }
+
+       $items= $items->toArray();
+
+       $item=$items[0];
+       /**
+        * add bd present address
+        */
+       $item['bdPresentAddress'] = $this->getExpatBdPresentAddress($expat_id);
+       $item['bdPermanentAddress'] = $this->getExpatBdPermanentAddress($expat_id);
+
+      return $item;
+
+    }
+
+    private function getExpatBdPresentAddress($expat_id)
+    {
+        $with_array =[
+            'division','district','cityCorporation','municipal','upazila','union'
+        ];
+
+        $items =ExpatBdAddress::with($with_array)->where('expat_id',$expat_id)->where('address_type',1)->get();
+
+        if(empty($items))
+        {
+            return [];
+        }
+
+        $items= $items->toArray();
+        return $items[0];
+
+    }
+
+    private function getExpatBdPermanentAddress($expat_id)
+    {
+        $with_array =[
+            'division','district','cityCorporation','municipal','upazila','union'
+        ];
+
+        $items =ExpatBdAddress::with($with_array)->where('expat_id',$expat_id)->where('address_type',2)->get();
+
+        if(empty($items))
+        {
+            return [];
+        }
+
+        $items= $items->toArray();
+        return $items[0];
+
+    }
 
 
     private function uploadFile($request,$file_name,$folder_name)
@@ -742,7 +836,7 @@ class ExpatriateController extends ApiController
         $image_name = time().'.'.$request->$file_name->getClientOriginalExtension();
 
         if($image_name){
-            request()->image->move($path, $image_name);
+            request()->$file_name->move($path, $image_name);
             $passport_img_path = "uploads/".$folder_name."/" . $image_name;
         }
 
@@ -965,7 +1059,10 @@ class ExpatriateController extends ApiController
      */
     public function show($id)
     {
-        return view('admin.app_user.view');
+        $country_list = Country::all();
+       $items= $this->getExpatInfo($id);
+       dd($items);
+        //return view('admin.app_user.view');
     }
 
     /**
