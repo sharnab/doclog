@@ -93,11 +93,17 @@ class ExpatriateController extends ApiController
 
         $request->validate($rules);
 
-        if($request->hasFile('profile_image'))
-        {
-            $img_path = $this->uploadFile($request,'profile_image','profile');
-            $items['image']=$img_path;
-        }
+//        if($request->hasFile('profile_image'))
+//        {
+//            $img_path = $this->uploadFile($request,'profile_image','profile');
+//            $items['image']=$img_path;
+//        }
+
+//        if($request->hasFile('profile_image'))
+//        {
+//            $img_path = $this->uploadFile($request,'profile_image','profile');
+//            $items['image']=$img_path;
+//        }
 
         /**
          * Check is passport Number exist
