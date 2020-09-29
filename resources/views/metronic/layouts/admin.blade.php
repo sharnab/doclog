@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="{{ url('/') }}" style="margin: 0 auto">
-            <img alt="Logo"  src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
+            <img alt="Logo"  src="{{ asset('assets/media/logos/govt_seal.png')}}" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -97,7 +97,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="brand flex-column-auto" id="kt_brand">
                     <!--begin::Logo-->
                     <a href="{{ url('/') }}" class="brand-logo" style="margin: 0 auto";>
-                        <img alt="Logo" style="height:50px" src="{{ asset('assets/media/logos/logo-ams2.png')}}" />
+                        <img alt="Logo" style="height:50px" src="{{ asset('assets/media/logos/govt_seal.png')}}" />
 
                     </a>
                     <!--end::Logo-->
