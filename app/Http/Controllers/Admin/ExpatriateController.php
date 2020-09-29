@@ -1208,7 +1208,7 @@ class ExpatriateController extends ApiController
         $this->processBdPermanent($request, $expat_id, 2);
         $this->processBdPresent($request, $expat_id, 2);
         $this->processBdEmergency($request, $expat_id, 2);
-        $this->processDocuments($request, $expat_id, 2);
+//        $this->processDocuments($request, $expat_id, 2);
 
         session()->flash('message', 'Expatriate Information Updated Successfully !');
         session()->flash('class', '1');
