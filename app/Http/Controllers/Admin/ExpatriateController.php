@@ -151,10 +151,19 @@ class ExpatriateController extends ApiController
      */
     public function edit($id)
     {
+<<<<<<< HEAD
         $country_list = Country::all();
         $items = $this->getExpatInfo($id);
+=======
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+>>>>>>> 09975532f4b4684b52ec48cdb47a452ae6308463
 
-        return view('admin.passport.edit', compact('passport'));
+        return view('admin.expatriate.edit', compact('items','country_list','religion','gender','countries','country','divisions'));
     }
 
     private function processBasicInfo($request, $type = 1, $id = null)
@@ -1096,10 +1105,17 @@ class ExpatriateController extends ApiController
      */
     public function show($id)
     {
+<<<<<<< HEAD
         $country_list = $this->getCountryList();
         $item = $this->getExpatInfo($id);
 
         return view('admin.expatriate.view', compact('item', 'country_list'));
+=======
+        $country_list = Country::all();
+       $items= $this->getExpatInfo($id);
+       dd($items);
+        // return view('admin.expatriate.view');
+>>>>>>> 09975532f4b4684b52ec48cdb47a452ae6308463
     }
 
     /**

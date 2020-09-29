@@ -71,7 +71,7 @@
                         <a href="{{ url('admin/user') }}" class="text-muted">Expatriate</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">Create New</a>
+                        <a href="#" class="text-muted">Edit</a>
                     </li>
 
                 </ul>
@@ -259,8 +259,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Passport Number:</label>
+                                                        @if($items['passport_image'])
+                                                        <label style="padding-left: 50%"><a href="{{$items['passport_image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date">
-                                                            <input name="passport_number" type="text" class="form-control form-control-solid" placeholder="Enter passport number" style="width: 90%" />
+                                                            <input name="passport_number" type="text" class="form-control form-control-solid" placeholder="Enter passport number" style="width: 90%" value="{{($items['passport_number'])?$items['passport_number']:''}}" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="passport_image" id="passport_image" type="file" hidden></span>
                                                             </label>
@@ -274,7 +276,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" />
+                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" data-date-format="dd/mm/yyyy" value="{{($items['passport_issue_date'])?date('d/m/Y', strtotime($items['passport_issue_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's issue date</span> --}}
                                                     </div>
@@ -287,7 +289,7 @@
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" />
+                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{($items['passport_expiry_date'])?date('d/m/Y', strtotime($items['passport_expiry_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's expiry date</span> --}}
                                                     </div>
@@ -297,7 +299,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Issue Place:</label>
-                                                        <input name="passport_issue_place" type="text" class="form-control form-control-solid" placeholder="Enter issue place" />
+                                                        <input name="passport_issue_place" type="text" class="form-control form-control-solid" placeholder="Enter issue place" value="{{($items['passport_issue_place'])?$items['passport_issue_place']:''}}"/>
                                                         {{-- <span class="form-text text-muted">Please enter your passport issued place</span> --}}
                                                     </div>
                                                     <!--end::Select-->
@@ -314,14 +316,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>First Name:</label>
-                                                        <input name="first_name" type="text" class="form-control form-control-solid" placeholder="Enter first name" />
+                                                        <input name="first_name" type="text" class="form-control form-control-solid" placeholder="Enter first name" value="{{($items['first_name'])?$items['first_name']:''}}" />
                                                         {{-- <span class="form-text text-muted">Please enter your first name</span> --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Last Name:</label>
-                                                        <input name="last_name" type="text" class="form-control form-control-solid" placeholder="Enter last name" />
+                                                        <input name="last_name" type="text" class="form-control form-control-solid" placeholder="Enter last name" value="{{($items['last_name'])?$items['last_name']:''}}" />
                                                         {{-- <span class="form-text text-muted">Please enter your last name</span> --}}
                                                     </div>
                                                 </div>
@@ -330,14 +332,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Father's Name:</label>
-                                                        <input name="father_name" type="text" class="form-control form-control-solid" placeholder="Enter father's name" />
+                                                        <input name="father_name" type="text" class="form-control form-control-solid" placeholder="Enter father's name" value="{{($items['father_name'])?$items['father_name']:''}}" />
                                                         {{-- <span class="form-text text-muted">Please enter your father's name</span> --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Mother's Name:</label>
-                                                        <input name="mother_name" type="text" class="form-control form-control-solid" placeholder="Enter mother's name" />
+                                                        <input name="mother_name" type="text" class="form-control form-control-solid" placeholder="Enter mother's name" value="{{($items['mother_name'])?$items['mother_name']:''}}" />
                                                         {{-- <span class="form-text text-muted">Please enter your mother's name</span> --}}
                                                     </div>
                                                 </div>
@@ -347,9 +349,9 @@
                                                     <div class="form-group">
                                                         <label>Maritial Status:</label>
                                                         <select class="form-control martial_status" id="kt_select_1" name="marital_status" required>
-                                                            <option value="1">bachelor</option>
-                                                            <option value="2">Married</option>
-                                                            <option value="3">Divorsed</option>
+                                                            <option value='Unmarried' {{($items['marital_status'] == 'Unmarried')?'selected':''}}>Unmarried</option>
+                                                            <option value='Married' {{($items['marital_status'] == 'Married')?'selected':''}}>Married</option>
+                                                            <option value='Divorsed' {{($items['marital_status'] == 'Divorsed')?'selected':''}}>Divorsed</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your martial status</span> --}}
                                                     </div>
@@ -357,7 +359,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Spouse's Name:</label>
-                                                        <input name="spouse_name" type="text" class="form-control form-control-solid" placeholder="Enter spouse's name" />
+                                                        <input name="spouse_name" type="text" class="form-control form-control-solid" placeholder="Enter spouse's name" value="{{($items['spouse_name'])?$items['spouse_name']:''}}" />
                                                         {{-- <span class="form-text text-muted">Please enter your spouse's name</span> --}}
                                                     </div>
                                                 </div>
@@ -366,9 +368,9 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Nationality:</label>
-                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" required>
+                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" value="{{($items['nationality'])?$items['nationality']:'181'}}" required>
                                                             @foreach ($country as $nationality)
-                                                            <option value="{{ $nationality['id'] }}">
+                                                            <option value="{{ $nationality['id'] }}" {{($items['nationality'] == $nationality['id'])?'selected':''}}>
                                                                 {{ $nationality['title'] }}
                                                             </option>
                                                             @endforeach
@@ -379,8 +381,10 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>National ID:</label>
+                                                        @if($items['nid_image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['nid_image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date">
-                                                            <input name="nid" type="text" class="form-control form-control-solid" placeholder="Enter national id number" />
+                                                            <input name="nid" type="text" class="form-control form-control-solid" placeholder="Enter national id number" value="{{($items['nid'])?$items['nid']:''}}" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="nid_image" id="nid_image" type="file" hidden></span>
                                                             </label>
@@ -395,7 +399,7 @@
                                                     <div class="form-group">
                                                         <label>Date of Birth:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" />
+                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" value="{{($items['date_of_birth'])?date('d/m/Y', strtotime($items['date_of_birth'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your date of birth</span> --}}
                                                     </div>
@@ -405,7 +409,7 @@
                                                         <label>Birth Place:</label>
                                                         <select class="form-control birth_country" id="kt_select_1" name="birth_country_id" required>
                                                             @foreach ($country as $birth_place)
-                                                            <option value="{{ $birth_place['id'] }}">
+                                                            <option value="{{ $birth_place['id'] }} {{($items['birth_place'] == $birth_place['id'])?'selected':''}}">
                                                                 {{ $birth_place['title'] }}
                                                             </option>
                                                             @endforeach
@@ -420,9 +424,9 @@
                                                         <label>Gender:</label>
                                                         <select class="form-control gender" id="kt_select_1" name="gender" required>
                                                             <option value='null'>Select Gender</option>
-                                                            @foreach ($gender as $gender)
-                                                            <option value="{{ $gender['id'] }}">
-                                                                {{ $gender['title'] }}
+                                                            @foreach ($gender as $gen)
+                                                            <option value="{{ $gen['id'] }}" {{($items['gender'] == $gen['title'])?'selected':''}}>
+                                                                {{ $gen['title'] }}
                                                             </option>
                                                             @endforeach
                                                         </select>
@@ -435,7 +439,7 @@
                                                         <select class="form-control religion" id="kt_select_1" name="religion_id" required>
                                                             <option value='null'>Select Religion</option>
                                                             @foreach ($religion as $religion)
-                                                            <option value="{{ $religion['id'] }}">
+                                                            <option value="{{ $religion['id'] }}" {{($items['religion_id'] == $religion['id'])?'selected':''}}>
                                                                 {{ $religion['title'] }}
                                                             </option>
                                                             @endforeach
@@ -448,14 +452,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="email" type="text" class="form-control form-control-solid" placeholder="Enter your email" />
+                                                        <input name="email" type="text" class="form-control form-control-solid" value="{{($items['email'])?$items['email']:''}}" placeholder="Enter your email" />
                                                         {{-- --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
-                                                        <input name="mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" />
+                                                        <input name="mobile" type="text" class="form-control form-control-solid" value="{{($items['mobile'])?$items['mobile']:''}}" placeholder="Enter contact number" />
                                                         {{-- <span class="form-text text-muted">Please enter your contact number</span> --}}
                                                     </div>
                                                 </div>
@@ -471,14 +475,14 @@
                                                 <div class="col-xl-6">
                                                     <!--begin::Input-->
                                                     <label>Line ID:</label>
-                                                    <input name="line_id" type="text" class="form-control form-control-solid" placeholder="Enter Line ID" />
+                                                    <input name="line_id" type="text" class="form-control form-control-solid" value="{{($items['line_id'])?$items['line_id']:''}}" placeholder="Enter Line ID" />
                                                     {{-- <span class="form-text text-muted">Please enter your line account id</span> --}}
                                                     <!--end::Input-->
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <!--begin::Input-->
                                                     <label>Facebook ID:</label>
-                                                    <input name="facebook_id" type="text" class="form-control form-control-solid" placeholder="Enter facebook id" />
+                                                    <input name="facebook_id" type="text" class="form-control form-control-solid" value="{{($items['facebook_id'])?$items['facebook_id']:''}}" placeholder="Enter facebook id" />
                                                     {{-- <span class="form-text text-muted">Please enter your facebook account id</span> --}}
                                                     <!--end::Input-->
                                                 </div>
@@ -487,14 +491,14 @@
                                                 <div class="col-xl-6">
                                                     <!--begin::Input-->
                                                     <label>Whatsapp ID:</label>
-                                                    <input name="whatsapp_id" type="text" class="form-control form-control-solid" placeholder="Enter Whatsapp ID" />
+                                                    <input name="whatsapp_id" type="text" class="form-control form-control-solid" value="{{($items['whatsapp_id'])?$items['whatsapp_id']:''}}" placeholder="Enter Whatsapp ID" />
                                                     {{-- <span class="form-text text-muted">Please enter your whatsapp account id</span> --}}
                                                     <!--end::Input-->
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <!--begin::Select-->
                                                     <label>Linkedin ID:</label>
-                                                    <input name="linkedin_id" type="text" class="form-control form-control-solid" placeholder="Enter Linkedin id" />
+                                                    <input name="linkedin_id" type="text" class="form-control form-control-solid" value="{{($items['linkedin_id'])?$items['linkedin_id']:''}}" placeholder="Enter Linkedin id" />
                                                     {{-- <span class="form-text text-muted">Please enter your linkedin account id</span> --}}
                                                     <!--end::Select-->
                                                 </div>
@@ -515,7 +519,7 @@
                                                     <div class="form-group">
                                                         <label>Entry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="arrival_date" type="text" class="form-control form-control-solid" placeholder="Enter arrival date" id="kt_datepicker_3" />
+                                                            <input name="arrival_date" type="text" class="form-control form-control-solid" placeholder="Enter arrival date" id="kt_datepicker_3" value="{{($items['arrival']['date'])?date('d/m/Y', strtotime($items['arrival']['date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -524,10 +528,10 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Arrival Country:</label>
-                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" required>
+                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" value="" required>
                                                             <option value='null'>Select Country</option>
                                                             @foreach ($countries as $country)
-                                                            <option value="{{ $country['id'] }}">
+                                                            <option value="{{ $country['id'] }}" {{($items['arrival']['arrival_country_id'] == $country['id'])?'selected':''}}>
                                                                 {{ $country['title'] }}
                                                             </option>
                                                             @endforeach
@@ -541,7 +545,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Airport IATA Code:</label>
-                                                        <input name="arrival_iata_code" type="text" class="form-control form-control-solid" placeholder="Enter airport iata code" />
+                                                        <input name="arrival_iata_code" type="text" class="form-control form-control-solid" value="{{($items['arrival']['iata_code'])?$items['arrival']['iata_code']:''}}" placeholder="Enter airport iata code" />
                                                         {{-- <span class="form-text text-muted">Please enter airport iata code</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -550,8 +554,10 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Immigration Endorsement Date:</label>
+                                                        @if($items['arrival']['immigration_endorsement_file'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['arrival']['immigration_endorsement_file']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" />
+                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" value="{{($items['arrival']['immigration_endorsement_date'])?date('d/m/Y', strtotime($items['arrival']['immigration_endorsement_date'])):''}}"/>
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="immigration_endorsement_file" id="immigration_endorsement_file" type="file" hidden></span>
                                                             </label>
@@ -573,8 +579,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Visa Type:</label>
+                                                        @if($items['visa']['image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['visa']['image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="visa_type" type="text" class="form-control form-control-solid" placeholder="Enter visa type" />
+                                                            <input name="visa_type" type="text" class="form-control form-control-solid" value="{{($items['visa']['visa_type'])?$items['visa']['visa_type']:''}}" placeholder="Enter visa type" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="visa_file" id="visa_type_file" type="file" hidden></span>
                                                             </label>
@@ -588,7 +596,7 @@
                                                     <div class="form-group">
                                                         <label>Entries:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="entry_type" type="text" class="form-control form-control-solid" placeholder="Enter entries" />
+                                                            <input name="entry_type" type="text" class="form-control form-control-solid" value="{{($items['visa']['entry_type'])?$items['visa']['entry_type']:''}}" placeholder="Enter entries" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -601,7 +609,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="visa_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" />
+                                                            <input name="visa_issue_date" type="text" class="form-control form-control-solid" value="{{($items['visa']['issue_date'])?date('d/m/Y', strtotime($items['visa']['issue_date'])):''}}" placeholder="Enter issue date" id="kt_datepicker_3" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -615,7 +623,7 @@
                                                                         </div> --}}
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
-                                                        <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" />
+                                                        <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{($items['visa']['expiry_date'])?date('d/m/Y', strtotime($items['visa']['expiry_date'])):''}}"/>
                                                         {{-- <span class="form-text text-muted">Please enter visa expiry date</span> --}}
                                                     </div>
                                                     <!--end::Select-->
@@ -694,8 +702,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>BMET Smart Card Number:</label>
+                                                        @if($items['bmet']['image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['bmet']['image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date">
-                                                            <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" />
+                                                            <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" value="{{($items['bmet']['bmet_number'])?$items['bmet']['bmet_number']:''}}" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" id="icon-style" style="font-size: 20px"> <input name="bmet_file" id="bmet_file" type="file" hidden></span>
                                                             </label>
@@ -726,8 +736,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Memo Number:</label>
+                                                        @if($items['ministry_approval']['image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['ministry_approval']['image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="memo_number" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" />
+                                                            <input name="memo_number" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" value="{{($items['ministry_approval']['memo_number'])?$items['ministry_approval']['memo_number']:''}}" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="ministry_approval_file" id="ministry_approval_file" type="file" hidden></span>
                                                             </label>
@@ -740,7 +752,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
-                                                        <input name="ministry_approval_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" />
+                                                        <input name="ministry_approval_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" value="{{($items['ministry_approval']['issue_date'])?date('d/m/Y', strtotime($items['ministry_approval']['issue_date'])):''}}"/>
                                                     </div>
                                                     {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
                                                     <!--end::Select-->
@@ -758,8 +770,10 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Permit Number:</label>
+                                                        @if($items['work_permit']['image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['work_permit']['image']}}" target="_blank">Uploaded image</a></label>
                                                         <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="work_permit_number" type="text" class="form-control form-control-solid" placeholder="Enter your work permit number" />
+                                                            <input name="work_permit_number" type="text" class="form-control form-control-solid" placeholder="Enter your work permit number" value="{{($items['work_permit']['permit_number'])?$items['work_permit']['permit_number']:''}}" />
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="work_permit_file" id="work_permit_file" type="file" hidden></span>
                                                             </label>
@@ -773,7 +787,7 @@
                                                     <div class="form-group">
                                                         <label>Type Of Worker:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="worker_type_id" type="text" class="form-control form-control-solid" placeholder="Enter type of worker" />
+                                                            <input name="worker_type_id" type="text" class="form-control form-control-solid" placeholder="Enter type of worker" value="{{($items['employment_type']['worker_type_id'])?$items['employment_type']['worker_type_id']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -786,7 +800,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_permit_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit issue date" id="kt_datepicker_3" />
+                                                            <input name="work_permit_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit issue date" id="kt_datepicker_3" value="{{($items['work_permit']['issue_date'])?date('d/m/Y', strtotime($items['work_permit']['issue_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -797,7 +811,7 @@
                                                     <div class="form-group">
                                                         <label>Expiry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_permit_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit expiry date" id="kt_datepicker_3" />
+                                                            <input name="work_permit_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit expiry date" id="kt_datepicker_3" value="{{($items['work_permit']['expiry_date'])?date('d/m/Y', strtotime($items['work_permit']['expiry_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -816,7 +830,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="work_place_email" type="text" class="form-control form-control-solid" placeholder="Enter your work place email" />
+                                                        <input name="work_place_email" type="text" class="form-control form-control-solid" placeholder="Enter your work place email" value="{{($items['work_place']['email'])?$items['work_place']['email']:''}}" />
                                                     </div>
                                                 </div>
                                                     <!--end::Input-->
@@ -825,7 +839,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_place_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your work place contact number" />
+                                                            <input name="work_place_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your work place contact number" value="{{($items['work_place']['mobile'])?$items['work_place']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -838,7 +852,7 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_place_address" type="text" class="form-control form-control-solid" placeholder="Enter your work place address" />
+                                                            <input name="work_place_address" type="text" class="form-control form-control-solid" placeholder="Enter your work place address" value="{{($items['work_place']['address'])?$items['work_place']['address']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -857,7 +871,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Name:</label>
-                                                        <input name="mother_company_name" class="form-control form-control-solid" placeholder="Enter your mother company's name" />
+                                                        <input name="mother_company_name" class="form-control form-control-solid" placeholder="Enter your mother company's name" value="{{($items['mother_company']['name'])?$items['mother_company']['name']:''}}" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -867,7 +881,7 @@
                                                     <div class="form-group">
                                                         <label>Business Type:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mother_company_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's business type" />
+                                                            <input name="mother_company_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's business type" value="{{($items['mother_company']['business_type'])?$items['mother_company']['business_type']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -879,7 +893,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="mother_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's email" />
+                                                        <input name="mother_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's email" value="{{($items['mother_company']['email'])?$items['mother_company']['email']:''}}" />
                                                         {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -889,7 +903,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mother_company_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's contact number" />
+                                                            <input name="mother_company_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's contact number" value="{{($items['mother_company']['mobile'])?$items['mother_company']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -902,7 +916,7 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="mother_company_address" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's address" />
+                                                            <input name="mother_company_address" type="text" class="form-control form-control-solid" placeholder="Enter your mother company's address" value="{{($items['mother_company']['address'])?$items['mother_company']['address']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -921,7 +935,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Name:</label>
-                                                        <input name="supplier_company_name" class="form-control form-control-solid" placeholder="Enter your supplier company's name" />
+                                                        <input name="supplier_company_name" class="form-control form-control-solid" placeholder="Enter your supplier company's name" value="{{($items['supplier_company']['name'])?$items['supplier_company']['name']:''}}" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -931,7 +945,7 @@
                                                     <div class="form-group">
                                                         <label>Business Type:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="supplier_company_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's business type" />
+                                                            <input name="supplier_company_business_type" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's business type" value="{{($items['supplier_company']['business_type'])?$items['supplier_company']['business_type']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -943,7 +957,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="supplier_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's email" />
+                                                        <input name="supplier_company_email" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's email" value="{{($items['supplier_company']['email'])?$items['supplier_company']['email']:''}}" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -953,7 +967,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="supplier_company_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's contact number" />
+                                                            <input name="supplier_company_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's contact number" value="{{($items['supplier_company']['mobile'])?$items['supplier_company']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -966,7 +980,7 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="supplier_company_address" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's address" />
+                                                            <input name="supplier_company_address" type="text" class="form-control form-control-solid" placeholder="Enter your supplier company's address" value="{{($items['supplier_company']['address'])?$items['supplier_company']['address']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -985,7 +999,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Name:</label>
-                                                        <input name="recruiting_agency_name" class="form-control form-control-solid" placeholder="Enter your recruiting agency's name" />
+                                                        <input name="recruiting_agency_name" class="form-control form-control-solid" placeholder="Enter your recruiting agency's name" value="{{($items['recruiting_agency']['name'])?$items['recruiting_agency']['name']:''}}" />
                                                         {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -995,7 +1009,7 @@
                                                     <div class="form-group">
                                                         <label>Business Type:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="recruiting_agency_rl_number" type="text" class="form-control form-control-solid" placeholder="Enter your  recruiting agency's business type" />
+                                                            <input name="recruiting_agency_rl_number" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's business type" value="{{($items['recruiting_agency']['rl_number'])?$items['recruiting_agency']['rl_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -1007,7 +1021,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Email:</label>
-                                                        <input name="recruiting_agency_email" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's email" />
+                                                        <input name="recruiting_agency_email" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's email" value="{{($items['recruiting_agency']['email'])?$items['recruiting_agency']['email']:''}}" />
                                                         {{-- {{-- <span class="form-text text-muted">We'll never share your email with anyone else</span> --}}
                                                     </div>
                                                     <!--end::Input-->
@@ -1017,7 +1031,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="recruiting_agency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's contact number" />
+                                                            <input name="recruiting_agency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's contact number" value="{{($items['recruiting_agency']['mobile'])?$items['recruiting_agency']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter entries</span> --}}
                                                     </div>
@@ -1030,7 +1044,7 @@
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="recruiting_agency_address" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's address" />
+                                                            <input name="recruiting_agency_address" type="text" class="form-control form-control-solid" placeholder="Enter your recruiting agency's address" value="{{($items['recruiting_agency']['address'])?$items['recruiting_agency']['address']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -1053,7 +1067,7 @@
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Salary/Wage:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="salary_amount" type="text" class="form-control form-control-solid" placeholder="Enter salary/wage" />
+                                                            <input name="salary_amount" type="text" class="form-control form-control-solid" placeholder="Enter salary/wage" value="{{($items['salary_info']['amount'])?$items['salary_info']['amount']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1062,9 +1076,9 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Currency:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" required>
-                                                            <option value="1">USD</option>
-                                                            <option value="2">BDT</option>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" value="{{($items['salary_info']['currency_id'])?$items['salary_info']['currency_id']:''}}" required>
+                                                            <option value="1" {{($items['salary_info']['currency_id'] == 'USD')?'selected':''}}>USD</option>
+                                                            <option value="2" {{($items['salary_info']['currency_id'] == 'BDT')?'selected':''}}>BDT</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1083,7 +1097,7 @@
                                                     <div class="form-group">
                                                         <label>Account Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" />
+                                                            <input name="current_country_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" value="{{($items['current_country_bank_account']['account_name'])?$items['current_country_bank_account']['account_name']:''}}" required>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1094,7 +1108,7 @@
                                                     <div class="form-group">
                                                         <label>Account Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_bank_account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" />
+                                                            <input name="current_country_bank_account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" value="{{($items['current_country_bank_account']['account_number'])?$items['current_country_bank_account']['account_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1108,7 +1122,7 @@
                                                     <div class="form-group">
                                                         <label>Bank Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" />
+                                                            <input name="current_country_bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" value="{{($items['current_country_bank_account']['bank_name'])?$items['current_country_bank_account']['bank_name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1119,7 +1133,7 @@
                                                     <div class="form-group">
                                                         <label>Branch Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" />
+                                                            <input name="current_country_branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" value="{{($items['current_country_bank_account']['branch_name'])?$items['current_country_bank_account']['branch_name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1133,7 +1147,7 @@
                                                     <div class="form-group">
                                                         <label>Routing Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" />
+                                                            <input name="current_country_routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" value="{{($items['current_country_bank_account']['routing_number'])?$items['current_country_bank_account']['routing_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1144,7 +1158,7 @@
                                                     <div class="form-group">
                                                         <label>Swift:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" />
+                                                            <input name="current_country_swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" value="{{($items['current_country_bank_account']['swift'])?$items['current_country_bank_account']['swift']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1165,7 +1179,7 @@
                                                     <div class="form-group">
                                                         <label>Account Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" />
+                                                            <input name="bd_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" value="{{($items['bd_bank_account']['account_name'])?$items['bd_bank_account']['account_name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1176,7 +1190,7 @@
                                                     <div class="form-group">
                                                         <label>Account Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_bank_account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" />
+                                                            <input name="bd_bank_account_number" type="text" class="form-control form-control-solid" placeholder="Enter Account Number" value="{{($items['bd_bank_account']['account_number'])?$items['bd_bank_account']['account_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1190,7 +1204,7 @@
                                                     <div class="form-group">
                                                         <label>Bank Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" />
+                                                            <input name="bd_bank_name" type="text" class="form-control form-control-solid" placeholder="Enter Bank Name" value="{{($items['bd_bank_account']['bank_name'])?$items['bd_bank_account']['bank_name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1201,7 +1215,7 @@
                                                     <div class="form-group">
                                                         <label>Branch Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" />
+                                                            <input name="bd_branch_name" type="text" class="form-control form-control-solid" placeholder="Enter Branch Name" value="{{($items['bd_bank_account']['branch_name'])?$items['bd_bank_account']['branch_name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1215,7 +1229,7 @@
                                                     <div class="form-group">
                                                         <label>Routing Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" />
+                                                            <input name="bd_routing_number" type="text" class="form-control form-control-solid" placeholder="Enter Routing Number" value="{{($items['bd_bank_account']['routing_number'])?$items['bd_bank_account']['routing_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1226,7 +1240,7 @@
                                                     <div class="form-group">
                                                         <label>Swift:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" />
+                                                            <input name="bd_swift" type="text" class="form-control form-control-solid" placeholder="Enter swift" value="{{($items['bd_bank_account']['swift'])?$items['bd_bank_account']['swift']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1250,7 +1264,7 @@
                                                     <div class="form-group">
                                                         <label>Flat Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_flat_number" type="text" class="form-control form-control-solid" placeholder="Enter flat number" />
+                                                            <input name="cur_country_addr_flat_number" type="text" class="form-control form-control-solid" placeholder="Enter flat number" value="{{($items['current_country_address']['flat_number'])?$items['current_country_address']['flat_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1260,7 +1274,7 @@
                                                     <div class="form-group">
                                                         <label>Holding/House number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_holding_number" type="text" class="form-control form-control-solid" placeholder="Enter holding/house number" />
+                                                            <input name="cur_country_addr_holding_number" type="text" class="form-control form-control-solid" placeholder="Enter holding/house number" value="{{($items['current_country_address']['holding_number'])?$items['current_country_address']['holding_number']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1272,7 +1286,7 @@
                                                     <div class="form-group">
                                                         <label>Street:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_street_number" type="text" class="form-control form-control-solid" placeholder="Enter street name" />
+                                                            <input name="cur_country_addr_street_number" type="text" class="form-control form-control-solid" placeholder="Enter street name" value="{{($items['current_country_address']['street'])?$items['current_country_address']['street']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1285,7 +1299,7 @@
                                                     <div class="form-group">
                                                         <label>Area:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_area" type="text" class="form-control form-control-solid" placeholder="Enter area name" />
+                                                            <input name="cur_country_addr_area" type="text" class="form-control form-control-solid" placeholder="Enter area name" value="{{($items['current_country_address']['area'])?$items['current_country_address']['area']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1295,7 +1309,7 @@
                                                     <div class="form-group">
                                                         <label>Post Code:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" />
+                                                            <input name="cur_country_addr_post_code" type="text" class="form-control form-control-solid" placeholder="Enter post code" value="{{($items['current_country_address']['post_code'])?$items['current_country_address']['post_code']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1307,7 +1321,7 @@
                                                     <div class="form-group">
                                                         <label>City:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_city" type="text" class="form-control form-control-solid" placeholder="Enter city name" />
+                                                            <input name="cur_country_addr_city" type="text" class="form-control form-control-solid" placeholder="Enter city name" value="{{($items['current_country_address']['city'])?$items['current_country_address']['city']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1318,10 +1332,10 @@
                                                         <label>Country:</label>
 
                                                         <div class="input-group date mb-2">
-                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5"  required>
+                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5" required>
                                                                 <option value='null'>Select Country</option>
                                                                 @foreach ($countries as $country)
-                                                                    <option value="{{ $country['id'] }}">
+                                                                    <option value="{{ $country['id'] }}" {{($items['current_country_address']['country_id'] == $country['id'])?'selected':''}}>
                                                                         {{ $country['title'] }}
                                                                     </option>
                                                                 @endforeach
@@ -1337,7 +1351,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_email" type="text" class="form-control form-control-solid" placeholder="Enter your current country email" />
+                                                            <input name="cur_country_addr_email" type="text" class="form-control form-control-solid" placeholder="Enter your current country email" value="{{($items['current_country_address']['email'])?$items['current_country_address']['email']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1347,7 +1361,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_addr_mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" />
+                                                            <input name="cur_country_addr_mobile" type="text" class="form-control form-control-solid" placeholder="Enter contact number" value="{{($items['current_country_address']['mobile'])?$items['current_country_address']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1366,7 +1380,7 @@
                                                     <div class="form-group">
                                                         <label>Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_emergency_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                            <input name="cur_country_emergency_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" value="{{($items['current_country_emergency']['name'])?$items['current_country_emergency']['name']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1376,7 +1390,7 @@
                                                     <div class="form-group">
                                                         <label>Relationship:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_emergency_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                            <input name="cur_country_emergency_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" value="{{($items['current_country_emergency']['relation'])?$items['current_country_emergency']['relation']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1388,7 +1402,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_emergency_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="cur_country_emergency_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" value="{{($items['current_country_emergency']['email'])?$items['current_country_emergency']['email']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1399,7 +1413,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_emergency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="cur_country_emergency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" value="{{($items['current_country_emergency']['mobile'])?$items['current_country_emergency']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1407,12 +1421,12 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xl-8">
+                                                <div class="col-xl-12">
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="cur_country_emergency_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                            <input name="cur_country_emergency_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" value="{{($items['current_country_emergency']['address'])?$items['current_country_emergency']['address']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1433,7 +1447,7 @@
                                                     <div class="form-group">
                                                         <label>Street/Para:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_per_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                            <input name="bd_per_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" value="{{($items['bdPermanentAddress']['street'])?$items['bdPermanentAddress']['street']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1448,7 +1462,7 @@
                                                         <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id" required>
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
-                                                            <option value="{{ $division['id'] }}">
+                                                            <option value="{{ $division['id'] }}" {{($items['bdPermanentAddress']['division_id'] == $division['id'])?'selected':''}}>
                                                                 {{ $division['title_en'] }}
                                                             </option>
                                                             @endforeach
@@ -1461,7 +1475,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" value="{{($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:''}}" required>
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1475,7 +1489,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" value="{{($items['bdPermanentAddress']['upazila_id'])?:''}}" required>
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1486,7 +1500,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" value="{{($items['bdPermanentAddress']['union_id'])?:''}}" required>
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1501,7 +1515,7 @@
                                                     <div class="form-group">
                                                         <label>Area/Village:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_per_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                            <input name="bd_per_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" value="{{($items['bdPermanentAddress']['area'])?$items['bdPermanentAddress']['area']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1512,7 +1526,7 @@
                                                     <div class="form-group">
                                                         <label>Post Office:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_per_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                            <input name="bd_per_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" value="{{($items['bdPermanentAddress']['post_office'])?$items['bdPermanentAddress']['post_office']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1526,7 +1540,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_per_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="bd_per_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" value="{{($items['bdPermanentAddress']['email'])?$items['bdPermanentAddress']['email']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1537,7 +1551,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_per_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="bd_per_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" value="{{($items['bdPermanentAddress']['mobile'])?$items['bdPermanentAddress']['mobile']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1557,7 +1571,7 @@
                                                     <div class="form-group">
                                                         <label>Street/Para:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_present_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" />
+                                                            <input name="bd_present_street" type="text" class="form-control form-control-solid" placeholder="Enter street/para" value="{{($items['bdPresentAddress']['street'])?$items['bdPresentAddress']['street']:''}}" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1572,7 +1586,7 @@
                                                         <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id" required>
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
-                                                            <option value="{{ $division['id'] }}">
+                                                            <option value="{{ $division['id'] }}" {{($items['bdPresentAddress']['division_id'] == $division['id'])?'selected':''}}>
                                                                 {{ $division['title_en'] }}
                                                             </option>
                                                             @endforeach
@@ -1585,7 +1599,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" value="{{($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:''}}" required>
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1599,7 +1613,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" value="{{($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:''}}" required>
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1610,7 +1624,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" value="{{($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:''}}" required>
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1625,7 +1639,7 @@
                                                     <div class="form-group">
                                                         <label>Area/Village:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_present_area" type="text" class="form-control form-control-solid" placeholder="Enter area/village" />
+                                                            <input name="bd_present_area" type="text" class="form-control form-control-solid" value="{{($items['bdPresentAddress']['area'])?$items['bdPresentAddress']['area']:''}}" placeholder="Enter area/village" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1636,7 +1650,7 @@
                                                     <div class="form-group">
                                                         <label>Post Office:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_present_post_office" type="text" class="form-control form-control-solid" placeholder="Enter post office" />
+                                                            <input name="bd_present_post_office" type="text" class="form-control form-control-solid" value="{{($items['bdPresentAddress']['post_office'])?$items['bdPresentAddress']['post_office']:''}}" placeholder="Enter post office" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1650,7 +1664,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_present_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="bd_present_email" type="text" class="form-control form-control-solid" value="{{($items['bdPresentAddress']['email'])?$items['bdPresentAddress']['email']:''}}" placeholder="Enter email" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1661,7 +1675,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_present_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="bd_present_mobile" type="text" class="form-control form-control-solid" value="{{($items['bdPresentAddress']['mobile'])?$items['bdPresentAddress']['mobile']:''}}" placeholder="Enter contact number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1681,7 +1695,7 @@
                                                     <div class="form-group">
                                                         <label>Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emergency_name" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's name" />
+                                                            <input name="bd_emergency_name" type="text" class="form-control form-control-solid" value="{{($items['bd_emergency']['name'])?$items['bd_emergency']['name']:''}}" placeholder="Enter emergency contact's name" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1691,7 +1705,7 @@
                                                     <div class="form-group">
                                                         <label>Relationship:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emergency_relation" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's relation" />
+                                                            <input name="bd_emergency_relation" type="text" class="form-control form-control-solid" value="{{($items['bd_emergency']['relation'])?$items['bd_emergency']['relation']:''}}" placeholder="Enter emergency contact's relation" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1703,7 +1717,7 @@
                                                     <div class="form-group">
                                                         <label>Email:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emergency_email" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's email" />
+                                                            <input name="bd_emergency_email" type="text" class="form-control form-control-solid" value="{{($items['bd_emergency']['email'])?$items['bd_emergency']['email']:''}}" placeholder="Enter emergency contact's email" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -1714,7 +1728,7 @@
                                                     <div class="form-group">
                                                         <label>Contact Number:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emergency_mobile" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's number" />
+                                                            <input name="bd_emergency_mobile" type="text" class="form-control form-control-solid" value="{{($items['bd_emergency']['mobile'])?$items['bd_emergency']['mobile']:''}}" placeholder="Enter emergency contact's number" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1722,12 +1736,12 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xl-8">
+                                                <div class="col-xl-12">
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Address:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="bd_emergency_address" type="text" class="form-control form-control-solid" placeholder="Enter emergency contact's address" />
+                                                            <input name="bd_emergency_address" type="text" class="form-control form-control-solid" value="{{($items['bd_emergency']['address'])?$items['bd_emergency']['address']:''}}" placeholder="Enter emergency contact's address" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1748,7 +1762,7 @@
                                             <div class="form-group">
                                                 <label>Photo:</label>
                                                 <div class="col-lg-12 col-xl-12" style="text-align: center">
-                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url('/img/blank.jpg');">
+                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{($items['image'])?$items['image']:'/img/blank.jpg'}});">
                                                         <div class="image-input-wrapper"></div>
                                                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen icon-sm text-muted"></i>
@@ -1864,6 +1878,42 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+
+// On load functions here
+    $(document).ready(function () {
+        if($('.per_division').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.per_district', {{$items['bdPermanentAddress']['district_id']}})
+        }
+        if($('.per_district').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.per_upazila', {{$items['bdPermanentAddress']['upazila_id']}})
+        }
+        if($('.per_upazila').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.per_union', {{$items['bdPermanentAddress']['union_id']}})
+        }
+        if($('.mail_division').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.mail_district', {{$items['bdPresentAddress']['district_id']}})
+        }
+        if($('.mail_district').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.mail_upazila', {{$items['bdPresentAddress']['upazila_id']}})
+        }
+        if($('.mail_upazila').val()){
+            var l = window.location;
+            var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+            setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union', {{$items['bdPresentAddress']['union_id']}})
+        }
+    });
+
+// On change functions here
     $('.per_division').on('change', function() {
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
@@ -1900,7 +1950,7 @@
         setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union')
     });
 
-    function setData(id, url, className) {
+    function setData(id, url, className, currently_selected) {
         jQuery.ajax({
             type: "GET",
             url: url + id,
@@ -1914,7 +1964,7 @@
                     jQuery(className).append(
                         function() {
                             return $.map(data.data, function(el, i) {
-                                return '<option value=' + el.id + '>' + el.title_en + '</option>';
+                                return '<option value=' + el.id + (currently_selected == el.id)?'selected':'' + '>' + el.title_en + '</option>';
                             });
                         }
                     );
