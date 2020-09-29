@@ -2,16 +2,9 @@
 @section('extra_css')
 
 <style type="text/css">
-
-    @media print {
-
-       #print_area {
-         display: : none;
-       }
-    }
-
-
-
+   @page {
+       margin-top:0px;
+   }
     .table {
         display: table;
         border-spacing: 2px;
@@ -44,13 +37,14 @@
         width: 25% !important;
     }
 
+
 </style>
 @endsection
 
 @section('content')
 
 <!--begin::Entry-->
-<div class="d-flex flex-column-fluid" id="print_area">
+<div class="d-flex flex-column-fluid " style="margin-top: 0px;padding-top: 0px" >
     <!--begin::Container-->
     <div class="container">
         <!-- begin::Card-->
@@ -66,7 +60,7 @@
                             </span>
                         </div>
                         <div class="d-flex justify-content-between pb-10 pb-md-2 py-md-10 flex-column flex-md-row" style="padding-bottom: 0 !important; height: 80px">
-                            <h1 class="display-6 font-weight-bold mb-6 col-md-10" style="text-align: center; margin-bottom: 0 !important; padding-left: 15%">Government of the People's Republic of Bangladesh</h1>
+                            <h2 class="display-6 font-weight-bold mb-6 col-md-10" style="text-align: center; margin-bottom: 0 !important; padding-left: 15%">Government of the People's Republic of Bangladesh</h2>
                             <div class=" col-md-2">
                                 <!--begin::Logo-->
                                 <span class="d-flex flex-column align-items-md-center opacity-80">
@@ -76,16 +70,15 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Bureau of Manpower, Employment and Training (BMET)</h3>
+                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Embassy of Bangladesh</h3>
+                        </div>
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
+                            <h4 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Cambodia, Thailand</h4>
                         </div>
                         <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
                             <h8 class="display-8 mb-6 col-md-10" style="text-align: center; padding-left: 12%">
-                                Website: www.bmet.org.bd, e-mail: registration
-                                @bmet.org.bd
+                                Website: www.bdembassybangkok.org, e-mail: mission.bangkok@mofa.gov.bd
                             </h8>
-                        </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important; padding-top: 5px !important">JOB SEEKER'S REGISTRATION FORM</h3>
                         </div>
                         <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
                             <div class="col-md-11">
@@ -100,25 +93,25 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Passport Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{$item['passport_number']}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">Issue Place</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['passport_issue_place']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Issue Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{$item['passport_issue_date']}}</td>
                                                 <td class=" border-top-0 py-4">Expiry Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['passport_expiry_date']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
+                                                <td class="border-top-0 py-4">{{$item['first_name']}}</td>
                                                 <td class="border-top-0 py-4"></td>
-                                                <td class="border-top-0 py-4"></td>
-                                                <td class="border-top-0 py-4 pr-10" colspan="2"></td>
+                                                <td class="border-top-0 py-4 pr-10" colspan="2">{{$item['last_name']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" colspan="2"></td>
@@ -128,67 +121,67 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Father's Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{$item['father_name']}}</td>
                                                 <td class=" border-top-0 py-4">Mother's Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{$item['mother_name']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Marital Status</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{$item['marital_status']}}</td>
                                                 <td class="border-top-0 py-4">Spouse's Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(First name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['spouse_name']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 py-4 pl-10">National ID</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{$item['nid']}}</td>
                                                 <td class=" border-top-0 py-4">Nationality</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(First name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$country_list[$item['nationality']]}}</td>
 
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Date of Birth</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{date('d-m-Y',strtotime($item['date_of_birth']))}}</td>
                                                 <td class=" border-top-0 py-4">Birth Place</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$country_list[$item['birth_country_id']]}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 py-4 pl-10">Sex</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['gender']}}</td>
                                                 <td class=" border-top-0 py-4">Religion</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['religion']['title']))? $item['religion']['title']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 py-4 pl-10">Email Address</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['email']}}</td>
                                                 <td class=" border-top-0 py-4">Contact Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['mobile']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">LineID</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{$item['line_id']}}</td>
                                                 <td class=" border-top-0 py-4">Facebook ID</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['facebook_id']}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Whatapp ID</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{$item['whatsapp_id']}}</td>
                                                 <td class=" border-top-0 py-4">LinkedIn ID</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['linkedin_id']}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -205,86 +198,85 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Arrival Country</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style='width: 26%'>(First name)</td>
+                                                <td class="border-top-0 py-4" style='width: 26%'>{{(isset($item['arrival']['arrival_country_id']))? $country_list[$item['arrival']['arrival_country_id']]:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Entry Date</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['arrival']['date']))? date('d-m-Y',strtotime($item['arrival']['date'])):''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4">Airport IATA Code</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['arrival']['iata_code']))? $item['arrival']['iata_code']:''}}</td>
                                                 <td class="border-top-0 py-4">Immigration Endorsement Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['arrival']['immigration_endorsement_date']))? date('d-m-Y',strtotime($item['arrival']['immigration_endorsement_date'])):''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Visa Type</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['visa']['visa_type']))? $item['visa']['visa_type']:''}}</td>
                                                 <td class=" border-top-0 py-4">Entry</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['visa']['entry_type']))? $item['visa']['entry_type']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Issue Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['visa']['issue_date']))? date('d-m-Y',strtotime($item['visa']['issue_date'])):''}}</td>
                                                 <td class=" border-top-0 py-4">Expiry Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['visa']['expiry_date']))? date('d-m-Y',strtotime($item['visa']['expiry_date'])):''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-                                {{-- page break for printing --}}
-                                <P style="page-break-before: always">
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
-                                <div class="table-responsive">
+                                <div class="table-responsive" >
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
                                         <thead>
                                             <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employee Information</th>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employment Information</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">BMET Smart Card Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['bmet']['bmet_number']))? $item['bmet']['bmet_number']:''}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">Category Of Workers</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['employment_type']['worker_category_id']))? $item['employment_type']['worker_category_id']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Memo No</td>
+                                                <td class=" border-top-0 pl-10 py-4 ">Ministry Approval Memo No</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
-                                                <td class=" border-top-0 py-4">Issue Date</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['ministry_approval']['memo_number']))? $item['ministry_approval']['memo_number']:''}}</td>
+                                                <td class=" border-top-0 py-4">Ministry Approval Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['ministry_approval']['issue_date']))? date('d-m-Y',strtotime($item['ministry_approval']['issue_date'])):''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Permit Number</td>
+                                                <td class=" border-top-0 pl-10 py-4 ">Work Permit Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['work_permit']['permit_number']))? $item['work_permit']['permit_number']:''}}</td>
                                                 <td class=" border-top-0 py-4">Type Of Worker</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['employment_type']['worker_type_id']))? $item['employment_type']['worker_type_id']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                                <td class=" border-top-0 pl-10 py-4 ">Work Place Email</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
-                                                <td class=" border-top-0 py-4">Contact Number</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['work_place']['email']))? $item['work_place']['email']:''}}</td>
+                                                <td class=" border-top-0 py-4">Work Place Contact</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['work_place']['mobile']))? $item['work_place']['mobile']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                                <td class=" border-top-0 pl-10 py-4 ">Work Place Address</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                                <td class="border-top-0 py-4" colspan="4">{{(isset($item['work_place']['address']))? $item['work_place']['address']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -301,23 +293,23 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['mother_company']['name']))? $item['mother_company']['name']:''}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['mother_company']['business_type']))? $item['mother_company']['business_type']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Email</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['mother_company']['email']))? $item['mother_company']['email']:''}}</td>
                                                 <td class=" border-top-0 py-4">Contact Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['mother_company']['mobile']))? $item['mother_company']['mobile']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Address</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                                <td class="border-top-0 py-4" colspan="4">{{(isset($item['mother_company']['address']))? $item['mother_company']['address']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -326,35 +318,36 @@
                                 <div class="table-responsive">
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
                                         <thead>
-                                            <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Supplier Company Information</th>
-                                            </tr>
+                                        <tr>
+                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Supplier Company Information</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
-                                                <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
-                                                <td class=" border-top-0 py-4">Contact Number</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
-                                            </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['supplier_company']['name']))? $item['supplier_company']['name']:''}}</td>
+                                            <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['supplier_company']['business_type']))? $item['supplier_company']['business_type']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['supplier_company']['email']))? $item['supplier_company']['email']:''}}</td>
+                                            <td class=" border-top-0 py-4">Contact Number</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['supplier_company']['mobile']))? $item['supplier_company']['mobile']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4" colspan="4">{{(isset($item['supplier_company']['address']))? $item['supplier_company']['address']:''}}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
+
 
                                 <div class="table-responsive">
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
@@ -367,23 +360,23 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['recruiting_agency']['name']))? $item['recruiting_agency']['name']:''}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">RL No</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['recruiting_agency']['rl_number']))? $item['recruiting_agency']['rl_number']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Email</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['recruiting_agency']['email']))? $item['recruiting_agency']['email']:''}}</td>
                                                 <td class=" border-top-0 py-4">Contact Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['recruiting_agency']['mobile']))? $item['recruiting_agency']['mobile']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Address</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan="4">(First name)</td>
+                                                <td class="border-top-0 py-4" colspan="4">{{(isset($item['recruiting_agency']['address']))? $item['recruiting_agency']['address']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -400,10 +393,10 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Salary/Wages</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['salary_info']['amount']))? $item['salary_info']['amount']:''}}</td>
                                                 <td class=" border-top-0 py-4" style="width: 25%">Currency</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['salary_info']['currency_id']))? $item['salary_info']['currency_id']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -420,66 +413,66 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['current_country_bank_account']['account_name']))? $item['current_country_bank_account']['account_name']:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['current_country_bank_account']['account_number']))? $item['current_country_bank_account']['account_number']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_bank_account']['bank_name']))? $item['current_country_bank_account']['bank_name']:''}}</td>
                                                 <td class=" border-top-0 py-4">Branch Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['current_country_bank_account']['branch_name']))? $item['current_country_bank_account']['branch_name']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_bank_account']['routing_number']))? $item['current_country_bank_account']['routing_number']:''}}</td>
                                                 <td class=" border-top-0 py-4">SWIFT</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
+                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['current_country_bank_account']['swift']))? $item['current_country_bank_account']['swift']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
                                 {{-- page break for printing --}}
-                                <P style="page-break-before: always">
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
                                 <div class="table-responsive">
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
                                         <thead>
-                                            <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Information About Bank Account In Bangladesh</th>
-                                            </tr>
+                                        <tr>
+                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Information About Bank Account In Bangladesh</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="font-weight-bold">
-                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
-                                                <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
-                                                <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
-                                                <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
-                                                <td class=" border-top-0 py-4">Branch Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
-                                                <td class=" border-top-0 py-4">SWIFT</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">(Last name)</td>
-                                            </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
+                                            <td class="border-top-0 pl-0">:</td>
+                                            <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['bd_bank_account']['account_name']))? $item['bd_bank_account']['account_name']:''}}</td>
+                                            <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
+                                            <td class="border-top-0 pl-0">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['account_number']))? $item['bd_bank_account']['account_number']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['bank_name']))? $item['bd_bank_account']['bank_name']:''}}</td>
+                                            <td class=" border-top-0 py-4">Branch Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['branch_name']))? $item['bd_bank_account']['branch_name']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['routing_number']))? $item['bd_bank_account']['routing_number']:''}}</td>
+                                            <td class=" border-top-0 py-4">SWIFT</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['swift']))? $item['bd_bank_account']['swift']:''}}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -495,39 +488,39 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Flat Number</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['current_country_address']['flat_number']))? $item['current_country_address']['flat_number']:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Holding/House Number</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['holding_number']))? $item['current_country_address']['holding_number']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Street</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan='3'>(First name)</td>
+                                                <td class="border-top-0 py-4" colspan='3'>{{(isset($item['current_country_address']['street']))? $item['current_country_address']['street']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Area</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['area']))? $item['current_country_address']['area']:''}}</td>
                                                 <td class=" border-top-0 py-4">Post Code</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['post_code']))? $item['current_country_address']['post_code']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">City</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['city']))? $item['current_country_address']['city']:''}}</td>
                                                 <td class=" border-top-0 py-4">Country</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['country_id']))? $item['current_country_address']['country_id']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Email</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['email']))? $item['current_country_address']['email']:''}}</td>
                                                 <td class=" border-top-0 py-4">Contact Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_address']['mobile']))? $item['current_country_address']['mobile']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -544,23 +537,23 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">(First name)</td>
+                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['current_country_emergency']['name']))? $item['current_country_emergency']['name']:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Relationship</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_emergency']['relation']))? $item['current_country_emergency']['relation']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Email</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(First name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_emergency']['email']))? $item['current_country_emergency']['email']:''}}</td>
                                                 <td class=" border-top-0 py-4">Contact Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">(Last name)</td>
+                                                <td class="border-top-0 py-4">{{(isset($item['current_country_emergency']['mobile']))? $item['current_country_emergency']['mobile']:''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4">Address</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan='4'>(First name)</td>
+                                                <td class="border-top-0 py-4" colspan='4'>{{(isset($item['current_country_emergency']['address']))? $item['current_country_emergency']['address']:''}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -586,47 +579,47 @@
                                                             <tr class="font-weight-bold">
                                                                 <td class="border-top-0 pl-10 py-4" style="width: 50%">Street/Para</td>
                                                                 <td class="border-top-0 pl-0">:</td>
-                                                                <td class="border-top-0 py-4" style="width: 60%">(First name)</td>
+                                                                <td class="border-top-0 py-4" style="width: 60%">{{(isset($item['bdPresentAddress']['street']))? $item['bdPresentAddress']['street']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Division</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['division']['title']))? $item['bdPresentAddress']['division']['title_en']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">District</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['district']['title']))? $item['bdPresentAddress']['district']['title_en']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['upazila']['title']))? $item['bdPresentAddress']['upazila']['title_en']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Word/Union</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['union']['title']))? $item['bdPresentAddress']['union']['title_en']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Area/Village</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['area']))? $item['bdPresentAddress']['area']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Post Office</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['post_office']))? $item['bdPresentAddress']['post_office']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Email</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['email']))? $item['bdPresentAddress']['email']:''}}</td>
                                                             </tr>
                                                             <tr class="font-weight-bold">
                                                                 <td class=" border-top-0 pl-10 py-4">Contact Number</td>
                                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['mobile']))? $item['bdPresentAddress']['mobile']:''}}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -639,51 +632,51 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr class="font-weight-bold">
-                                                                <td class="border-top-0 pl-10 py-4" style="width: 58%">Street/Para</td>
-                                                                <td class="border-top-0 pl-0">:</td>
-                                                                <td class="border-top-0 py-4" style="width: 60%">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Division</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">District</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Word/Union</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Area/Village</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Post Office</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Email</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
-                                                            <tr class="font-weight-bold">
-                                                                <td class=" border-top-0 pl-10 py-4">Contact Number</td>
-                                                                <td class="border-top-0 pl-0 ">:</td>
-                                                                <td class="border-top-0 py-4">(First name)</td>
-                                                            </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class="border-top-0 pl-10 py-4" style="width: 50%">Street/Para</td>
+                                                            <td class="border-top-0 pl-0">:</td>
+                                                            <td class="border-top-0 py-4" style="width: 60%">{{(isset($item['bdPermanentAddress']['street']))? $item['bdPermanentAddress']['street']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Division</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['division']['title']))? $item['bdPermanentAddress']['division']['title_en']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">District</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['district']['title']))? $item['bdPermanentAddress']['district']['title_en']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['upazila']['title']))? $item['bdPermanentAddress']['upazila']['title_en']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Word/Union</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['union']['title']))? $item['bdPermanentAddress']['union']['title_en']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Area/Village</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['area']))? $item['bdPermanentAddress']['area']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Post Office</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['post_office']))? $item['bdPermanentAddress']['post_office']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['email']))? $item['bdPermanentAddress']['email']:''}}</td>
+                                                        </tr>
+                                                        <tr class="font-weight-bold">
+                                                            <td class=" border-top-0 pl-10 py-4">Contact Number</td>
+                                                            <td class="border-top-0 pl-0 ">:</td>
+                                                            <td class="border-top-0 py-4">{{(isset($item['bdPermanentAddress']['mobile']))? $item['bdPermanentAddress']['mobile']:''}}</td>
+                                                        </tr>
                                                         </tbody>
                                                     </table>
                                                 </td>
@@ -705,15 +698,15 @@
                         <div class="table-responsive">
                             <table class="table" style="border: 0px">
                                 <tbody>
-                                    <tr class="font-weight-bolder">
-                                        <td style="border: 0px" colspan="2">
-                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal
-                                            consequences due to false declarations, formation or use of fake documents.
-                                        </td>
-                                    </tr>
-                                    <tr class="font-weight-bolder">
-                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>
-                                    </tr>
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px" colspan="2">--}}
+{{--                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal--}}
+{{--                                            consequences due to false declarations, formation or use of fake documents.--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>--}}
+{{--                                    </tr>--}}
                                     <tr class="font-weight-bolder">
                                         <td style="border: 0px; text-align: center">
                                             Signature of DEMO Official
@@ -729,7 +722,7 @@
                 </div>
                 <!-- end: Invoice footer-->
                 <!-- begin: Invoice action-->
-                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 noprint">
+                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
                     <div class="col-md-9">
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download Invoice</button>

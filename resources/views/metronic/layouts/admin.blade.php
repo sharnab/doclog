@@ -52,7 +52,7 @@ License: You must have a valid license purchased only from themeforest(the above
         $user = \Illuminate\Support\Facades\Auth::user();
     ?>
     <!--begin::Main-->
-    <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+    <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed d-print-none">
         <!--begin::Logo-->
         <a href="{{ url('/') }}" style="margin: 0 auto">
             <img alt="Logo"  src="{{ asset('assets/media/logos/govt_seal.png')}}" />
@@ -152,7 +152,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="topbar">
 
                             <!--begin::User-->
-                            <div class="topbar-item">
+                            <div class="topbar-item d-print-none">
                                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                     <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                                     <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Super Admin</span>
@@ -175,7 +175,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!--begin::Container-->
 						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
 							<!--begin::Copyright-->
-							<div class="text-dark order-2 order-md-1">
+							<div class="text-dark order-2 order-md-1 d-print-none">
 								<span class="text-muted font-weight-bold mr-2">{{date('Y')}}©</span>
 								<a href="#" target="_blank" class="text-dark-75 text-hover-primary">{{config('sys.app_full_name')}}</a>
 							</div>

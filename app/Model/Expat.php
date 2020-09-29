@@ -75,5 +75,12 @@ class Expat extends Model
 
     }
 
+    public function religion()
+    {
+        return $this->belongsTo('App\Model\Religion', 'religion_id');
+
+    }
+
+
 
 }
