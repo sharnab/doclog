@@ -21,8 +21,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Page Custom Styles(used by this page)-->
-		<link href="{{ asset('assets/css/pages/users/login-4.css') }}" rel="stylesheet" type="text/css" />
-		<!-- <link href="ami_probashi_admin/public/assets/css/pages/users/login-4.css" rel="stylesheet" type="text/css" /> -->
+		<link href="{{ asset('assets/css/pages/users/login-3.css') }}" rel="stylesheet" type="text/css" />
+		<!-- <link href="ami_probashi_admin/public/assets/css/pages/users/login-3.css" rel="stylesheet" type="text/css" /> -->
 		<!--end::Page Custom Styles-->
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -44,43 +44,38 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Main-->
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Login-->
-			<div class="login login-signin-on login-4 d-flex flex-row-fluid" id="kt_login">
-			
-				<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url(ami_probashi_web/public/assets/media/bg/bg-2.jpg);">
-				
+			<div class="login login-signin-on login-3 d-flex flex-row-fluid" id="kt_login">
+
+				<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url(assets/media/bg/bg-3.jpg);">
+
 					<div class="login-form text-center text-white p-7 position-relative overflow-hidden">
 						<!--begin::Login Header-->
 						<div class="d-flex flex-center mb-15">
 							<a href="#">
-								<!-- <img src="{{ asset('assets/media/logos/logo-letter-13.png') }}" class="max-h-75px" alt="" /> -->
 								<img src="{{ asset('assets/media/logos/logo-ams.png') }}" class="max-h-75px" alt="" />
-								
-								<!-- <img src="ami_probashi_admin/public/assets/media/logos/logo-letter-13.png" class="max-h-75px" alt="" /> -->
-								
 							</a>
 						</div>
 						<!--end::Login Header-->
 						<!--begin::Login Sign in form-->
 						<div class="login-signin">
 							<div class="mb-20">
-								<h3 class="opacity-40 font-weight-normal">Sign In To Admin</h3>
-								<p class="opacity-40">Enter your details to login to your account:</p>
-								
+								<h3 style="color: #464E5F;">Sign In To Admin</h3>
+								<div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
 							</div>
 							@include('layouts.alert')
 							<form class="form" action="{{url('login')}}" method="post">
 								{{csrf_field()}}
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Username" name="username" autocomplete="off" />
+									<input class="form-control h-auto form-control-solid py-4 px-8" type="text" placeholder="Username" name="username" autocomplete="off" />
 									@if ($errors->has('username'))
 										<span class="help-block has-error red">
 											<strong>{{ $errors->first('username') }}</strong>
 										</span>
 									@endif
-									
+
             					</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />
+									<input class="form-control h-auto form-control-solid py-4 px-8" type="password" placeholder="Password" name="password" />
 									@if ($errors->has('username'))
 										<span class="help-block has-error red">
 											<strong>{{ $errors->first('password') }}</strong>
@@ -88,7 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									@endif
 								</div>
 								<div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
-									<label class="checkbox checkbox-outline checkbox-white text-white m-0">
+									<label class="checkbox m-0 text-muted">
 									<input type="checkbox" name="remember" />Remember me
 									<span></span></label>
 									<!-- <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Forget Password ?</a> -->
@@ -97,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!-- <button id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3">Sign In</button> -->
 									<button type="submit" id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3">Login</button>
 								</div>
-								
+
 							</form>
 							<!-- <div class="mt-10">
 								<span class="opacity-40 mr-4">Don't have an account yet?</span>
