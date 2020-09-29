@@ -107,6 +107,7 @@
     <div class="container">
         <div class="card card-custom">
             <div class="card-body p-0">
+                @include('layouts.alert')
                 <!--begin::Wizard-->
                 <div class="wizard wizard-1" id="kt_wizard_v1" data-wizard-state="step-first" data-wizard-clickable="false">
                     <!--begin::Wizard Nav-->
@@ -1569,7 +1570,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id">
+                                                        <select class="form-control mail_division" id="kt_select_1" name="bd_present_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
@@ -1585,7 +1586,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id">
+                                                        <select class="form-control mail_district" id="kt_select_1" name="bd_present_district_id">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1599,7 +1600,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id">
+                                                        <select class="form-control mail_upazila" id="kt_select_1" name="bd_present_upazila_id">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1610,7 +1611,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id">
+                                                        <select class="form-control mail_union" id="kt_select_1" name="bd_present_union_id">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}

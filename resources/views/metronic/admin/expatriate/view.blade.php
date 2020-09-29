@@ -200,7 +200,7 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Arrival Country</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style='width: 26%'>{{(isset($item['arrival']['arrival_country_id']))? $country_list[$item['arrival']['arrival_country_id']]:''}}</td>
+                                                <td class="border-top-0 py-4" style='width: 26%'>{{(isset($item['arrival']['arrival_country_id'])&&($item['arrival']['arrival_country_id']>0))? $country_list[$item['arrival']['arrival_country_id']]:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Entry Date</td>
                                                 <td class="border-top-0 pl-0">:</td>
                                                 <td class="border-top-0 py-4">{{(isset($item['arrival']['date']))? date('d-m-Y',strtotime($item['arrival']['date'])):''}}</td>

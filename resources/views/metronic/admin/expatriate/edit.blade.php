@@ -261,8 +261,8 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Passport Number:</label>
-                                                        @if($items['image'])
-                                                            <label style="padding-left: 50%"><a href="{{$items['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @if($items['passport']['passport_file'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['passport']['passport_file']}}" target="_blank">Uploaded image</a></label>
                                                         @endif
                                                         <div class="input-group date">
                                                             <input name="passport_number" type="text" class="form-control form-control-solid" placeholder="Enter passport number" style="width: 90%" value="{{($items['passport_number'])?$items['passport_number']:''}}" />
@@ -279,7 +279,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" data-date-format="dd/mm/yyyy" value="{{($items['passport_issue_date'])?date('d/m/Y', strtotime($items['passport_issue_date'])):''}}"/>
+                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" data-date-format="dd/mm/yyyy" value="{{isset($items['passport_issue_date'])?date('d/m/Y', strtotime($items['passport_issue_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's issue date</span> --}}
                                                     </div>
@@ -292,7 +292,7 @@
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{($items['passport_expiry_date'])?date('d/m/Y', strtotime($items['passport_expiry_date'])):''}}"/>
+                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{isset($items['passport_expiry_date'])?date('d/m/Y', strtotime($items['passport_expiry_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's expiry date</span> --}}
                                                     </div>
@@ -403,7 +403,7 @@
                                                     <div class="form-group">
                                                         <label>Date of Birth:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" value="{{($items['date_of_birth'])?date('d/m/Y', strtotime($items['date_of_birth'])):''}}"/>
+                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" value="{{isset($items['date_of_birth'])?date('d/m/Y', strtotime($items['date_of_birth'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your date of birth</span> --}}
                                                     </div>
@@ -1596,7 +1596,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id">
+                                                        <select class="form-control mail_division" id="kt_select_1" name="bd_present_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}" {{($items['bdPresentAddress']['division_id'] == $division['id'])?'selected':''}}>
@@ -1612,7 +1612,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" value="{{isset($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:''}}">
+                                                        <select class="form-control mail_district" id="kt_select_1" name="bd_present_district_id" value="{{isset($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:''}}">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1626,7 +1626,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" value="{{isset($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:''}}">
+                                                        <select class="form-control mail_upazila" id="kt_select_1" name="bd_present_upazila_id" value="{{isset($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:''}}">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1637,7 +1637,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" value="{{isset($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:''}}">
+                                                        <select class="form-control mail_union" id="kt_select_1" name="bd_present_union_id" value="{{isset($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:''}}">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1897,32 +1897,32 @@
         if($('.per_division').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.per_district', {{isset($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:''}})
+            loadData({{isset($items['bdPermanentAddress']['division_id'])?$items['bdPermanentAddress']['division_id']:'0'}}, base_url + '/public/address/district_by_division?division_id=', '.per_district', {{isset($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:'0'}})
         }
         if($('.per_district').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.per_upazila', {{isset($items['bdPermanentAddress']['upazila_id'])?$items['bdPermanentAddress']['upazila_id']:''}})
+            loadData({{isset($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:'0'}}, base_url + '/public/address/upazila_by_district?district_id=', '.per_upazila', {{isset($items['bdPermanentAddress']['upazila_id'])?$items['bdPermanentAddress']['upazila_id']:'0'}})
         }
         if($('.per_upazila').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.per_union', {{isset($items['bdPermanentAddress']['union_id'])?$items['bdPermanentAddress']['union_id']:''}})
+            loadData({{isset($items['bdPermanentAddress']['upazila_id'])?$items['bdPermanentAddress']['upazila_id']:'0'}}, base_url + '/public/address/union_by_upazila?upazila_id=', '.per_union', {{isset($items['bdPermanentAddress']['union_id'])?$items['bdPermanentAddress']['union_id']:'0'}})
         }
         if($('.mail_division').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/district_by_division?division_id=', '.mail_district', {{isset($items['bdPresentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:''}})
+            loadData({{isset($items['bdPresentAddress']['division_id'])?$items['bdPresentAddress']['division_id']:'0'}}, base_url + '/public/address/district_by_division?division_id=', '.mail_district', {{isset($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:'0'}})
         }
         if($('.mail_district').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/upazila_by_district?district_id=', '.mail_upazila', {{isset($items['bdPresentAddress']['upazila_id'])?$items['bdPermanentAddress']['upazila_id']:''}})
+            loadData({{isset($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:'0'}}, base_url + '/public/address/upazila_by_district?district_id=', '.mail_upazila', {{isset($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:'0'}})
         }
         if($('.mail_upazila').val()){
             var l = window.location;
             var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-            setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union', {{isset($items['bdPresentAddress']['union_id'])?$items['bdPermanentAddress']['union_id']:''}})
+            loadData({{isset($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:'0'}}, base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union', {{isset($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:'0'}})
         }
     });
 
@@ -1963,7 +1963,11 @@
         setData($(this).val(), base_url + '/public/address/union_by_upazila?upazila_id=', '.mail_union')
     });
 
-    function setData(id, url, className, currently_selected) {
+    function loadData(id, url, className, currently_selected) {
+        console.log(id);
+        // console.log(url);
+        // console.log(className);
+        // console.log(currently_selected);
         jQuery.ajax({
             type: "GET",
             url: url + id,
@@ -1977,7 +1981,36 @@
                     jQuery(className).append(
                         function() {
                             return $.map(data.data, function(el, i) {
-                                return '<option value=' + el.id + (currently_selected == el.id)?'selected':'' + '>' + el.title_en + '</option>';
+                                if(el.id == currently_selected){
+                                    return '<option value="' + el.id + '"' + 'selected>' + el.title_en + '</option>';
+                                } else {
+                                    return '<option value=' + el.id + '>' + el.title_en + '</option>';
+                                }
+
+                            });
+                        }
+                    );
+                    jQuery(className).removeAttr('disabled');
+                }
+            }
+        });
+    }
+
+    function setData(id, url, className) {
+        jQuery.ajax({
+            type: "GET",
+            url: url + id,
+            dataType: "JSON",
+            success: function(data) {
+                console.log(data.data);
+                jQuery(className).empty();
+                jQuery(className).prop("selected", false)
+                jQuery(className).attr('disabled', 'disabled');
+                if (data !== '') {
+                    jQuery(className).append(
+                        function() {
+                            return $.map(data.data, function(el, i) {
+                                return '<option value=' + el.id + '>' + el.title_en + '</option>';
                             });
                         }
                     );

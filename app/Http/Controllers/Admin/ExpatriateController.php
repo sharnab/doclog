@@ -857,7 +857,7 @@ class ExpatriateController extends ApiController
         /**
          * Relational Array
          */
-        $withArray = ['religion','visa', 'arrival', 'bmet', 'employmentType', 'ministryApproval', 'workPermit',
+        $withArray = ['passport', 'religion','visa', 'arrival', 'bmet', 'employmentType', 'ministryApproval', 'workPermit',
             'workPlace', 'motherCompany', 'supplierCompany', 'recruitingAgency', 'salaryInfo',
             'currentCountryBankAccount', 'bdBankAccount', 'currentCountryAddress', 'currentCountryEmergency',
             'bdEmergency'];

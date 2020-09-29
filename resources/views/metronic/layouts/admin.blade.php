@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed d-print-none">
         <!--begin::Logo-->
         <a href="{{ url('/') }}" style="margin: 0 auto">
-            <img alt="Logo"  src="{{ asset('assets/media/logos/govt_seal.png')}}" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/govt_seal.png')}}" style="width: 4rem !important"/>
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
