@@ -11,14 +11,14 @@
 										<h5 class="text-dark font-weight-bold my-2 mr-5">Dashboard</h5>
 										<!--end::Page Title-->
 										<!--begin::Breadcrumb-->
-										
+
 										<!--end::Breadcrumb-->
 									</div>
 									<!--end::Page Heading-->
 								</div>
 								<!--end::Info-->
 								<!--begin::Toolbar-->
-								
+
 								<!--end::Toolbar-->
 							</div>
 						</div>
@@ -28,15 +28,15 @@
 							<!--begin::Container-->
 							<div class="container">
 								<!--begin::Notice-->
-								
+
                                 <!--end::Notice-->
                                 <div class="row">
-									<div class="col-lg-6">
+									<div class="col-lg-12">
 										<!--begin::Card-->
 										<div class="card card-custom gutter-b">
 											<div class="card-header">
 												<div class="card-title">
-													<h3 class="card-label">Pie Chart 1</h3>
+													<h3 class="card-label">Expatriate By Gender</h3>
 												</div>
 											</div>
 											<div class="card-body">
@@ -45,55 +45,55 @@
 										</div>
 										<!--end::Card-->
 									</div>
-									<div class="col-lg-6">
-										<!--begin::Card-->
-										<div class="card card-custom gutter-b">
-											<div class="card-header">
-												<div class="card-title">
-													<h3 class="card-label">Pie Chart 2</h3>
-												</div>
-											</div>
-											<div class="card-body">
-												<div id="kt_gchart_4" style="height:500px;"></div>
-											</div>
-										</div>
-										<!--end::Card-->
-									</div>
+{{--									<div class="col-lg-6">--}}
+{{--										<!--begin::Card-->--}}
+{{--										<div class="card card-custom gutter-b">--}}
+{{--											<div class="card-header">--}}
+{{--												<div class="card-title">--}}
+{{--													<h3 class="card-label">Expatriate By Bangladesh Division</h3>--}}
+{{--												</div>--}}
+{{--											</div>--}}
+{{--											<div class="card-body">--}}
+{{--												<div id="kt_gchart_4" style="height:500px;"></div>--}}
+{{--											</div>--}}
+{{--										</div>--}}
+{{--										<!--end::Card-->--}}
+{{--									</div>--}}
 								</div>
 								<!--begin::Row-->
-								<div class="row">
-									<div class="col-lg-6">
-										<!--begin::Card-->
-										<div class="card card-custom gutter-b">
-											<div class="card-header">
-												<div class="card-title">
-													<h3 class="card-label">Column Chart 1</h3>
-												</div>
-											</div>
-											<div class="card-body">
-												<div id="kt_gchart_1" style="height:500px;"></div>
-											</div>
-										</div>
-										<!--end::Card-->
-									</div>
-									<div class="col-lg-6">
-										<!--begin::Card-->
-										<div class="card card-custom gutter-b">
-											<div class="card-header">
-												<div class="card-title">
-													<h3 class="card-label">Column Chart 2</h3>
-												</div>
-											</div>
-											<div class="card-body">
-												<div id="kt_gchart_2" style="height:500px;"></div>
-											</div>
-										</div>
-										<!--end::Card-->
-									</div>
-								</div>
+{{--								<div class="row">--}}
+{{--									<div class="col-lg-6">--}}
+{{--										<!--begin::Card-->--}}
+{{--										<div class="card card-custom gutter-b">--}}
+{{--											<div class="card-header">--}}
+{{--												<div class="card-title">--}}
+{{--													<h3 class="card-label">Column Chart 1</h3>--}}
+{{--												</div>--}}
+{{--											</div>--}}
+{{--											<div class="card-body">--}}
+{{--												<div id="kt_gchart_1" style="height:500px;"></div>--}}
+{{--											</div>--}}
+{{--										</div>--}}
+{{--										<!--end::Card-->--}}
+{{--									</div>--}}
+{{--									<div class="col-lg-6">--}}
+{{--										<!--begin::Card-->--}}
+{{--										<div class="card card-custom gutter-b">--}}
+{{--											<div class="card-header">--}}
+{{--												<div class="card-title">--}}
+{{--													<h3 class="card-label">Column Chart 2</h3>--}}
+{{--												</div>--}}
+{{--											</div>--}}
+{{--											<div class="card-body">--}}
+{{--												<div id="kt_gchart_2" style="height:500px;"></div>--}}
+{{--											</div>--}}
+{{--										</div>--}}
+{{--										<!--end::Card-->--}}
+{{--									</div>--}}
+{{--								</div>--}}
 								<!--end::Row-->
 								<!--begin::Row-->
-								
+
 								<!--end::Row-->
 								<!--begin::Row-->
 								<div class="row">
@@ -102,7 +102,7 @@
 										<div class="card card-custom gutter-b">
 											<div class="card-header">
 												<div class="card-title">
-													<h3 class="card-label">Line Chart 1</h3>
+													<h3 class="card-label">Remittance History by Month</h3>
 												</div>
 											</div>
 											<div class="card-body">

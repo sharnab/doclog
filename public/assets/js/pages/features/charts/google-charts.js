@@ -90,63 +90,84 @@ var KTGoogleChartsDemo = function() {
     }
 
     var demoPieCharts = function() {
+
+
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Work', 11],
-            ['Eat', 2],
-            ['Commute', 2],
-            ['Watch TV', 2],
-            ['Sleep', 7]
+            ['Dhaka', 1000],
+            ['Chittagong', 860],
+            ['Sylhet', 650],
+            ['Barishal', 458],
+            ['Khulna', 850],
+            ['Rajshahi', 480],
+            ['Rangpur', 720]
         ]);
-
         var options = {
-            title: 'My Daily Activities',
-            colors: ['#fe3995', '#f6aa33', '#6e4ff5', '#2abe81', '#c7d2e7', '#593ae1']
+
+            colors: ['#6e4ff5', '#2abe81', '#0f4fc2', '#bd9b33','#a23c3c', '#8cacc6', '#c7d2e7','#4da74d']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('kt_gchart_3'));
         chart.draw(data, options);
 
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Male', 11],
+            ['Female', 2],
+            ['Others', 2]
+        ]);
+
         var options = {
-            pieHole: 0.4,
-            colors: ['#fe3995', '#f6aa33', '#6e4ff5', '#2abe81', '#c7d2e7', '#593ae1']
+            // pieHole: 0.4,
+            colors: ['#a23c3c', '#8cacc6', '#c7d2e7', '#4da74d']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('kt_gchart_4'));
         chart.draw(data, options);
-    }    
+    }
 
     var demoLineCharts = function() {
         // LINE CHART
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Day');
-        data.addColumn('number', 'Guardians of the Galaxy');
-        data.addColumn('number', 'The Avengers');
-        data.addColumn('number', 'Transformers: Age of Extinction');
 
-        data.addRows([
-            [1, 37.8, 80.8, 41.8],
-            [2, 30.9, 69.5, 32.4],
-            [3, 25.4, 57, 25.7],
-            [4, 11.7, 18.8, 10.5],
-            [5, 11.9, 17.6, 10.4],
-            [6, 8.8, 13.6, 7.7],
-            [7, 7.6, 12.3, 9.6],
-            [8, 12.3, 29.2, 10.6],
-            [9, 16.9, 42.9, 14.8],
-            [10, 12.8, 30.9, 11.6],
-            [11, 5.3, 7.9, 4.7],
-            [12, 6.6, 8.4, 5.2],
-            [13, 4.8, 6.3, 3.6],
-            [14, 4.2, 6.2, 3.4]
+        var data = google.visualization.arrayToDataTable([
+            ['Month', 'Remittance'],
+            ['Aug',    80],
+            ['July',    60],
+            ['June',    30],
+            ['May',    25],
+            ['Apr',    40],
+            ['Mar',    50],
+            ['Feb',    85],
+            ['Jan',    82],
+            ['Dec',    60],
+            ['Nov',    70],
+            ['Oct',    85],
+            ['Sep',    70]
         ]);
-
+        // var data = new google.visualization.DataTable();
+        // data.addColumn('date', 'Month');
+        // data.addColumn('number', "Remittance History");
+        //
+        // data.addRows([
+        //     [new Date(2019, 0),  5.7],
+        //     [new Date(2019, 1),  8.7],
+        //     [new Date(2019, 2),   12],
+        //     [new Date(2019, 3), 15.3],
+        //     [new Date(2019, 4), 18.6],
+        //     [new Date(2019, 5), 20.9],
+        //     [new Date(2019, 6), 19.8],
+        //     [new Date(2019, 7), 16.6],
+        //     [new Date(2019, 8), 13.3],
+        //     [new Date(2019, 9),  9.9],
+        //     [new Date(2019, 10), 6.6],
+        //     [new Date(2019, 11), 4.5]
+        // ]);
         var options = {
             chart: {
-                title: 'Box Office Earnings in First Two Weeks of Opening',
+                title: 'Remittance by month',
                 subtitle: 'in millions of dollars (USD)'
             },
-            colors: ['#6e4ff5', '#f6aa33', '#fe3995']
+            colors: ['#3d1cce', '#f6aa33', '#fe3995']
         };
 
         var chart = new google.charts.Line(document.getElementById('kt_gchart_5'));
@@ -160,7 +181,7 @@ var KTGoogleChartsDemo = function() {
         },
 
         runDemos: function() {
-            demoColumnCharts();
+           // demoColumnCharts();
             demoLineCharts();
             demoPieCharts();
         }
