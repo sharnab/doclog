@@ -12,6 +12,7 @@ use App\Model\ExpatBdBankAccount;
 use App\Model\ExpatBmetInfo;
 use App\Model\ExpatCurrentCountryAddress;
 use App\Model\ExpatCurrentCountryBankAccount;
+use App\Model\ExpatDocument;
 use App\Model\ExpatEmergencyContact;
 use App\Model\ExpatEmploymentType;
 use App\Model\ExpatMinistryApproval;
@@ -151,17 +152,14 @@ class ExpatriateController extends ApiController
      */
     public function edit($id)
     {
-<<<<<<< HEAD
+
         $country_list = Country::all();
-        $items = $this->getExpatInfo($id);
-=======
         $religion=Religion::where('active_status',1)->get()->toArray();
         $gender=Gender::where('active_status',1)->get()->toArray();
         $countries=Country::whereIn('id',[26,147])->get()->toArray();
         $country=Country::where('id',181)->get()->toArray();
         $divisions=Division::where('active_status',1)->get()->toArray();
         $items= $this->getExpatInfo($id);
->>>>>>> 09975532f4b4684b52ec48cdb47a452ae6308463
 
         return view('admin.expatriate.edit', compact('items','country_list','religion','gender','countries','country','divisions'));
     }
@@ -266,7 +264,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatPassport::where('id', $id)->update($items);
+            return ExpatPassport::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -302,7 +300,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatVisaInfo::where('id', $id)->update($items);
+            return ExpatVisaInfo::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -337,7 +335,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatTravelHistory::where('id', $id)->update($items);
+            return ExpatTravelHistory::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -363,7 +361,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatBmetInfo::where('id', $id)->update($items);
+            return ExpatBmetInfo::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -385,7 +383,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatEmploymentType::where('id', $id)->update($items);
+            return ExpatEmploymentType::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -416,7 +414,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatMinistryApproval::where('id', $id)->update($items);
+            return ExpatMinistryApproval::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -452,13 +450,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatWorkPermit::where('id', $id)->update($items);
+            return ExpatWorkPermit::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processWorkPlace($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('work_place_mobile')) && empty($request->input('work_place_email')) && empty($request->input('work_place_address')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['email'] = $request->input('work_place_email');
@@ -475,13 +478,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatWorkPlace::where('id', $id)->update($items);
+            return ExpatWorkPlace::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processMotherCompany($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('mother_company_name')) && empty($request->input('mother_company_address')) && empty($request->input('mother_company_mobile')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['name'] = $request->input('mother_company_name');
@@ -500,13 +508,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatMotherCompany::where('id', $id)->update($items);
+            return ExpatMotherCompany::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processSupplierCompany($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('supplier_company_name')) && empty($request->input('supplier_company_business_type')) && empty($request->input('supplier_company_mobile')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['name'] = $request->input('supplier_company_name');
@@ -525,13 +538,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatSupplierCompany::where('id', $id)->update($items);
+            return ExpatSupplierCompany::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processRecruitingAgency($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('recruiting_agency_name')) && empty($request->input('recruiting_agency_rl_number')) && empty($request->input('recruiting_agency_mobile')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['name'] = $request->input('recruiting_agency_name');
@@ -550,13 +568,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatRecruitingAgency::where('id', $id)->update($items);
+            return ExpatRecruitingAgency::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processSalaryInfo($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('salary_amount')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['amount'] = $request->input('salary_amount');
@@ -572,13 +595,17 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatSalaryInfo::where('id', $id)->update($items);
+            return ExpatSalaryInfo::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processCurrentCountryBankAccount($request, $expat_id, $type = 1, $id = null)
     {
+        if(empty($request->input('current_country_bank_account_name')) && empty($request->input('current_country_bank_account_number')) && empty($request->input('current_country_bank_name')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['account_name'] = $request->input('current_country_bank_account_name');
@@ -598,13 +625,17 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatCurrentCountryBankAccount::where('id', $id)->update($items);
+            return ExpatCurrentCountryBankAccount::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processBdBankAccount($request, $expat_id, $type = 1, $id = null)
     {
+        if(empty($request->input('bd_bank_account_name')) && empty($request->input('bd_bank_account_number')) && empty($request->input('bd_bank_name')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['account_name'] = $request->input('bd_bank_account_name');
@@ -624,13 +655,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatBdBankAccount::where('id', $id)->update($items);
+            return ExpatBdBankAccount::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processCurrentCountryAddress($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('cur_country_addr_city')) && empty($request->input('cur_country_addr_country_id')))
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['flat_number'] = $request->input('cur_country_addr_flat_number');
@@ -653,13 +689,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatCurrentCountryAddress::where('id', $id)->update($items);
+            return ExpatCurrentCountryAddress::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processCurrentCountryEmergency($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('cur_country_emergency_name')) && empty($request->input('cur_country_emergency_relation')) && empty($request->input('cur_country_emergency_mobile')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['contact_type'] = 1;
@@ -679,13 +720,17 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::where('id', $id)->update($items);
+            return ExpatEmergencyContact::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processBdPermanent($request, $expat_id, $type = 1, $id = null)
     {
+        if(empty($request->input('bd_per_division_id')) && empty($request->input('bd_per_district_id')) && empty($request->input('bd_per_upazila_id')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['location_type'] = 1;
@@ -712,13 +757,17 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatBdAddress::where('id', $id)->update($items);
+            return ExpatBdAddress::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processBdPresent($request, $expat_id, $type = 1, $id = null)
     {
+        if(empty($request->input('bd_present_division_id')) && empty($request->input('bd_present_district_id')) && empty($request->input('bd_present_upazila_id')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['location_type'] = 1;
@@ -745,13 +794,18 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatBdAddress::where('id', $id)->update($items);
+            return ExpatBdAddress::where('expat_id', $expat_id)->update($items);
         }
 
     }
 
     private function processBdEmergency($request, $expat_id, $type = 1, $id = null)
     {
+
+        if(empty($request->input('bd_emergency_name')) && empty($request->input('bd_emergency_relation')) && empty($request->input('bd_emergency_mobile')) )
+        {
+            return false;
+        }
 
         $items['expat_id'] = $expat_id;
         $items['contact_type'] = 2;
@@ -771,7 +825,7 @@ class ExpatriateController extends ApiController
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::where('id', $id)->update($items);
+            return ExpatEmergencyContact::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -791,13 +845,13 @@ class ExpatriateController extends ApiController
             $items['active_status'] = 1;
             $items['created_by'] = Auth::id();
             $items['created_at'] = date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::insert($items);
+            return ExpatDocument::insert($items);
         } else {
             //Update data
             // $items['active_status']=1;
             $items['updated_by'] = Auth::id();
             $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatEmergencyContact::where('id', $id)->update($items);
+            return ExpatDocument::where('expat_id', $expat_id)->update($items);
         }
 
     }
@@ -1105,17 +1159,85 @@ class ExpatriateController extends ApiController
      */
     public function show($id)
     {
-<<<<<<< HEAD
+
         $country_list = $this->getCountryList();
         $item = $this->getExpatInfo($id);
 
         return view('admin.expatriate.view', compact('item', 'country_list'));
-=======
+
         $country_list = Country::all();
        $items= $this->getExpatInfo($id);
-       dd($items);
-        // return view('admin.expatriate.view');
->>>>>>> 09975532f4b4684b52ec48cdb47a452ae6308463
+
+         return view('admin.expatriate.view');
+
+    }
+
+
+    public function update(Request $request, $expat_id)
+    {
+
+
+        $rules = [
+            "passport_number" => "required",
+            "passport_expiry_date" => "required",
+            "first_name" => "required",
+            "visa_type" => "required",
+            "visa_expiry_date" => "required",
+        ];
+
+        $request->validate($rules);
+
+//        if($request->hasFile('profile_image'))
+//        {
+//            $img_path = $this->uploadFile($request,'profile_image','profile');
+//            $items['image']=$img_path;
+//        }
+
+//        if($request->hasFile('profile_image'))
+//        {
+//            $img_path = $this->uploadFile($request,'profile_image','profile');
+//            $items['image']=$img_path;
+//        }
+
+        /**
+         * Check is passport Number exist
+         */
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNoIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processBasicInfo($request, 2,$expat_id);
+        $this->processPassport($request, $expat_id, 2);
+        $this->processVisa($request, $expat_id, 2);
+        $this->processArrival($request, $expat_id, 2);
+        $this->processBMET($request, $expat_id, 2);
+        $this->processEmploymentType($request, $expat_id, 2);
+        $this->processMinistryApproval($request, $expat_id, 2);
+        $this->processWorkPermit($request, $expat_id, 2);
+        $this->processWorkPlace($request, $expat_id, 2);
+        $this->processMotherCompany($request, $expat_id, 2);
+        $this->processSupplierCompany($request, $expat_id, 2);
+        $this->processRecruitingAgency($request, $expat_id, 2);
+        $this->processSalaryInfo($request, $expat_id, 2);
+        $this->processCurrentCountryBankAccount($request, $expat_id, 2);
+        $this->processBdBankAccount($request, $expat_id, 2);
+        $this->processCurrentCountryAddress($request, $expat_id, 2);
+        $this->processCurrentCountryEmergency($request, $expat_id, 2);
+        $this->processBdPermanent($request, $expat_id, 2);
+        $this->processBdPresent($request, $expat_id, 2);
+        $this->processBdEmergency($request, $expat_id, 2);
+        $this->processDocuments($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('user');
+
+
     }
 
     /**
