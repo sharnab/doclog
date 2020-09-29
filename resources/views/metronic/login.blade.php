@@ -36,7 +36,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('assets/css/themes/layout/aside/dark.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<!-- <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" /> -->
-		<link rel="shortcut icon" href="{{ asset('assets/media/logos/ami_probashi.ico')}}" />
+		<link rel="shortcut icon" href="{{ asset('assets/media/logos/eims.ico')}}" />
 
 		<style>
 			.btn.btn-primary{
