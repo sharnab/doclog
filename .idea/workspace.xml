@@ -4,6 +4,7 @@
     <list default="true" id="db0a6ae9-a646-41d9-8086-25d7e80f85f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Expat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Expat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/metronic/admin/expatriate/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/metronic/admin/expatriate/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +159,7 @@
       <workItem from="1600968522647" duration="23429000" />
       <workItem from="1601182179200" duration="7618000" />
       <workItem from="1601192759928" duration="29057000" />
-      <workItem from="1601269067916" duration="10896000" />
+      <workItem from="1601269067916" duration="19572000" />
     </task>
     <servers />
   </component>
