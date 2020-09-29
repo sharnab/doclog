@@ -2,16 +2,9 @@
 @section('extra_css')
 
 <style type="text/css">
-
-    @media print {
-
-       #print_area {
-         display: none;
-       }
-    }
-
-
-
+   @page {
+       margin-top:0px;
+   }
     .table {
         display: table;
         border-spacing: 2px;
@@ -44,13 +37,14 @@
         width: 25% !important;
     }
 
+
 </style>
 @endsection
 
 @section('content')
 
 <!--begin::Entry-->
-<div class="d-flex flex-column-fluid" id="print_area">
+<div class="d-flex flex-column-fluid " style="margin-top: 0px;padding-top: 0px" >
     <!--begin::Container-->
     <div class="container">
         <!-- begin::Card-->
@@ -76,16 +70,15 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Bureau of Manpower, Employment and Training (BMET)</h3>
+                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Embassy of Bangladesh</h3>
+                        </div>
+                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
+                            <h4 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Cambodia, Thailand</h4>
                         </div>
                         <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
                             <h8 class="display-8 mb-6 col-md-10" style="text-align: center; padding-left: 12%">
-                                Website: www.bmet.org.bd, e-mail: registration
-                                @bmet.org.bd
+                                Website: www.bdembassybangkok.org, e-mail: mission.bangkok@mofa.gov.bd
                             </h8>
-                        </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important; padding-top: 5px !important">JOB SEEKER'S REGISTRATION FORM</h3>
                         </div>
                         <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
                             <div class="col-md-11">
@@ -238,14 +231,13 @@
                                     </table>
                                 </div>
 
-                                {{-- page break for printing --}}
-                                <P style="page-break-before: always">
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
-                                <div class="table-responsive">
+                                <div class="table-responsive" >
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
                                         <thead>
                                             <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employee Information</th>
+                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employment Information</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -447,8 +439,7 @@
                                 </div>
 
                                 {{-- page break for printing --}}
-                                <P style="page-break-before: always">
-
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
                                 <div class="table-responsive">
                                     <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
@@ -707,15 +698,15 @@
                         <div class="table-responsive">
                             <table class="table" style="border: 0px">
                                 <tbody>
-                                    <tr class="font-weight-bolder">
-                                        <td style="border: 0px" colspan="2">
-                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal
-                                            consequences due to false declarations, formation or use of fake documents.
-                                        </td>
-                                    </tr>
-                                    <tr class="font-weight-bolder">
-                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>
-                                    </tr>
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px" colspan="2">--}}
+{{--                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal--}}
+{{--                                            consequences due to false declarations, formation or use of fake documents.--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>--}}
+{{--                                    </tr>--}}
                                     <tr class="font-weight-bolder">
                                         <td style="border: 0px; text-align: center">
                                             Signature of DEMO Official
@@ -731,7 +722,7 @@
                 </div>
                 <!-- end: Invoice footer-->
                 <!-- begin: Invoice action-->
-                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 noprint">
+                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
                     <div class="col-md-9">
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download Invoice</button>
