@@ -67,15 +67,15 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!--begin::Login Header-->
 						<div class="d-flex flex-center mb-15">
 							<a href="#">
-								<img src="{{ asset('assets/media/logos/Embassy-of-Bangladesh.jpg') }}" class="max-h-75px" alt="" />
+								<img src="{{ asset('assets/media/logos/Embassy-of-Bangladesh.png') }}" class="max-h-75px" alt="" />
 							</a>
 						</div>
 						<!--end::Login Header-->
 						<!--begin::Login Sign in form-->
 						<div class="login-signin">
 							<div class="mb-20">
-								<h3 style="color: #464E5F;">Sign In To Admin</h3>
-								<div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
+								<h3 style="color: #464E5F;">Sign In</h3>
+{{--								<div class="text-muted font-weight-bold">Admin login:</div>--}}
 							</div>
 							@include('layouts.alert')
 							<form class="form" action="{{url('login')}}" method="post">
