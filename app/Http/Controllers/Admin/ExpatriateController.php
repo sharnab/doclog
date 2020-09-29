@@ -891,7 +891,8 @@ class ExpatriateController extends ApiController
 
         $items = ExpatBdAddress::with($with_array)->where('expat_id', $expat_id)->where('address_type', 1)->get();
 
-        if (empty($items)) {
+
+        if ($items->isEmpty()) {
             return [];
         }
 
@@ -908,10 +909,9 @@ class ExpatriateController extends ApiController
 
         $items = ExpatBdAddress::with($with_array)->where('expat_id', $expat_id)->where('address_type', 2)->get();
 
-        if (empty($items)) {
+        if($items->IsEmpty()) {
             return [];
         }
-
         $items = $items->toArray();
         return $items[0];
 
