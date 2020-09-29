@@ -36,7 +36,22 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('assets/css/themes/layout/aside/dark.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<!-- <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" /> -->
-		<link rel="shortcut icon" href="{{ asset('assets/media/logos/ami_probashi.ico')}}" />
+		<link rel="shortcut icon" href="{{ asset('assets/media/logos/eims.ico')}}" />
+
+		<style>
+			.btn.btn-primary{
+				background-color: #296b4c;
+				border-color: #296b4c;
+			}
+			.btn.btn-primary:hover:not(.btn-text), .btn.btn-primary:focus:not(.btn-text), .btn.btn-primary.focus:not(.btn-text){
+				background-color: #338860;
+				border-color: #338860;
+			}
+			.btn.btn-primary:not(:disabled):not(.disabled):active:not(.btn-text), .btn.btn-primary:not(:disabled):not(.disabled).active, .show>.btn.btn-primary.dropdown-toggle, .show .btn.btn-primary.btn-dropdown{
+				background-color: #71c3b1;
+				border-color: #71c3b1;
+			}
+		</style>
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -46,13 +61,13 @@ License: You must have a valid license purchased only from themeforest(the above
 			<!--begin::Login-->
 			<div class="login login-signin-on login-3 d-flex flex-row-fluid" id="kt_login">
 
-				<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url(assets/media/bg/bg-3.jpg);">
+				<div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: {{asset('assets/media/bg/bg-3.jpg')}};">
 
 					<div class="login-form text-center text-white p-7 position-relative overflow-hidden">
 						<!--begin::Login Header-->
 						<div class="d-flex flex-center mb-15">
 							<a href="#">
-								<img src="{{ asset('assets/media/logos/logo-ams.png') }}" class="max-h-75px" alt="" />
+								<img src="{{ asset('assets/media/logos/Embassy-of-Bangladesh.jpg') }}" class="max-h-75px" alt="" />
 							</a>
 						</div>
 						<!--end::Login Header-->

@@ -259,8 +259,9 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Passport Number:</label>
-                                                        @if($items['passport_image'])
-                                                        <label style="padding-left: 50%"><a href="{{$items['passport_image']}}" target="_blank">Uploaded image</a></label>
+                                                        @if($items['image'])
+                                                            <label style="padding-left: 50%"><a href="{{$items['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date">
                                                             <input name="passport_number" type="text" class="form-control form-control-solid" placeholder="Enter passport number" style="width: 90%" value="{{($items['passport_number'])?$items['passport_number']:''}}" />
                                                             <label class="btn btn-default">
@@ -383,6 +384,7 @@
                                                         <label>National ID:</label>
                                                         @if($items['nid_image'])
                                                             <label style="padding-left: 50%"><a href="{{$items['nid_image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date">
                                                             <input name="nid" type="text" class="form-control form-control-solid" placeholder="Enter national id number" value="{{($items['nid'])?$items['nid']:''}}" />
                                                             <label class="btn btn-default">
@@ -556,6 +558,7 @@
                                                         <label>Immigration Endorsement Date:</label>
                                                         @if($items['arrival']['immigration_endorsement_file'])
                                                             <label style="padding-left: 50%"><a href="{{$items['arrival']['immigration_endorsement_file']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" value="{{($items['arrival']['immigration_endorsement_date'])?date('d/m/Y', strtotime($items['arrival']['immigration_endorsement_date'])):''}}"/>
                                                             <label class="btn btn-default">
@@ -581,6 +584,7 @@
                                                         <label><mark style="color: red; background: white">*</mark>Visa Type:</label>
                                                         @if($items['visa']['image'])
                                                             <label style="padding-left: 50%"><a href="{{$items['visa']['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="visa_type" type="text" class="form-control form-control-solid" value="{{($items['visa']['visa_type'])?$items['visa']['visa_type']:''}}" placeholder="Enter visa type" />
                                                             <label class="btn btn-default">
@@ -704,6 +708,7 @@
                                                         <label><mark style="color: red; background: white">*</mark>BMET Smart Card Number:</label>
                                                         @if($items['bmet']['image'])
                                                             <label style="padding-left: 50%"><a href="{{$items['bmet']['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date">
                                                             <input name="bmet_number" type="text" class="form-control form-control-solid" placeholder="Enter BMET Smart Card Number" value="{{($items['bmet']['bmet_number'])?$items['bmet']['bmet_number']:''}}" />
                                                             <label class="btn btn-default">
@@ -738,6 +743,7 @@
                                                         <label>Memo Number:</label>
                                                         @if($items['ministry_approval']['image'])
                                                             <label style="padding-left: 50%"><a href="{{$items['ministry_approval']['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="memo_number" type="text" class="form-control form-control-solid" placeholder="Enter Memo Number" value="{{($items['ministry_approval']['memo_number'])?$items['ministry_approval']['memo_number']:''}}" />
                                                             <label class="btn btn-default">
@@ -772,6 +778,7 @@
                                                         <label>Permit Number:</label>
                                                         @if($items['work_permit']['image'])
                                                             <label style="padding-left: 50%"><a href="{{$items['work_permit']['image']}}" target="_blank">Uploaded image</a></label>
+                                                        @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="work_permit_number" type="text" class="form-control form-control-solid" placeholder="Enter your work permit number" value="{{($items['work_permit']['permit_number'])?$items['work_permit']['permit_number']:''}}" />
                                                             <label class="btn btn-default">
