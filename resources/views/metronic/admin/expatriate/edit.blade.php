@@ -107,6 +107,7 @@
     <div class="container">
         <div class="card card-custom">
             <div class="card-body p-0">
+                @include('layouts.alert')
                 <!--begin::Wizard-->
                 <div class="wizard wizard-1" id="kt_wizard_v1" data-wizard-state="step-first" data-wizard-clickable="false">
                     <!--begin::Wizard Nav-->
@@ -245,8 +246,9 @@
                     <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                         <div class="col-xl-12">
                             <!--begin::Wizard Form-->
-                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" method="POST" name="basicInfo" action="{{ route('user_store') }}" enctype="multipart/form-data">
+                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" method="POST"  action="{{ route('user_update', $items['id']) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                {{method_field('PUT')}}
                                 <!--begin::Wizard Step 1-->
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                     <div class="card card-custom gutter-b" style="margin: 25px 0">
@@ -349,7 +351,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Maritial Status:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="marital_status" required>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="marital_status">
                                                             <option value='Unmarried' {{($items['marital_status'] == 'Unmarried')?'selected':''}}>Unmarried</option>
                                                             <option value='Married' {{($items['marital_status'] == 'Married')?'selected':''}}>Married</option>
                                                             <option value='Divorsed' {{($items['marital_status'] == 'Divorsed')?'selected':''}}>Divorsed</option>
@@ -369,7 +371,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Nationality:</label>
-                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" value="{{($items['nationality'])?$items['nationality']:'181'}}" required>
+                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" value="{{($items['nationality'])?$items['nationality']:'181'}}">
                                                             @foreach ($country as $nationality)
                                                             <option value="{{ $nationality['id'] }}" {{($items['nationality'] == $nationality['id'])?'selected':''}}>
                                                                 {{ $nationality['title'] }}
@@ -409,7 +411,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Birth Place:</label>
-                                                        <select class="form-control birth_country" id="kt_select_1" name="birth_country_id" required>
+                                                        <select class="form-control birth_country" id="kt_select_1" name="birth_country_id">
                                                             @foreach ($country as $birth_place)
                                                             <option value="{{ $birth_place['id'] }} {{($items['birth_place'] == $birth_place['id'])?'selected':''}}">
                                                                 {{ $birth_place['title'] }}
@@ -424,7 +426,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Gender:</label>
-                                                        <select class="form-control gender" id="kt_select_1" name="gender" required>
+                                                        <select class="form-control gender" id="kt_select_1" name="gender">
                                                             <option value='null'>Select Gender</option>
                                                             @foreach ($gender as $gen)
                                                             <option value="{{ $gen['id'] }}" {{($items['gender'] == $gen['title'])?'selected':''}}>
@@ -438,7 +440,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Religion:</label>
-                                                        <select class="form-control religion" id="kt_select_1" name="religion_id" required>
+                                                        <select class="form-control religion" id="kt_select_1" name="religion_id">
                                                             <option value='null'>Select Religion</option>
                                                             @foreach ($religion as $religion)
                                                             <option value="{{ $religion['id'] }}" {{($items['religion_id'] == $religion['id'])?'selected':''}}>
@@ -530,7 +532,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Arrival Country:</label>
-                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" value="" required>
+                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" value="">
                                                             <option value='null'>Select Country</option>
                                                             @foreach ($countries as $country)
                                                             <option value="{{ $country['id'] }}" {{($items['arrival']['arrival_country_id'] == $country['id'])?'selected':''}}>
@@ -1083,7 +1085,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Currency:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" value="{{($items['salary_info']['currency_id'])?$items['salary_info']['currency_id']:''}}" required>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" value="{{($items['salary_info']['currency_id'])?$items['salary_info']['currency_id']:''}}">
                                                             <option value="1" {{($items['salary_info']['currency_id'] == 'USD')?'selected':''}}>USD</option>
                                                             <option value="2" {{($items['salary_info']['currency_id'] == 'BDT')?'selected':''}}>BDT</option>
                                                         </select>
@@ -1104,7 +1106,7 @@
                                                     <div class="form-group">
                                                         <label>Account Name:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="current_country_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" value="{{($items['current_country_bank_account']['account_name'])?$items['current_country_bank_account']['account_name']:''}}" required>
+                                                            <input name="current_country_bank_account_name" type="text" class="form-control form-control-solid" placeholder="Enter Account Name" value="{{($items['current_country_bank_account']['account_name'])?$items['current_country_bank_account']['account_name']:''}}">
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
                                                     </div>
@@ -1339,7 +1341,7 @@
                                                         <label>Country:</label>
 
                                                         <div class="input-group date mb-2">
-                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5" required>
+                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5">
                                                                 <option value='null'>Select Country</option>
                                                                 @foreach ($countries as $country)
                                                                     <option value="{{ $country['id'] }}" {{($items['current_country_address']['country_id'] == $country['id'])?'selected':''}}>
@@ -1466,7 +1468,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}" {{($items['bdPermanentAddress']['division_id'] == $division['id'])?'selected':''}}>
@@ -1482,7 +1484,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" value="{{($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:''}}" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" value="{{($items['bdPermanentAddress']['district_id'])?$items['bdPermanentAddress']['district_id']:''}}">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1496,7 +1498,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" value="{{($items['bdPermanentAddress']['upazila_id'])?:''}}" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" value="{{($items['bdPermanentAddress']['upazila_id'])?:''}}">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1507,7 +1509,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" value="{{($items['bdPermanentAddress']['union_id'])?:''}}" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" value="{{($items['bdPermanentAddress']['union_id'])?:''}}">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1590,7 +1592,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}" {{($items['bdPresentAddress']['division_id'] == $division['id'])?'selected':''}}>
@@ -1606,7 +1608,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" value="{{($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:''}}" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" value="{{($items['bdPresentAddress']['district_id'])?$items['bdPresentAddress']['district_id']:''}}">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1620,7 +1622,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" value="{{($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:''}}" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" value="{{($items['bdPresentAddress']['upazila_id'])?$items['bdPresentAddress']['upazila_id']:''}}">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1631,7 +1633,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" value="{{($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:''}}" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" value="{{($items['bdPresentAddress']['union_id'])?$items['bdPresentAddress']['union_id']:''}}">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1769,12 +1771,12 @@
                                             <div class="form-group">
                                                 <label>Photo:</label>
                                                 <div class="col-lg-12 col-xl-12" style="text-align: center">
-                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{($items['image'])?$items['image']:'/img/blank.jpg'}});">
+                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{($items['image'])?asset($items['image']):'/img/blank.jpg'}});">
                                                         <div class="image-input-wrapper"></div>
                                                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen icon-sm text-muted"></i>
-                                                            <input type="file" name="profile_image" accept=".png, .jpg, .jpeg" />
-                                                            <input type="hidden" name="profile_image_remove" />
+                                                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
+                                                            <input type="hidden" name="profile_avatar_remove" />
                                                         </label>
                                                         <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
                                                             <i class="ki ki-bold-close icon-xs text-muted"></i>

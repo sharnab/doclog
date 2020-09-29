@@ -54,32 +54,34 @@
                 <!-- begin: Invoice header-->
                 <div class="row justify-content-center py-8 px-6 py-md-2 px-md-0">
                     <div class="col-md-12">
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row py-md-5" style="padding-bottom: 0 !important; height: 50px;">
-                            <span class="opacity-100" style="text-align: center; padding-right: 8%">
-                                <img src="{{url('/img/govt_seal.png')}}" style="width: 5%; text-align: center" />
-                            </span>
-                        </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-2 py-md-10 flex-column flex-md-row" style="padding-bottom: 0 !important; height: 80px">
-                            <h2 class="display-6 font-weight-bold mb-6 col-md-10" style="text-align: center; margin-bottom: 0 !important; padding-left: 15%">Government of the People's Republic of Bangladesh</h2>
-                            <div class=" col-md-2">
-                                <!--begin::Logo-->
-                                <span class="d-flex flex-column align-items-md-center opacity-80">
-                                    <img src="{{url('/uploads/demo-user.png')}}" style="width: 70%; text-align: center" />
-                                </span>
-                                <!--end::Logo-->
+                        <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
+                            <div class="col-md-11">
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
+                                        <tbody>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-4 col-md-6" style="text-align: center; padding-left: 20% !important"><img src="{{url('/img/govt_seal.png')}}" style="width: 15%; text-align: center;" /></td>
+                                                <td class="border-top-0 pl-10 py-4 col-md-4"></td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-10 py-0 col-md-6" style="text-align: center;"><h2 class="display-6 font-weight-bold mb-6" style="text-align: center; margin-bottom: 0 !important; padding-left: 20%">Government of the People's Republic of Bangladesh</h2></td>
+                                                <td class="border-top-0 pl-10 py-0 col-md-4" rowspan="4"><img src="{{asset($item['image'])}}" style="width: 140px; text-align: left" /></td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-42 py-0 col-md-6" style="text-align: center; padding-left: 20%;"><h3 class="display-8 font-weight-bold mb-6" style="text-align: center; margin-bottom: 5px !important">Embassy of Bangladesh</h3></td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-42 py-0 col-md-6" style="text-align: center; padding-left: 20%;"><h4 class="display-8 font-weight-bold mb-6" style="text-align: center; margin-bottom: 5px !important">Cambodia, Thailand</h4></td>
+                                            </tr>
+                                            <tr class="font-weight-bold">
+                                                <td class="border-top-0 pl-42 py-0 col-md-6" style="text-align: center; padding-left: 23%;"><h8 class="display-8 mb-6" style="text-align: center;">www.bdembassybangkok.org, mission.bangkok@mofa.gov.bd</h8></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h3 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Embassy of Bangladesh</h3>
-                        </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h4 class="display-8 font-weight-bold mb-6 col-md-10" style="text-align: center; padding-left: 15%; margin-bottom: 5px !important">Cambodia, Thailand</h4>
-                        </div>
-                        <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row" style="padding-bottom: 0 !important;">
-                            <h8 class="display-8 mb-6 col-md-10" style="text-align: center; padding-left: 12%">
-                                Website: www.bdembassybangkok.org, e-mail: mission.bangkok@mofa.gov.bd
-                            </h8>
-                        </div>
+
                         <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
                             <div class="col-md-11">
                                 <div class="table-responsive">

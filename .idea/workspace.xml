@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db0a6ae9-a646-41d9-8086-25d7e80f85f6" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/eims.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eims.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -214,6 +215,9 @@
       <change beforePath="$PROJECT_DIR$/resources/views/metronic/admin/expatriate/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/metronic/admin/expatriate/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/metronic/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/metronic/layouts/admin.blade.php" afterDir="false" />
 >>>>>>> 25c96e453f9243018a95a43d04f00cf38d93b649
+=======
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExpatriateController.php" afterDir="false" />
+>>>>>>> 710f59344261c6eef4fdb4f28a233f32692d7bd0
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir/" />
@@ -617,11 +621,15 @@
       <workItem from="1601182179200" duration="7618000" />
       <workItem from="1601192759928" duration="29057000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1601269067916" duration="9167000" />
       <workItem from="1601304430665" duration="1558000" />
 =======
       <workItem from="1601269067916" duration="29396000" />
 >>>>>>> 25c96e453f9243018a95a43d04f00cf38d93b649
+=======
+      <workItem from="1601269067916" duration="30013000" />
+>>>>>>> 710f59344261c6eef4fdb4f28a233f32692d7bd0
     </task>
     <servers />
   </component>

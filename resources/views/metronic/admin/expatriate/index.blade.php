@@ -180,18 +180,18 @@
                                 <td>{{ ++$sl }}</td>
 
                                 <td>@if($user['image'])
-                                        <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{'http://103.9.185.218/ami_probashi_api/files/profileimage/'.$user['image']}}"/>
+                                        <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{asset($user['image'])}}"/>
 
                                     @else
                                         <img alt="" class="img-circle" style="width: 100%;max-width: 40px;height: 40px;border-radius: 10%;"src="{{ asset('img/default-avatar.png')}}"/>
                                     @endif</td>
                                 <td>{{ $user['first_name'] }}</td>
                                 <td>{{ $user['passport_number'] }}</td>
-                                <td>{{ $user['phone'] }}</td>
+                                <td>{{ $user['mobile'] }}</td>
                                 <td>{{ $user['email'] }}</td>
                                 <td>
-                                    <span class="label label-sm label-{{ $user['active_status'] == 1 ? 'success' : 'danger' }} ">
-                                    {{ $user['active_status'] == 1 ? 'Active' : 'Inactive' }}
+                                    <span class="label label-sm label-{{ $user['active_status'] == 'Active' ? 'success' : 'danger' }} ">
+                                    {{ $user['active_status']}}
                                     </span>
                                 </td>
                                 <td>
@@ -202,8 +202,8 @@
                                     <a href="{{route('user_show',$user['id'])}}" class="btn btn-icon-only purple" title="View">
                                     <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="" class="btn btn-icon-only red" title="Remove">
-                                    <i class="fa fa-times"></i>
+                                    <a href="{{route('user_edit',$user['id'])}}" class="btn btn-icon-only red" title="Edit">
+                                    <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>

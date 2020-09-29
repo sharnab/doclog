@@ -346,7 +346,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Maritial Status:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="marital_status" required>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="marital_status">
                                                             <option value="1">bachelor</option>
                                                             <option value="2">Married</option>
                                                             <option value="3">Divorsed</option>
@@ -366,7 +366,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Nationality:</label>
-                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" required>
+                                                        <select class="form-control nationality" id="kt_select_1" name="nationality">
                                                             @foreach ($country as $nationality)
                                                             <option value="{{ $nationality['id'] }}">
                                                                 {{ $nationality['title'] }}
@@ -403,7 +403,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Birth Place:</label>
-                                                        <select class="form-control birth_country" id="kt_select_1" name="birth_country_id" required>
+                                                        <select class="form-control birth_country" id="kt_select_1" name="birth_country_id">
                                                             @foreach ($country as $birth_place)
                                                             <option value="{{ $birth_place['id'] }}">
                                                                 {{ $birth_place['title'] }}
@@ -418,7 +418,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Gender:</label>
-                                                        <select class="form-control gender" id="kt_select_1" name="gender" required>
+                                                        <select class="form-control gender" id="kt_select_1" name="gender">
                                                             <option value='null'>Select Gender</option>
                                                             @foreach ($gender as $gender)
                                                             <option value="{{ $gender['id'] }}">
@@ -432,7 +432,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Religion:</label>
-                                                        <select class="form-control religion" id="kt_select_1" name="religion_id" required>
+                                                        <select class="form-control religion" id="kt_select_1" name="religion_id">
                                                             <option value='null'>Select Religion</option>
                                                             @foreach ($religion as $religion)
                                                             <option value="{{ $religion['id'] }}">
@@ -524,7 +524,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Arrival Country:</label>
-                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id" required>
+                                                        <select class="form-control arrival_country" id="kt_select_5" name="arrival_country_id">
                                                             <option value='null'>Select Country</option>
                                                             @foreach ($countries as $country)
                                                             <option value="{{ $country['id'] }}">
@@ -1062,7 +1062,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Currency:</label>
-                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id" required>
+                                                        <select class="form-control martial_status" id="kt_select_1" name="salary_currency_id">
                                                             <option value="1">USD</option>
                                                             <option value="2">BDT</option>
                                                         </select>
@@ -1318,7 +1318,7 @@
                                                         <label>Country:</label>
 
                                                         <div class="input-group date mb-2">
-                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5"  required>
+                                                            <select name="cur_country_addr_country_id" class="form-control current_country" id="kt_select_5">
                                                                 <option value='null'>Select Country</option>
                                                                 @foreach ($countries as $country)
                                                                     <option value="{{ $country['id'] }}">
@@ -1445,7 +1445,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_per_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
@@ -1461,7 +1461,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_per_district_id">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1475,7 +1475,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_per_upazila_id">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1486,7 +1486,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_per_union_id">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1569,7 +1569,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Division:</label>
-                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id" required>
+                                                        <select class="form-control per_division" id="kt_select_1" name="bd_present_division_id">
                                                             <option value='null'>Select Division</option>
                                                             @foreach ($divisions as $division)
                                                             <option value="{{ $division['id'] }}">
@@ -1585,7 +1585,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Dristrict:</label>
-                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id" required>
+                                                        <select class="form-control per_district" id="kt_select_1" name="bd_present_district_id">
                                                             <option value='null'>Select District</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1599,7 +1599,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Thana/Upazilla:</label>
-                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id" required>
+                                                        <select class="form-control per_upazila" id="kt_select_1" name="bd_present_upazila_id">
                                                             <option value='null'>Select Thana/Upazilla</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}
@@ -1610,7 +1610,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Word/Union:</label>
-                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id" required>
+                                                        <select class="form-control per_union" id="kt_select_1" name="bd_present_union_id">
                                                             <option value='null'>Select Word/Union</option>
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival country</span> --}}

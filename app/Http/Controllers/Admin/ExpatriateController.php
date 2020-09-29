@@ -94,29 +94,21 @@ class ExpatriateController extends ApiController
 
         $request->validate($rules);
 
-//        if($request->hasFile('profile_image'))
-//        {
-//            $img_path = $this->uploadFile($request,'profile_image','profile');
-//            $items['image']=$img_path;
-//        }
 
-//        if($request->hasFile('profile_image'))
-//        {
-//            $img_path = $this->uploadFile($request,'profile_image','profile');
-//            $items['image']=$img_path;
-//        }
+
+
 
         /**
          * Check is passport Number exist
          */
-//        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
-//
-//        if($isExist||$isExist>0)
-//        {
-//            session()->flash('message', 'This passport already exist in the system');
-//            session()->flash('class', '2');
-//            return back();
-//        }
+       $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->count();
+
+       if($isExist||$isExist>0)
+       {
+           session()->flash('message', 'This passport already exist in the system');
+           session()->flash('class', '2');
+           return Redirect()->back()->withInput(Input::all());;
+       }
 
         $expat_id = $this->processBasicInfo($request, 1);
         $this->processPassport($request, $expat_id, 1);
@@ -138,7 +130,7 @@ class ExpatriateController extends ApiController
         $this->processBdPermanent($request, $expat_id, 1);
         $this->processBdPresent($request, $expat_id, 1);
         $this->processBdEmergency($request, $expat_id, 1);
-        $this->processDocuments($request, $expat_id, 1);
+        // $this->processDocuments($request, $expat_id, 1);
 
         session()->flash('message', 'Successfully Submitted');
         session()->flash('class', '2');
@@ -169,6 +161,7 @@ class ExpatriateController extends ApiController
         /**
          * Get basic info data from request
          */
+
 
         $basic_data = $request->only([
             'first_name',
@@ -204,9 +197,10 @@ class ExpatriateController extends ApiController
             $basic_data['passport_expiry_date'] = date('Y-m-d', strtotime($request->input('passport_expiry_date')));
         }
 
-        if ($request->hasFile('profile_image')) {
-            $img_path = $this->uploadFile($request, 'profile_image', 'profile');
-            $basic_data['image'] = $img_path;
+        if($request->hasFile('profile_avatar'))
+        {
+            $img_path = $this->uploadFile($request,'profile_avatar','profile');
+            $basic_data['image']=$img_path;
         }
 
         if ($request->hasFile('nid_image')) {
@@ -933,7 +927,7 @@ class ExpatriateController extends ApiController
             File::makeDirectory($path, $mode = 0777, true, true);
         }
 
-        $image_name = time() . '.' . $request->$file_name->getClientOriginalExtension();
+        $image_name = date('YmdHis').rand().'.' . $request->$file_name->getClientOriginalExtension();
 
         if ($image_name) {
             request()->$file_name->move($path, $image_name);
@@ -1162,13 +1156,7 @@ class ExpatriateController extends ApiController
 
         $country_list = $this->getCountryList();
         $item = $this->getExpatInfo($id);
-
         return view('admin.expatriate.view', compact('item', 'country_list'));
-
-        $country_list = Country::all();
-       $items= $this->getExpatInfo($id);
-
-         return view('admin.expatriate.view');
 
     }
 
@@ -1187,22 +1175,11 @@ class ExpatriateController extends ApiController
 
         $request->validate($rules);
 
-//        if($request->hasFile('profile_image'))
-//        {
-//            $img_path = $this->uploadFile($request,'profile_image','profile');
-//            $items['image']=$img_path;
-//        }
-
-//        if($request->hasFile('profile_image'))
-//        {
-//            $img_path = $this->uploadFile($request,'profile_image','profile');
-//            $items['image']=$img_path;
-//        }
 
         /**
          * Check is passport Number exist
          */
-        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNoIn('id',[$expat_id])->count();
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
 
         if($isExist||$isExist>0)
         {
