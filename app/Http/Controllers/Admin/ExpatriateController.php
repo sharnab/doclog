@@ -890,7 +890,7 @@ class ExpatriateController extends ApiController
          */
         $items = Expat::with($withArray)->where('id', $expat_id)->get();
 
-        if (empty($items)) {
+        if ($items->isEmpty()) {
             return false;
         }
 
