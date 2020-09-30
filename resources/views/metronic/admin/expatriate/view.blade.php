@@ -776,9 +776,9 @@
                 <!-- end: Invoice footer-->
                 <!-- begin: Invoice action-->
                 <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
-                    <div class="col-md-9">
-                        <div class="d-flex justify-content-between" >
-                            <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Print</button>
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between" style="padding-left: 44%">
+                            <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();"><i class="fa fa-print"></i>Print</button>
 {{--                            <button type="button" class="btn btn-primary font-weight-bold"  onclick="window.print();">Print</button>--}}
 
                         </div>
