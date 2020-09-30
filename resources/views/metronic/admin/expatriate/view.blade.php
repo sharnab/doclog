@@ -148,7 +148,7 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Date of Birth</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{date('d-m-Y',strtotime($item['date_of_birth']))}}</td>
+                                                <td class="border-top-0 py-4">{{ !empty($item['date_of_birth'])?date('d-m-Y',strtotime($item['date_of_birth'])):null}}</td>
                                                 <td class=" border-top-0 py-4">Birth Place</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4 pr-10">{{$country_list[$item['birth_country_id']]}}</td>
@@ -197,13 +197,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Arrival Country</td>
                                                 <td class="border-top-0 pl-0">:</td>
                                                 <td class="border-top-0 py-4" style='width: 26%'>{{(isset($item['arrival']['arrival_country_id'])&&($item['arrival']['arrival_country_id']>0))? $country_list[$item['arrival']['arrival_country_id']]:''}}</td>
                                                 <td class="border-top-0 py-4" style="width: 25%">Entry Date</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['arrival']['date']))? date('d-m-Y',strtotime($item['arrival']['date'])):''}}</td>
+                                                <td class="border-top-0 py-4">{{isset($item['arrival']['date'])?((!empty($item['arrival']['date']) && is_null($item['arrival']['date']))?date('d-m-Y',strtotime($item['arrival']['date'])):''):''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4">Airport IATA Code</td>
@@ -211,7 +212,7 @@
                                                 <td class="border-top-0 py-4">{{(isset($item['arrival']['iata_code']))? $item['arrival']['iata_code']:''}}</td>
                                                 <td class="border-top-0 py-4">Immigration Endorsement Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['arrival']['immigration_endorsement_date']))? date('d-m-Y',strtotime($item['arrival']['immigration_endorsement_date'])):''}}</td>
+                                                <td class="border-top-0 py-4 pr-10">{{ isset($item['arrival']['immigration_endorsement_date'])?((!empty($item['arrival']['immigration_endorsement_date']) && is_null($item['arrival']['immigration_endorsement_date']))?date('d-m-Y',strtotime($item['arrival']['immigration_endorsement_date'])):''):''}}</td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Visa Type</td>
@@ -224,10 +225,11 @@
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Issue Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['visa']['issue_date']))? date('d-m-Y',strtotime($item['visa']['issue_date'])):''}}</td>
+                                                <td class="border-top-0 py-4">{{isset($item['visa']['issue_date'])?((!empty($item['visa']['issue_date']) && is_null($item['visa']['issue_date']))?date('d-m-Y',strtotime($item['visa']['issue_date'])):''):''}}</td>
                                                 <td class=" border-top-0 py-4">Expiry Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['visa']['expiry_date']))? date('d-m-Y',strtotime($item['visa']['expiry_date'])):''}}</td>
+                                                <td class="border-top-0 py-4 pr-10">{{isset($item['visa']['expiry_date'])?((!empty($item['visa']['expiry_date']) && is_null($item['visa']['expiry_date']))?date('d-m-Y',strtotime($item['visa']['expiry_date'])):''):''}}</td>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -257,7 +259,8 @@
                                                 <td class="border-top-0 py-4">{{(isset($item['ministry_approval']['memo_number']))? $item['ministry_approval']['memo_number']:''}}</td>
                                                 <td class=" border-top-0 py-4">Ministry Approval Date</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['ministry_approval']['issue_date']))? date('d-m-Y',strtotime($item['ministry_approval']['issue_date'])):''}}</td>
+                                                <td class="border-top-0 py-4 pr-10">{{isset($item['ministry_approval']['issue_date'])?((!empty($item['ministry_approval']['issue_date']) && is_null($item['ministry_approval']['issue_date']))?date('d-m-Y',strtotime($item['ministry_approval']['issue_date'])):''):''}}</td>
+                                               
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4 ">Work Permit Number</td>
@@ -727,8 +730,8 @@
                 <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
                     <div class="col-md-9">
                         <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download Invoice</button>
-                            <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">Print Invoice</button>
+{{--                            <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download</button>--}}
+                            <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">Print</button>
 
                         </div>
                     </div>

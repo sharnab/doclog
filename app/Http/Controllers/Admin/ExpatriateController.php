@@ -30,6 +30,7 @@ use App\Model\ExpatVisaInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 // use App\Http\Requests\EditRequest;
 use File;
@@ -96,8 +97,6 @@ class ExpatriateController extends ApiController
 
 
 
-
-
         /**
          * Check is passport Number exist
          */
@@ -136,6 +135,19 @@ class ExpatriateController extends ApiController
         session()->flash('class', '2');
         return redirect()->route('user');
 
+    }
+
+    private function  isNotEmpty($request,$field)
+    {
+        if ($request->has($field) ) {
+            if(!empty($request->input($field)) && !is_null($request->input($field)) && $request->filled($field) && $request->input($field) !=null)
+            {
+                return true;
+            }
+
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -185,15 +197,15 @@ class ExpatriateController extends ApiController
             'whatsapp_id'
         ]);
 
-        if ($request->has('date_of_birth')) {
+        if ($this->isNotEmpty($request,'date_of_birth') ) {
             $basic_data['date_of_birth'] = date('Y-m-d', strtotime($request->input('date_of_birth')));
         }
 
-        if ($request->has('passport_issue_date')) {
+        if ($this->isNotEmpty($request,'passport_issue_date')) {
             $basic_data['passport_issue_date'] = date('Y-m-d', strtotime($request->input('passport_issue_date')));
         }
 
-        if ($request->has('passport_expiry_date')) {
+        if ($this->isNotEmpty($request,'passport_expiry_date')) {
             $basic_data['passport_expiry_date'] = date('Y-m-d', strtotime($request->input('passport_expiry_date')));
         }
 
@@ -214,6 +226,11 @@ class ExpatriateController extends ApiController
             $basic_data['active_status'] = 1;
             $basic_data['created_by'] = Auth::id();
             $basic_data['created_at'] = date('Y-m-d H:i:s');
+            DB::enableQueryLog(); // Enable query log
+
+              Expat::insertGetId($basic_data);
+
+          //  dd(DB::getQueryLog());
             return Expat::insertGetId($basic_data);
         } else {
             //Update
@@ -236,11 +253,11 @@ class ExpatriateController extends ApiController
         $items['expat_id'] = $expat_id;
         $items['passport_number'] = $request->input('passport_number');
 
-        if ($request->has('passport_issue_date')) {
+        if ($this->isNotEmpty($request,'passport_issue_date')) {
             $items['issue_date'] = date('Y-m-d', strtotime($request->input('passport_issue_date')));
         }
 
-        if ($request->has('passport_expiry_date')) {
+        if ($this->isNotEmpty($request,'passport_expiry_date')) {
             $items['expiry_date'] = date('Y-m-d', strtotime($request->input('passport_expiry_date')));
         }
 
@@ -273,11 +290,12 @@ class ExpatriateController extends ApiController
 
         $items['expat_id'] = $expat_id;
         $items['visa_type'] = $request->input('visa_type');
-        if ($request->has('visa_issue_date')) {
+
+        if ($this->isNotEmpty($request,'visa_issue_date')) {
             $items['issue_date'] = date('Y-m-d', strtotime($request->input('visa_issue_date')));
         }
 
-        if ($request->has('visa_expiry_date')) {
+        if ($this->isNotEmpty($request,'visa_expiry_date')) {
             $items['expiry_date'] = date('Y-m-d', strtotime($request->input('visa_expiry_date')));
         }
 
@@ -309,11 +327,14 @@ class ExpatriateController extends ApiController
         $items['expat_id'] = $expat_id;
         $items['travel_type'] = 1;
         $items['arrival_country_id'] = $request->input('arrival_country_id');
-        if ($request->has('arrival_date')) {
+
+
+        if ($this->isNotEmpty($request,'arrival_date')) {
             $items['date'] = date('Y-m-d', strtotime($request->input('arrival_date')));
         }
         $items['iata_code'] = $request->input('arrival_iata_code');
-        if ($request->has('immigration_endorsement_date')) {
+
+        if ($this->isNotEmpty($request,'immigration_endorsement_date')) {
             $items['immigration_endorsement_date'] = date('Y-m-d', strtotime($request->input('immigration_endorsement_date')));
         }
 
@@ -392,7 +413,9 @@ class ExpatriateController extends ApiController
 
         $items['expat_id'] = $expat_id;
         $items['memo_number'] = $request->input('memo_number');
-        if ($request->has('ministry_approval_issue_date')) {
+
+
+        if ($this->isNotEmpty($request,'ministry_approval_issue_date')) {
             $items['issue_date'] = date('Y-m-d', strtotime($request->input('ministry_approval_issue_date')));
 
         }
@@ -424,11 +447,11 @@ class ExpatriateController extends ApiController
         $items['expat_id'] = $expat_id;
         $items['permit_number'] = $request->input('work_permit_number');
 
-        if ($request->has('work_permit_issue_date')) {
+        if ($this->isNotEmpty($request,'work_permit_issue_date')) {
             $items['issue_date'] = date('Y-m-d', strtotime($request->input('work_permit_issue_date')));
         }
 
-        if ($request->has('work_permit_expiry_date')) {
+        if ($this->isNotEmpty($request,'work_permit_expiry_date')) {
             $items['expiry_date'] = date('Y-m-d', strtotime($request->input('work_permit_expiry_date')));
         }
 
@@ -1156,6 +1179,7 @@ class ExpatriateController extends ApiController
 
         $country_list = $this->getCountryList();
         $item = $this->getExpatInfo($id);
+
         return view('admin.expatriate.view', compact('item', 'country_list'));
 
     }

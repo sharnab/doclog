@@ -9,6 +9,8 @@ class Expat extends Model
     protected $table = 'expat';
    // protected $guarded = ['id'];
     protected $guarded = ['id'];
+
+
     public function passport()
     {
         return $this->hasOne('App\Model\ExpatPassport', 'expat_id');
