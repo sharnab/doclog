@@ -559,8 +559,8 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Immigration Endorsement Date:</label>
-                                                        @if($items['arrival']['immigration_endorsement_file'])
-                                                            <label style="padding-left: 50%"><a href="{{$items['arrival']['immigration_endorsement_file']}}" target="_blank">Uploaded image</a></label>
+                                                        @if(isset($items['arrival']['immigration_endorsement_file'])&&!empty($items['arrival']['immigration_endorsement_file']))
+                                                            <label style="padding-left: 20%"><a href="{{$items['arrival']['immigration_endorsement_file']}}" target="_blank">Uploaded image</a></label>
                                                         @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
                                                             <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" value="{{isset($items['arrival']['immigration_endorsement_date'])?((!empty($items['arrival']['immigration_endorsement_date']) && !is_null($items['arrival']['immigration_endorsement_date']))?date('d-m-Y',strtotime($items['arrival']['immigration_endorsement_date'])):''):''}}"/>
