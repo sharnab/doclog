@@ -165,6 +165,7 @@ class ExpatriateController extends ApiController
         $divisions=Division::where('active_status',1)->get()->toArray();
         $items= $this->getExpatInfo($id);
 
+
         return view('admin.expatriate.edit', compact('items','country_list','religion','gender','countries','country','divisions'));
     }
 

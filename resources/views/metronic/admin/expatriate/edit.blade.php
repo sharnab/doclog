@@ -279,7 +279,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" data-date-format="dd/mm/yyyy" value="{{isset($items['passport_issue_date'])?date('d/m/Y', strtotime($items['passport_issue_date'])):''}}"/>
+                                                            <input name="passport_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" data-date-format="dd/mm/yyyy" value="{{(isset($items['passport_issue_date']) && !empty($items['passport_issue_date']))?date('d/m/Y', strtotime($items['passport_issue_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's issue date</span> --}}
                                                     </div>
@@ -292,7 +292,7 @@
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{isset($items['passport_expiry_date'])?date('d/m/Y', strtotime($items['passport_expiry_date'])):''}}"/>
+                                                            <input name="passport_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{isset($items['passport_expiry_date']) && !empty($items['passport_expiry_date'])?date('d/m/Y', strtotime($items['passport_expiry_date'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your passport's expiry date</span> --}}
                                                     </div>
@@ -403,7 +403,7 @@
                                                     <div class="form-group">
                                                         <label>Date of Birth:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" value="{{isset($items['date_of_birth'])?date('d/m/Y', strtotime($items['date_of_birth'])):''}}"/>
+                                                            <input name="date_of_birth" type="text" class="form-control form-control-solid" placeholder="Enter date of birth" id="kt_datepicker_3" value="{{(isset($items['date_of_birth']) && !empty($items['date_of_birth']))?date('d/m/Y', strtotime($items['date_of_birth'])):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your date of birth</span> --}}
                                                     </div>
@@ -523,7 +523,7 @@
                                                     <div class="form-group">
                                                         <label>Entry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="arrival_date" type="text" class="form-control form-control-solid" placeholder="Enter arrival date" id="kt_datepicker_3" value="{{isset($items['arrival']['date'])?date('d/m/Y', strtotime($items['arrival']['date'])):''}}"/>
+                                                            <input name="arrival_date" type="text" class="form-control form-control-solid" placeholder="Enter arrival date" id="kt_datepicker_3" value="{{isset($items['arrival']['date'])?((!empty($items['arrival']['date']) && !is_null($items['arrival']['date']))?date('d-m-Y',strtotime($items['arrival']['date'])):''):''}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter your arrival date</span> --}}
                                                     </div>
@@ -563,7 +563,7 @@
                                                             <label style="padding-left: 50%"><a href="{{$items['arrival']['immigration_endorsement_file']}}" target="_blank">Uploaded image</a></label>
                                                         @endif
                                                         <div class="input-group date mb-2" style="width: 98%">
-                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" value="{{isset($items['arrival']['immigration_endorsement_date'])?date('d/m/Y', strtotime($items['arrival']['immigration_endorsement_date'])):''}}"/>
+                                                            <input name="immigration_endorsement_date" type="text" class="form-control form-control-solid" placeholder="Enter immigration endorsement date" id="kt_datepicker_3" value="{{isset($items['arrival']['immigration_endorsement_date'])?((!empty($items['arrival']['immigration_endorsement_date']) && !is_null($items['arrival']['immigration_endorsement_date']))?date('d-m-Y',strtotime($items['arrival']['immigration_endorsement_date'])):''):''}}"/>
                                                             <label class="btn btn-default">
                                                                 <span class="flaticon-upload" style="font-size: 20px"> <input name="immigration_endorsement_file" id="immigration_endorsement_file" type="file" hidden></span>
                                                             </label>
@@ -616,7 +616,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="visa_issue_date" type="text" class="form-control form-control-solid" value="{{isset($items['visa']['issue_date'])?date('d/m/Y', strtotime($items['visa']['issue_date'])):''}}" placeholder="Enter issue date" id="kt_datepicker_3" />
+                                                            <input name="visa_issue_date" type="text" class="form-control form-control-solid" value="{{isset($items['visa']['issue_date'])?((!empty($items['visa']['issue_date']) && !is_null($items['visa']['issue_date']))?date('d-m-Y',strtotime($items['visa']['issue_date'])):''):''}}" placeholder="Enter issue date" id="kt_datepicker_3" />
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -630,7 +630,7 @@
                                                                         </div> --}}
                                                     <div class="form-group">
                                                         <label><mark style="color: red; background: white">*</mark>Expiry Date:</label>
-                                                        <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{isset($items['visa']['expiry_date'])?date('d/m/Y', strtotime($items['visa']['expiry_date'])):''}}"/>
+                                                        <input name="visa_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter expiry date" id="kt_datepicker_3" value="{{isset($items['visa']['expiry_date'])?((!empty($items['visa']['expiry_date']) && !is_null($items['visa']['expiry_date']))?date('d-m-Y',strtotime($items['visa']['expiry_date'])):''):''}}"/>
                                                         {{-- <span class="form-text text-muted">Please enter visa expiry date</span> --}}
                                                     </div>
                                                     <!--end::Select-->
@@ -761,7 +761,7 @@
                                                     <!--begin::Select-->
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
-                                                        <input name="ministry_approval_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" value="{{isset($items['ministry_approval']['issue_date'])?date('d/m/Y', strtotime($items['ministry_approval']['issue_date'])):''}}"/>
+                                                        <input name="ministry_approval_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter issue date" id="kt_datepicker_3" value="{{isset($items['ministry_approval']['issue_date'])?((!empty($items['ministry_approval']['issue_date']) && !is_null($items['ministry_approval']['issue_date']))?date('d-m-Y',strtotime($items['ministry_approval']['issue_date'])):''):''}}"/>
                                                     </div>
                                                     {{-- <span class="form-text text-muted">Please enter immigration endorsement date</span> --}}
                                                     <!--end::Select-->
@@ -810,7 +810,7 @@
                                                     <div class="form-group">
                                                         <label>Issue Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_permit_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit issue date" id="kt_datepicker_3" value="{{isset($items['work_permit']['issue_date'])?date('d/m/Y', strtotime($items['work_permit']['issue_date'])):''}}"/>
+                                                            <input name="work_permit_issue_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit issue date" id="kt_datepicker_3" value="{{(isset($items['work_permit']['issue_date'])?((!empty($items['work_permit']['issue_date']) && !is_null($items['work_permit']['issue_date']))?date('d-m-Y',strtotime($items['work_permit']['issue_date'])):''):'')}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
@@ -821,7 +821,7 @@
                                                     <div class="form-group">
                                                         <label>Expiry Date:</label>
                                                         <div class="input-group date mb-2">
-                                                            <input name="work_permit_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit expiry date" id="kt_datepicker_3" value="{{isset($items['work_permit']['expiry_date'])?date('d/m/Y', strtotime($items['work_permit']['expiry_date'])):''}}"/>
+                                                            <input name="work_permit_expiry_date" type="text" class="form-control form-control-solid" placeholder="Enter your work permit expiry date" id="kt_datepicker_3" value="{{(isset($items['work_permit']['expiry_date'])?((!empty($items['work_permit']['expiry_date']) && !is_null($items['work_permit']['expiry_date']))?date('d-m-Y',strtotime($items['work_permit']['expiry_date'])):''):'')}}"/>
                                                         </div>
                                                         {{-- <span class="form-text text-muted">Please enter visa issue date</span> --}}
                                                     </div>
