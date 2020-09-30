@@ -65,7 +65,11 @@
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-0 col-md-6" style="text-align: center;"><h2 class="display-6 font-weight-bold mb-6" style="text-align: center; margin-bottom: 0 !important; padding-left: 20%">Government of the People's Republic of Bangladesh</h2></td>
-                                                <td class="border-top-0 pl-10 py-0 col-md-4" rowspan="4"><img src="{{empty($item['image'])?asset('/img/demo_user.png'):asset($item['image'])}}" style="width: 140px; text-align: left" /></td>
+                                                <td class="border-top-0 pl-10 py-0 col-md-4" rowspan="4">
+                                                    @if($item['image'])
+                                                        <img src="{{empty($item['image'])?asset('/img/demo_user.png'):asset($item['image'])}}" style="width: 140px; text-align: left" />
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-42 py-0 col-md-6" style="text-align: center; padding-left: 20%;"><h3 class="display-8 font-weight-bold mb-6" style="text-align: center; margin-bottom: 5px !important">Embassy of Bangladesh</h3></td>

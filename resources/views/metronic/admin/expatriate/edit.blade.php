@@ -1775,7 +1775,7 @@
                                             <div class="form-group">
                                                 <label>Photo:</label>
                                                 <div class="col-lg-12 col-xl-12" style="text-align: center">
-                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{isset($items['image'])?asset($items['image']):asset('/img/blank.jpg')}});">
+                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{isset($items['image'])?asset($items['image']):url('/assets/media/misc/blank.jpg')}});">
                                                         <div class="image-input-wrapper"></div>
                                                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen icon-sm text-muted"></i>
