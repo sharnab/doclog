@@ -742,9 +742,9 @@
                 <!-- begin: Invoice action-->
                 <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
                     <div class="col-md-9">
-                        <div class="d-flex justify-content-between">
-{{--                            <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Download</button>--}}
-                            <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">Print</button>
+                        <div class="d-flex justify-content-between" >
+                            <button type="button" class="btn btn-light-primary font-weight-bold" onclick="window.print();">Print</button>
+{{--                            <button type="button" class="btn btn-primary font-weight-bold"  onclick="window.print();">Print</button>--}}
 
                         </div>
                     </div>
