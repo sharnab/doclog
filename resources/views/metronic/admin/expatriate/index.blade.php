@@ -17,7 +17,7 @@
                         <a href="{{ url('/') }}" class="text-muted">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ url('admin/user') }}" class="text-muted">Expatriate</a>
+                        <a href="{{ url('admin/expatriate') }}" class="text-muted">Expatriate</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#" class="text-muted">List</a>

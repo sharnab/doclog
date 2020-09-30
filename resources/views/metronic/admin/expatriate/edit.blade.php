@@ -60,7 +60,7 @@
             <!--begin::Page Heading-->
             <div class="d-flex align-items-baseline mr-5">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold my-2 mr-5">User List</h5>
+                <h5 class="text-dark font-weight-bold my-2 mr-5">Expatriate Edit</h5>
                 <!--end::Page Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -68,7 +68,7 @@
                         <a href="{{ url('/') }}" class="text-muted">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ url('admin/user') }}" class="text-muted">Expatriate</a>
+                        <a href="{{ url('admin/expatriate') }}" class="text-muted">Expatriate</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#" class="text-muted">Edit</a>
