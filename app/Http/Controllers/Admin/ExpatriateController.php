@@ -156,6 +156,14 @@ class ExpatriateController extends ApiController
      */
     public function edit($id)
     {
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
 
         $country_list = Country::all();
         $religion=Religion::where('active_status',1)->get()->toArray();
@@ -1177,6 +1185,14 @@ class ExpatriateController extends ApiController
      */
     public function show($id)
     {
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
 
         $country_list = $this->getCountryList();
         $item = $this->getExpatInfo($id);
