@@ -132,7 +132,7 @@ class ExpatriateController extends ApiController
         // $this->processDocuments($request, $expat_id, 1);
 
         session()->flash('message', 'Successfully Submitted');
-        session()->flash('class', '2');
+        session()->flash('class', '1');
         return redirect()->route('user');
 
     }
@@ -235,11 +235,6 @@ class ExpatriateController extends ApiController
             $basic_data['active_status'] = 1;
             $basic_data['created_by'] = Auth::id();
             $basic_data['created_at'] = date('Y-m-d H:i:s');
-            DB::enableQueryLog(); // Enable query log
-
-              Expat::insertGetId($basic_data);
-
-          //  dd(DB::getQueryLog());
             return Expat::insertGetId($basic_data);
         } else {
             //Update
