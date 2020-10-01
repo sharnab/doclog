@@ -368,11 +368,10 @@
                                                     <div class="form-group">
                                                         <label>Nationality:</label>
                                                         <select class="form-control nationality" id="kt_select_1" name="nationality">
-                                                            @foreach ($country as $nationality)
-                                                            <option value="{{ $nationality['id'] }}">
-                                                                {{ $nationality['title'] }}
+                                                            <option value="Bangladeshi">
+                                                              Bangladeshi
                                                             </option>
-                                                            @endforeach
+
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your nationality</span> --}}
                                                     </div>

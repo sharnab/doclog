@@ -181,7 +181,7 @@
                                                 <td class="border-top-0 py-4">{{$item['nid']}}</td>
                                                 <td class=" border-top-0 py-4">Nationality</td>
                                                 <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{$country_list[$item['nationality']]}}</td>
+                                                <td class="border-top-0 py-4 pr-10">{{$item['nationality']}}</td>
 
                                             </tr>
                                             <tr class="font-weight-bold">

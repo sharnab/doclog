@@ -371,12 +371,12 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Nationality:</label>
-                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" value="{{($items['nationality'])?$items['nationality']:'181'}}">
-                                                            @foreach ($country as $nationality)
-                                                            <option value="{{ $nationality['id'] }}" {{($items['nationality'] == $nationality['id'])?'selected':''}}>
-                                                                {{ $nationality['title'] }}
+                                                        <select class="form-control nationality" id="kt_select_1" name="nationality" value="{{($items['nationality'])?$items['nationality']:''}}">
+
+                                                            <option value="Bangladeshi" {{($items['nationality'] == 'Bangladeshi')?'selected':''}}>
+                                                                Bangladeshi
                                                             </option>
-                                                            @endforeach
+
                                                         </select>
                                                         {{-- <span class="form-text text-muted">Please enter your nationality</span> --}}
                                                     </div>
