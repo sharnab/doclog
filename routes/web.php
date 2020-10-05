@@ -56,6 +56,20 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
 
 
     /**
+     * Remmittance History creation
+     */
+    Route::get('/remmittance_history','Admin\RemmittanceHistoryController@index')->name('remmittance_history');
+    Route::get('/remmittance_history/create','Admin\RemmittanceHistoryController@create')->name('remmittance_history.create');
+    Route::post('/remmittance_history/store','Admin\RemmittanceHistoryController@store')->name('remmittance_history.store');
+    Route::get('/remmittance_history/{id}/edit','Admin\RemmittanceHistoryController@edit')->name('remmittance_history.edit');
+    Route::put('/remmittance_history/{id}/update','Admin\RemmittanceHistoryController@update')->name('remmittance_history.update');
+    Route::get('/remmittance_history/{id}/destroy','Admin\RemmittanceHistoryController@destroy')->name('remmittance_history.destroy');
+    Route::get('/remmittance_history/{id}/show','Admin\RemmittanceHistoryController@show')->name('remmittance_history.show');
+    Route::get('/remmittance_history/{id}/getExpatInfo','Admin\RemmittanceHistoryController@getExpatInfo')->name('remmittance_history.getExpatInfo');
+    Route::get('/remmittance_datatable','Admin\RemmittanceHistoryController@serverSideTable')->name('remmittance_datatable');
+    // Route::get('/country3','Admin\CountryController@serverSideTable')->name('country3');
+
+    /**
      * Religion creation
      */
 
