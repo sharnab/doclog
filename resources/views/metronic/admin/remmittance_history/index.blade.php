@@ -98,7 +98,7 @@
                      "data":{ _token: "{{csrf_token()}}"}
                    },
             "columns": [
-                { "data": "passport_no" },
+                { "data": "passport_number" },
                 { "data": "amount" },
                 { "data": "currency_id" },
                 { "data": "transfer_date" },

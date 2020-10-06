@@ -164,7 +164,7 @@ class RemmittanceHistoryController extends Controller
     public function serverSideTable(Request $request)
     {
         $columns = array(
-            0 =>'passport_no',
+            0 =>'passport_number',
             1 =>'amount',
             2=> 'currency_id',
             3=> 'transfer_date',
@@ -188,19 +188,21 @@ class RemmittanceHistoryController extends Controller
         if(empty($request->input('search.value')))
         {
 
-        $posts = RemmittanceHistory::offset($start)
-                ->limit($limit)
-                ->orderBy($order,$dir)
-                ->get();
+        $posts = RemmittanceHistory::select('expat_remittance_history.*', 'expat.passport_number')
+                    ->join('expat', 'expat_remittance_history.expat_id', '=', 'expat.id')
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();
         //echo json_encode($posts); exit;
         }
 
         else {
         $search = $request->input('search.value');
 
-        $posts =  RemmittanceHistory::select('*', 'expat.passport_no')
+        $posts =  RemmittanceHistory::select('expat_remittance_history.*', 'expat.passport_number')
                     ->join('expat', 'expat_remittance_history.expat_id', '=', 'expat.id')
-                    ->where('expat.passport_no','LIKE',"%{$search}%")
+                    ->where('expat.passport_number','LIKE',"%{$search}%")
                     ->orWhere('amount', 'LIKE',"%{$search}%")
                     ->orWhere('currency_id', 'LIKE',"%{$search}%")
                     ->orWhere('transfer_date', 'LIKE',"%{$search}%")
@@ -210,9 +212,9 @@ class RemmittanceHistoryController extends Controller
                     ->orderBy($order,$dir)
                     ->get();
 
-        $totalFiltered = RemmittanceHistory::select('*', 'expat.passport_no')
+        $totalFiltered = RemmittanceHistory::select('expat_remittance_history.*', 'expat.passport_number')
                     ->join('expat', 'expat_remittance_history.expat_id', '=', 'expat.id')
-                    ->where('expat.passport_no','LIKE',"%{$search}%")
+                    ->where('expat.passport_number','LIKE',"%{$search}%")
                     ->orWhere('amount', 'LIKE',"%{$search}%")
                     ->orWhere('currency_id', 'LIKE',"%{$search}%")
                     ->orWhere('transfer_date', 'LIKE',"%{$search}%")
@@ -228,7 +230,7 @@ class RemmittanceHistoryController extends Controller
                 $edit =  route('remmittance_history.edit',$post->id);
                 $delete =  route('remmittance_history.destroy',$post->id);
 
-                $nestedData['passport_no']  = $post->passport_no;
+                $nestedData['passport_number']  = $post->passport_number;
                 $nestedData['amount']       = $post->amount;
                 $nestedData['currency_id']  = ($post->currency_id==1)?'USD':'BDT';
                 $nestedData['transfer_date']= $post->transfer_date;
