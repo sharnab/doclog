@@ -139,5 +139,37 @@ class UserinfoController extends Controller
         //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Model\AssetType  $assetType
+     * @return \Illuminate\Http\Response
+     */
+    public function change_password(){
+        if(Auth::id()){
+            return view('admin.userinfo.changepassword');
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Model\AssetType  $assetType
+     * @return \Illuminate\Http\Response
+     */
+    public function update_password(Request $request, $id)
+    {
+        $data = array(
+            "password"          => bcrypt($request->input('password') ),
+            "updated_by"        => Auth::id()
+        );
+
+        $userData = User::where('id',$id)->update($data);
+
+        session()->flash('message', 'Password Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.index');
+    }
 
 }

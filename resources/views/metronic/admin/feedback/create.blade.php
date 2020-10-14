@@ -18,7 +18,7 @@
             <!--begin::Page Heading-->
             <div class="d-flex align-items-baseline mr-5">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold my-2 mr-5">Remmittance History</h5>
+                <h5 class="text-dark font-weight-bold my-2 mr-5">Feedback</h5>
                 <!--end::Page Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -26,10 +26,10 @@
                         <a href="{{ url('/') }}" class="text-muted">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ url('admin/'.$module_route) }}" class="text-muted">Remmittance History</a>
+                        <a href="{{ url('admin/'.$module_route) }}" class="text-muted">Feedback</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">Create New Remmittance</a>
+                        <a href="#" class="text-muted">Create New Feedback</a>
                     </li>
 
                 </ul>
@@ -68,7 +68,7 @@
                     </div>
                     <!--begin::Form-->
                     @include('layouts.alert')
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('remmittance_history.store') }}" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('feedback.store') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group row">
@@ -104,68 +104,17 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Amount<i style="color: red">*</i></label>
-                                    <div class="col-md-12 {{ $errors->has('amount') ? 'has-error' : '' }}">
-                                        <input type="text" class="form-control" name="amount" value="{{ old('amount') }}" placeholder="Division name in english" required>
-                                        @if ($errors->has('amount'))
+                                    <label class="col-md-4 col-form-label">Feedback<i style="color: red">*</i></label>
+                                    <div class="col-md-12 {{ $errors->has('feedback') ? 'has-error' : '' }}">
+                                        <textarea class="form-control" name="feedback" placeholder="Expact Feedback" required>{{ old('feedback') }}</textarea>
+                                        @if ($errors->has('feedback'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('amount') }}</strong>
+                                            <strong>{{ $errors->first('feedback') }}</strong>
                                         </span>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Currency<i style="color: red">*</i></label>
-                                    <div class="col-md-12 {{ $errors->has('currency_id') ? 'has-error' : '' }}">
-                                        <select class="form-control" id="kt_select_1" name="currency_id">
-                                            <option value="1">USD</option>
-                                            <option value="2">BDT</option>
-                                        </select>
-                                        @if ($errors->has('currency_id'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('currency_id') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Transfer Date</label>
-                                    <div class="col-md-12 {{ $errors->has('transfer_date') ? 'has-error' : '' }}">
-                                        <input type="text" class="form-control" name="transfer_date" value="{{ old('transfer_date') }}" id="kt_datepicker_3" placeholder="Transfer Date">
-                                        @if ($errors->has('transfer_date'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('transfer_date') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Transfer Mode</label>
-                                    <div class="col-md-12 {{ $errors->has('transfer_mode') ? 'has-error' : '' }}">
-                                        <input type="text" class="form-control" name="transfer_mode" value="{{ old('transfer_mode') }}" placeholder="Transfer Mode" required>
-                                        @if ($errors->has('transfer_mode'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('transfer_mode') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Reference Number</label>
-                                    <div class="col-md-12 {{ $errors->has('reference_no') ? 'has-error' : '' }}">
-                                        <input type="text" class="form-control" name="reference_no" value="{{ old('reference_no') }}" placeholder="Reference Number">
-                                        @if ($errors->has('reference_no'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('reference_no') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
                                 <div class="col-md-6">
                                     <label class="col-4 col-form-label">Is Active<i style="color: red">*</i></label>
                                     <div class="col-8">
@@ -232,7 +181,7 @@ jQuery('#expat_info').css('display', 'none');
 function setData(id) {
     jQuery.ajax({
         type: "GET",
-        url: "../remmittance_history/"+id+"/getExpatInfo",
+        url: "../feedback/"+id+"/getExpatInfo",
         dataType: "JSON",
         success: function(data) {
             if (data !== '') {

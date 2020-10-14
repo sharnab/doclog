@@ -244,8 +244,25 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="navi navi-spacer-x-0 p-0">
 					<!--begin::Item-->
 					<a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
-						<div class="navi-link">
+                        <div class="navi-link">
+                            <div class="navi-text">
+                                <div class="font-weight-bold"><a href="{{route('upd_pass')}}">
+                                    <i class="icon-key"></i> Change Password </a></div>
+                                </div>
+                        </div>
+					</a>
+					<!--end:Item-->
 
+				</div>
+				<!--end::Nav-->
+                <!--begin::Separator-->
+				<div class="separator separator-dashed my-7"></div>
+				<!--end::Separator-->
+                <!--begin::Nav-->
+				<div class="navi navi-spacer-x-0 p-0">
+					<!--begin::Item-->
+					<a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
+						<div class="navi-link">
 							<div class="navi-text">
 								<div class="font-weight-bold"><a href="{{route('logout')}}">
                                     <i class="icon-key"></i> Log Out </a></div>

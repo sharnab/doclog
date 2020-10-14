@@ -69,6 +69,35 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     Route::get('/remmittance_datatable','Admin\RemmittanceHistoryController@serverSideTable')->name('remmittance_datatable');
     // Route::get('/country3','Admin\CountryController@serverSideTable')->name('country3');
 
+
+    /**
+     * Feedback creation
+     */
+    Route::get('/feedback','Admin\FeedbackController@index')->name('feedback');
+    Route::get('/feedback/create','Admin\FeedbackController@create')->name('feedback.create');
+    Route::post('/feedback/store','Admin\FeedbackController@store')->name('feedback.store');
+    Route::get('/feedback/{id}/edit','Admin\FeedbackController@edit')->name('feedback.edit');
+    Route::put('/feedback/{id}/update','Admin\FeedbackController@update')->name('feedback.update');
+    Route::get('/feedback/{id}/destroy','Admin\FeedbackController@destroy')->name('feedback.destroy');
+    Route::get('/feedback/{id}/show','Admin\FeedbackController@show')->name('feedback.show');
+    Route::get('/feedback/{id}/getExpatInfo','Admin\FeedbackController@getExpatInfo')->name('feedback.getExpatInfo');
+    Route::get('/feedback_datatable','Admin\FeedbackController@serverSideTable')->name('feedback_datatable');
+
+
+    /**
+     * Departure creation
+     */
+    Route::get('/departure_info','Admin\DepartureController@index')->name('departure_info');
+    Route::get('/departure_info/create','Admin\DepartureController@create')->name('departure_info.create');
+    Route::post('/departure_info/store','Admin\DepartureController@store')->name('departure_info.store');
+    Route::get('/departure_info/{id}/edit','Admin\DepartureController@edit')->name('departure_info.edit');
+    Route::put('/departure_info/{id}/update','Admin\DepartureController@update')->name('departure_info.update');
+    Route::get('/departure_info/{id}/destroy','Admin\DepartureController@destroy')->name('departure_info.destroy');
+    Route::get('/departure_info/{id}/show','Admin\DepartureController@show')->name('departure_info.show');
+    Route::get('/departure_info/{id}/getExpatInfo','Admin\DepartureController@getExpatInfo')->name('departure_info.getExpatInfo');
+    Route::get('/departure_info_datatable','Admin\DepartureController@serverSideTable')->name('departure_info_datatable');
+
+
     /**
      * Religion creation
      */
