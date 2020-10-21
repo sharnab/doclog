@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     Route::put('/expatriate/{id}/update','Admin\ExpatriateController@update')->name('user_update');
     Route::get('/expatriate/{id}/destroy','Admin\ExpatriateController@destroy')->name('user_destroy');
     Route::get('/expatriate/{id}/show','Admin\ExpatriateController@show')->name('user_show');
+    Route::get('/expatriate/{id}/deleteDocument','Admin\ExpatriateController@deleteDocument');
 
 
     /**
@@ -555,7 +556,7 @@ Route::get('getBranches/{id}','Admin\CommonAjaxController@getBranchesById')->mid
 
 
 
-
+Route::get('user_info/{id}/show','Admin\UserinfoController@show')->name('usr_profile')->middleware(['auth']);
 Route::get('update','Admin\UpdatePassController@changePass')->name('upd_pass')->middleware(['auth']);
 Route::post('reset','Admin\UpdatePassController@passwordChange')->name('reset_pass')->middleware(['auth']);
 

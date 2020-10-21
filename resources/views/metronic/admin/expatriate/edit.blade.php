@@ -1802,18 +1802,43 @@
                                         <!--begin::Form-->
                                         <div class="card-body">
 
-                                            <div id="kt_repeater_3">
+                                            <div id="kt_repeater">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label text-right">Document title:</label>
                                                     <div data-repeater-list="" class="col-lg-9">
+                                                        @foreach($items['expatDocument'] as $doc)
+                                                            <div data-repeater-item="" class="form-group row" id="data_{{$doc['id']}}">
+                                                                <div class="col-lg-5">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" name="document_title" placeholder="Document" value="{{$doc['document_name']}}" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <a href="{{$doc['image']}}" target="_blank" class="btn btn-primary font-weight-bold text-uppercase px-4 py-2">View File</a>
+                                                                </div>
+                                                                <div class="col-lg-1">
+                                                                    <a href="javascript:;" onclick="if(confirm('Are you sure you want to delete this element?')) deleteDocument('{{$doc['id']}}')" data-repeater-delete="" class="btn font-weight-bold btn-danger btn-icon">
+                                                                        <i class="la la-remove"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="kt_repeater_3">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label text-right">Document title:</label>
+                                                    <div data-repeater-list="doc_info" class="col-lg-9">
                                                         <div data-repeater-item="" class="form-group row">
                                                             <div class="col-lg-5">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="document_title" placeholder="Document" />
+                                                                    <input type="text" class="form-control" name="title" placeholder="Document" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
-                                                                <input type="file" name="document_file"/>
+                                                                <input type="file" name="file"/>
                                                             </div>
                                                             <div class="col-lg-1">
                                                                 <a href="javascript:;" data-repeater-delete="" class="btn font-weight-bold btn-danger btn-icon">
@@ -2099,6 +2124,23 @@
         autoclose: true
     });
 
+    function deleteDocument(id){
+        var l = window.location;
+        var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+        jQuery.ajax({
+            type: "GET",
+            url: base_url + '/public/admin/expatriate/' + id + '/deleteDocument/',
+            dataType: "JSON",
+            success: function(data) {
+                if (data !== '') {
+                    $('#data_' + id).slideUp();
+                    return True;
+                } else {
+                    return False;
+                }
+            }
+        });
+    }
     // var KTFormRepeater = function() {
     //
     //     var demo3 = function() {

@@ -129,7 +129,7 @@ class ExpatriateController extends ApiController
         $this->processBdPermanent($request, $expat_id, 1);
         $this->processBdPresent($request, $expat_id, 1);
         $this->processBdEmergency($request, $expat_id, 1);
-        // $this->processDocuments($request, $expat_id, 1);
+        $this->processDocuments($request, $expat_id, 1);
 
         session()->flash('message', 'Successfully Submitted');
         session()->flash('class', '1');
@@ -172,7 +172,6 @@ class ExpatriateController extends ApiController
         $country=Country::where('id',181)->get()->toArray();
         $divisions=Division::where('active_status',1)->get()->toArray();
         $items= $this->getExpatInfo($id);
-
 
         return view('admin.expatriate.edit', compact('items','country_list','religion','gender','countries','country','divisions'));
     }
@@ -851,30 +850,25 @@ class ExpatriateController extends ApiController
 
     }
 
-    private function processDocuments($request, $expat_id, $type = 1, $id = null)
+    private function processDocuments($request, $expat_id, $id = null)
     {
 
         $items['expat_id'] = $expat_id;
-        $items['contact_type'] = 2;
-        $items['name'] = $request->input('bd_emergency_name');
-        $items['relation'] = $request->input('bd_emergency_relation');
-        $items['email'] = $request->input('bd_emergency_email');
-        $items['mobile'] = $request->input('bd_emergency_mobile');
-        $items['address'] = $request->input('bd_emergency_address');
-        if ($type == 1) {
-            //Insert data
-            $items['active_status'] = 1;
-            $items['created_by'] = Auth::id();
-            $items['created_at'] = date('Y-m-d H:i:s');
-            return ExpatDocument::insert($items);
-        } else {
-            //Update data
-            // $items['active_status']=1;
-            $items['updated_by'] = Auth::id();
-            $items['updated_at'] = date('Y-m-d H:i:s');
-            return ExpatDocument::where('expat_id', $expat_id)->update($items);
+
+        //Insert data
+        $items['active_status'] = 1;
+        $items['created_by'] = Auth::id();
+        $items['created_at'] = date('Y-m-d H:i:s');
+
+        foreach($request->doc_info as $documents){
+            $items['document_name'] = $documents['title'];
+            $items['image'] = $this->uploadFile($documents['file'], '', 'expat_doc');
+
+            ExpatDocument::insert($items);
+
         }
 
+        return True;
     }
 
 
@@ -905,6 +899,7 @@ class ExpatriateController extends ApiController
          */
         $item['bdPresentAddress'] = $this->getExpatBdPresentAddress($expat_id);
         $item['bdPermanentAddress'] = $this->getExpatBdPermanentAddress($expat_id);
+        $item['expatDocument'] = $this->getExpatDocument($expat_id);
 
         return $item;
 
@@ -944,6 +939,22 @@ class ExpatriateController extends ApiController
 
     }
 
+    private function getExpatDocument($expat_id)
+    {
+        $with_array = [
+            'document_name', 'image', 'remarks'
+        ];
+
+        $items = ExpatDocument::select('id', 'document_name', 'image', 'remarks')->where('expat_id', $expat_id)->where('active_status', 'Active')->get();
+
+        if($items->IsEmpty()) {
+            return [];
+        }
+        $items = $items->toArray();
+        return $items;
+
+    }
+
 
     private function uploadFile($request, $file_name, $folder_name)
     {
@@ -954,16 +965,40 @@ class ExpatriateController extends ApiController
             File::makeDirectory($path, $mode = 0777, true, true);
         }
 
-        $image_name = date('YmdHis').rand().'.' . $request->$file_name->getClientOriginalExtension();
+        if(!empty($file_name))
+        {
+            $image_name = date('YmdHis').rand().'.' . $request->$file_name->getClientOriginalExtension();
 
-        if ($image_name) {
-            request()->$file_name->move($path, $image_name);
-            // request()->file($file_name)->move($path, $image_name);
-            $passport_img_path = "uploads/" . $folder_name . "/" . $image_name;
+            if ($image_name) {
+                request()->$file_name->move($path, $image_name);
+                // request()->file($file_name)->move($path, $image_name);
+                $passport_img_path = "uploads/" . $folder_name . "/" . $image_name;
+            }
+        }
+        else {
+            $image_name = date('YmdHis').rand().'.' . $request->getClientOriginalExtension();
+
+            if ($image_name) {
+                $request->move($path, $image_name);
+                // request()->file($file_name)->move($path, $image_name);
+                $passport_img_path = "uploads/" . $folder_name . "/" . $image_name;
+            }
         }
 
         return $passport_img_path;
 
+    }
+
+    public function deleteDocument($id){
+        if(!empty($id)){
+            $items['active_status']='Inactive';
+            $items['updated_by'] = Auth::id();
+            $items['updated_at'] = date('Y-m-d H:i:s');
+            return ExpatDocument::where('id', $id)->update($items);
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -1244,7 +1279,8 @@ class ExpatriateController extends ApiController
         $this->processBdPermanent($request, $expat_id, 2);
         $this->processBdPresent($request, $expat_id, 2);
         $this->processBdEmergency($request, $expat_id, 2);
-//        $this->processDocuments($request, $expat_id, 2);
+
+       $this->processDocuments($request, $expat_id, 2);
 
         session()->flash('message', 'Expatriate Information Updated Successfully !');
         session()->flash('class', '1');

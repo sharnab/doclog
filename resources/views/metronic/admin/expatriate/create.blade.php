@@ -1778,15 +1778,15 @@
                                             <div id="kt_repeater_3">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label text-right">Document title:</label>
-                                                    <div data-repeater-list="" class="col-lg-9">
+                                                    <div data-repeater-list="doc_info" class="col-lg-9">
                                                         <div data-repeater-item="" class="form-group row">
                                                             <div class="col-lg-5">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="document_title" placeholder="Document" />
+                                                                    <input type="text" class="form-control" name="title" placeholder="Document" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
-                                                                <input type="file" name="document_file"/>
+                                                                <input type="file" name="file"/>
                                                             </div>
                                                             <div class="col-lg-1">
                                                                 <a href="javascript:;" data-repeater-delete="" class="btn font-weight-bold btn-danger btn-icon">
@@ -1804,6 +1804,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <!--end: Code-->
                                         </div>
                                         <!--end::Form-->
