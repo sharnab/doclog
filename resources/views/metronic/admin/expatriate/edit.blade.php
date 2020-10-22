@@ -1814,7 +1814,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
-                                                                    <a href="{{$doc['image']}}" target="_blank" class="btn btn-primary font-weight-bold text-uppercase px-4 py-2">View File</a>
+                                                                    <a href="../../../{{$doc['image']}}" target="_blank">
+                                                                    <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url({{isset($doc['image'])?asset($doc['image']):url('/assets/media/misc/blank.jpg')}});">
+                                                                        <div class="image-input-wrapper"></div>
+                                                                    </div>
+                                                                    {{--<a href="../../../{{$doc['image']}}" target="_blank" class="btn btn-primary font-weight-bold text-uppercase px-4 py-2">View File</a>--}}
                                                                 </div>
                                                                 <div class="col-lg-1">
                                                                     <a href="javascript:;" onclick="if(confirm('Are you sure you want to delete this element?')) deleteDocument('{{$doc['id']}}')" data-repeater-delete="" class="btn font-weight-bold btn-danger btn-icon">
