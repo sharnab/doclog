@@ -246,7 +246,7 @@
                     <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                         <div class="col-xl-12">
                             <!--begin::Wizard Form-->
-                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" method="POST"  action="{{ route('user_update', $items['id']) }}" enctype="multipart/form-data">
+                            <form class="form form-horizontal basicInfo" id="kt_form" role="form" action="{{ route('user_update', $items['id']) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{method_field('PUT')}}
                                 <!--begin::Wizard Step 1-->

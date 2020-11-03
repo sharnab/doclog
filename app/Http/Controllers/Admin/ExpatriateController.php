@@ -1309,5 +1309,353 @@ class ExpatriateController extends ApiController
         return $list;
     }
 
+    public function get_expat_personal_data(){
+        $expat_id = 2;
+        /**
+         * Relational Array
+         */
+        $withArray = ['passport','religion'];
+//        $withArray = ['passport', 'religion','visa', 'arrival', 'bmet', 'employmentType', 'ministryApproval', 'workPermit',
+//            'workPlace', 'motherCompany', 'supplierCompany', 'recruitingAgency', 'salaryInfo',
+//            'currentCountryBankAccount', 'bdBankAccount', 'currentCountryAddress', 'currentCountryEmergency',
+//            'bdEmergency'];
+        /**
+         * Get Expat Basic with relational data
+         */
+        $items = Expat::with($withArray)->where('id', $expat_id)->get();
+
+        if ($items->isEmpty()) {
+            return false;
+        }
+
+        $items = $items->toArray();
+
+        $item = $items[0];
+        /**
+         * add bd present address
+         */
+//        $item['bdPresentAddress'] = $this->getExpatBdPresentAddress($expat_id);
+//        $item['bdPermanentAddress'] = $this->getExpatBdPermanentAddress($expat_id);
+//        $item['expatDocument'] = $this->getExpatDocument($expat_id);
+
+        return $item;
+    }
+    public function get_expat_visa_data(){
+        $expat_id = 2;
+
+        $item['visa_info'] = ExpatVisaInfo::where('expat_id', $expat_id)->latest()->first();
+        $item['arrival'] = ExpatTravelHistory::join('countries','countries.id', '=', 'expat_travel_history.arrival_country_id')->where('travel_type', 1)->where('expat_id', $expat_id)->latest('expat_travel_history.id')->first();
+        $item['departure'] = ExpatTravelHistory::join('countries','countries.id', '=', 'expat_travel_history.departure_country_id')->where('travel_type', 2)->where('expat_id', $expat_id)->latest('expat_travel_history.id')->first();
+        /**
+         * add bd present address
+         */
+
+        return $item;
+
+    }
+    public function get_expat_employee_data(){
+        $expat_id = 2;
+
+        $item['employee_info'] = ExpatEmploymentType::where('expat_id', $expat_id)->latest('id')->first();
+        $item['bmet_info'] = ExpatBmetInfo::where('expat_id', $expat_id)->latest('id')->first();
+        $item['work_permit_info'] = ExpatWorkPermit::where('expat_id', $expat_id)->latest('id')->first();
+        $item['work_place_info'] = ExpatWorkPlace::where('expat_id', $expat_id)->latest('id')->first();
+        $item['mother_company_info'] = ExpatMotherCompany::where('expat_id', $expat_id)->latest('id')->first();
+        $item['ministry_approval_info'] = ExpatMinistryApproval::where('expat_id', $expat_id)->latest('id')->first();
+        $item['supplier_company_info'] = ExpatSupplierCompany::where('expat_id', $expat_id)->latest('id')->first();
+        $item['recruiting_agency_info'] = ExpatRecruitingAgency::where('expat_id', $expat_id)->latest('id')->first();
+
+        return $item;
+
+    }
+    public function get_expat_financial_data(){
+        $expat_id = 2;
+
+        $item['salary_info'] = ExpatSalaryInfo::where('expat_id', $expat_id)->latest()->first();
+        $item['current_bank_info'] = ExpatCurrentCountryBankAccount::where('expat_id', $expat_id)->latest()->first();
+        $item['bd_bank_info'] = ExpatBdBankAccount::where('expat_id', $expat_id)->latest()->first();
+
+        return $item;
+
+    }
+    public function get_contact_info_data(){
+        $expat_id = 2;
+
+        $item['current_address_info'] = ExpatCurrentCountryAddress::where('expat_id', $expat_id)->latest('id')->first();
+        $item['current_emg_contact_info'] = ExpatEmergencyContact::where('contact_type', 'Current')->where('expat_id', $expat_id)->latest('id')->first();
+        $item['bd_emg_contact_info'] = ExpatEmergencyContact::where('contact_type', 'Bangladesh')->where('expat_id', $expat_id)->latest('id')->first();
+        $item['permanent_address_info'] = ExpatBdAddress::select('expat_bd_address.*', 'loc_districts.title_en as district', 'loc_divisions.title_en as division', 'loc_unions.title_en as union', 'loc_upazilas.title_en as upazila')
+                                            ->join('loc_districts','loc_districts.id', '=', 'expat_bd_address.district_id')
+                                            ->join('loc_divisions','loc_divisions.id', '=', 'expat_bd_address.division_id')
+                                            ->join('loc_unions','loc_unions.id', '=', 'expat_bd_address.union_id')
+                                            ->join('loc_upazilas','loc_upazilas.id', '=', 'expat_bd_address.upazila_id')
+                                            ->where('address_type', 'Permanent')->where('expat_id', $expat_id)->latest('id')->first();
+        $item['mail_address_info'] = ExpatBdAddress::select('expat_bd_address.*', 'loc_districts.title_en as district', 'loc_divisions.title_en as division', 'loc_unions.title_en as union', 'loc_upazilas.title_en as upazila')
+                                            ->join('loc_districts','loc_districts.id', '=', 'expat_bd_address.district_id')
+                                            ->join('loc_divisions','loc_divisions.id', '=', 'expat_bd_address.division_id')
+                                            ->join('loc_unions','loc_unions.id', '=', 'expat_bd_address.union_id')
+                                            ->join('loc_upazilas','loc_upazilas.id', '=', 'expat_bd_address.upazila_id')
+                                            ->where('address_type', 'Present')->where('expat_id', $expat_id)->latest('id')->first();
+
+        return $item;
+
+    }
+    public function get_expat_document_data(){
+        $expat_id = 2;
+
+        $item['documents_info'] = ExpatDocument::where('expat_id', $expat_id)->get();
+
+        return $item;
+
+    }
+
+    public function personal_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        return view('admin.expatriate.edit_personal_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+    public function visa_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        return view('admin.expatriate.edit_visa_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+    public function employee_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        return view('admin.expatriate.edit_employee_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+    public function financial_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        return view('admin.expatriate.edit_financial_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+    public function contact_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        return view('admin.expatriate.edit_contact_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+    public function document_data_edit($id){
+        $id = 2;
+
+        $isExist = Expat::find($id);
+
+        if(empty($isExist))
+        {
+            session()->flash('message', 'No Expatriate found for this selection');
+            session()->flash('class', '2');
+            return Redirect()->route('user');
+        }
+
+        $country_list = Country::all();
+        $religion=Religion::where('active_status',1)->get()->toArray();
+        $gender=Gender::where('active_status',1)->get()->toArray();
+        $countries=Country::whereIn('id',[26,147])->get()->toArray();
+        $country=Country::where('id',181)->get()->toArray();
+        $divisions=Division::where('active_status',1)->get()->toArray();
+        $items= $this->getExpatInfo($id);
+
+        $isExist = Expat::find($id);
+        return view('admin.expatriate.edit_document_data', compact('items','country_list','religion','gender','countries','country','divisions'));
+    }
+
+    public function personal_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processBasicInfo($request, 2,$expat_id);
+        $this->processPassport($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+    }
+    public function visa_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processVisa($request, $expat_id, 2);
+        $this->processArrival($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+
+    }
+    public function employee_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processBMET($request, $expat_id, 2);
+        $this->processEmploymentType($request, $expat_id, 2);
+        $this->processMinistryApproval($request, $expat_id, 2);
+        $this->processWorkPermit($request, $expat_id, 2);
+        $this->processWorkPlace($request, $expat_id, 2);
+        $this->processMotherCompany($request, $expat_id, 2);
+        $this->processSupplierCompany($request, $expat_id, 2);
+        $this->processRecruitingAgency($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+    }
+    public function financial_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processSalaryInfo($request, $expat_id, 2);
+        $this->processCurrentCountryBankAccount($request, $expat_id, 2);
+        $this->processBdBankAccount($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+    }
+    public function contact_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processCurrentCountryAddress($request, $expat_id, 2);
+        $this->processCurrentCountryEmergency($request, $expat_id, 2);
+        $this->processBdPermanent($request, $expat_id, 2);
+        $this->processBdPresent($request, $expat_id, 2);
+        $this->processBdEmergency($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+    }
+    public function document_data_update(Request $request, $expat_id){
+        $isExist     =Expat::where('passport_number',$request->input('passport_number'))->where('active_status',1)->whereNotIn('id',[$expat_id])->count();
+
+        if($isExist||$isExist>0)
+        {
+            session()->flash('message', 'This passport already exist in the system');
+            session()->flash('class', '2');
+            return back();
+        }
+
+        $this->processDocuments($request, $expat_id, 2);
+
+        session()->flash('message', 'Expatriate Information Updated Successfully !');
+        session()->flash('class', '1');
+        return redirect()->route('userinfo.show', $expat_id);
+
+    }
+
 
 }

@@ -1,44 +1,44 @@
 @extends('layouts.admin')
 @section('extra_css')
 
-    <style type="text/css">
-        @page {
-            margin-top:0px;
-        }
-        .table {
-            display: table;
-            border-spacing: 2px;
-        }
+<style type="text/css">
+   @page {
+       margin-top:0px;
+   }
+    .table {
+        display: table;
+        border-spacing: 2px;
+    }
 
-        .row {
-            display: table-row;
-        }
+    .row {
+        display: table-row;
+    }
 
-        .row>div {
-            display: table-cell;
-            border: solid 1px #ccc;
-            padding: 2px;
-        }
+    .row>div {
+        display: table-cell;
+        border: solid 1px #ccc;
+        padding: 2px;
+    }
 
-        div.checker {
-            margin-top: 2px;
-            margin-left: -2px;
-        }
+    div.checker {
+        margin-top: 2px;
+        margin-left: -2px;
+    }
 
-        .end-padding {
-            padding-right: 10px !important;
-        }
+    .end-padding {
+        padding-right: 10px !important;
+    }
 
-        .left-cell {
-            width: 25% !important;
-        }
+    .left-cell {
+        width: 25% !important;
+    }
 
-        .right-cell {
-            width: 25% !important;
-        }
+    .right-cell {
+        width: 25% !important;
+    }
 
 
-    </style>
+</style>
 @endsection
 
 @section('content')
@@ -78,22 +78,22 @@
             <!--end::Toolbar-->
         </div>
     </div>
-    <!--begin::Entry-->
-    <div class="d-flex flex-column-fluid " style="margin-top: 0px;padding-top: 0px" >
-        <!--begin::Container-->
-        <div class="container">
-            <!-- begin::Card-->
-            <div class="card card-custom overflow-hidden">
-                <div class="card-body p-0">
-                    <!-- begin: Invoice-->
-                    <!-- begin: Invoice header-->
-                    <div class="row justify-content-center py-8 px-6 py-md-2 px-md-0">
-                        <div class="col-md-12">
-                            <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
-                                <div class="col-md-11">
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
-                                            <tbody>
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid " style="margin-top: 0px;padding-top: 0px" >
+    <!--begin::Container-->
+    <div class="container">
+        <!-- begin::Card-->
+        <div class="card card-custom overflow-hidden">
+            <div class="card-body p-0">
+                <!-- begin: Invoice-->
+                <!-- begin: Invoice header-->
+                <div class="row justify-content-center py-8 px-6 py-md-2 px-md-0">
+                    <div class="col-md-12">
+                        <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
+                            <div class="col-md-11">
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4 col-md-6" style="text-align: center; padding-left: 20% !important"><img src="{{url('/img/govt_seal.png')}}" style="width: 15%; text-align: center;" /></td>
                                                 <td class="border-top-0 pl-10 py-4 col-md-4"></td>
@@ -115,22 +115,22 @@
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-42 py-0 col-md-6" style="text-align: center; padding-left: 23%;"><h8 class="display-8 mb-6" style="text-align: center;">www.bdembassybangkok.org, mission.bangkok@mofa.gov.bd</h8></td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
-                                <div class="col-md-11">
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                        <div class="row justify-content-center py-8 px-8 py-md-5 px-md-0">
+                            <div class="col-md-11">
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Personal Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Passport Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
@@ -224,18 +224,18 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4 pr-10">{{$item['linkedin_id']}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Visa & Arrival Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
 
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Arrival Country</td>
@@ -270,20 +270,20 @@
                                                 <td class="border-top-0 py-4 pr-10">{{isset($item['visa']['expiry_date'])?((!empty($item['visa']['expiry_date']) && !is_null($item['visa']['expiry_date']))?date('d-m-Y',strtotime($item['visa']['expiry_date'])):''):''}}</td>
 
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div style="page-break-before: always; width: 100%; height: 60px;"></div>
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
-                                    <div class="table-responsive" >
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive" >
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Employment Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">BMET Smart Card Number</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
@@ -331,18 +331,18 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4" colspan="4">{{(isset($item['work_place']['address']))? $item['work_place']['address']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Mother Company Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
@@ -364,52 +364,52 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4" colspan="4">{{(isset($item['mother_company']['address']))? $item['mother_company']['address']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
-                                            <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Supplier Company Information</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['supplier_company']['name']))? $item['supplier_company']['name']:''}}</td>
-                                                <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['supplier_company']['business_type']))? $item['supplier_company']['business_type']:''}}</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Email</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['supplier_company']['email']))? $item['supplier_company']['email']:''}}</td>
-                                                <td class=" border-top-0 py-4">Contact Number</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['supplier_company']['mobile']))? $item['supplier_company']['mobile']:''}}</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Address</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4" colspan="4">{{(isset($item['supplier_company']['address']))? $item['supplier_company']['address']:''}}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                        <tr>
+                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Supplier Company Information</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['supplier_company']['name']))? $item['supplier_company']['name']:''}}</td>
+                                            <td class=" border-top-0 py-4" style="width: 25%">Business Type</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['supplier_company']['business_type']))? $item['supplier_company']['business_type']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Email</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['supplier_company']['email']))? $item['supplier_company']['email']:''}}</td>
+                                            <td class=" border-top-0 py-4">Contact Number</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['supplier_company']['mobile']))? $item['supplier_company']['mobile']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Address</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4" colspan="4">{{(isset($item['supplier_company']['address']))? $item['supplier_company']['address']:''}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Recruiting Agency Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
@@ -431,18 +431,18 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4" colspan="4">{{(isset($item['recruiting_agency']['address']))? $item['recruiting_agency']['address']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Financial Information</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class=" border-top-0 pl-10 py-4" style="width: 25%">Salary/Wages</td>
                                                 <td class="border-top-0 pl-0 ">:</td>
@@ -451,18 +451,18 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4">{{(isset($item['salary_info']['currency_id']))? $item['salary_info']['currency_id']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Bank Account In Current Country</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
                                                 <td class="border-top-0 pl-0">:</td>
@@ -487,57 +487,57 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4 pr-10">{{(isset($item['current_country_bank_account']['swift']))? $item['current_country_bank_account']['swift']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    {{-- page break for printing --}}
-                                    <div style="page-break-before: always; width: 100%; height: 60px;"></div>
+                                {{-- page break for printing --}}
+                                <div style="page-break-before: always; width: 100%; height: 60px;"></div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
-                                            <tr>
-                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Information About Bank Account In Bangladesh</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="font-weight-bold">
-                                                <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
-                                                <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['bd_bank_account']['account_name']))? $item['bd_bank_account']['account_name']:''}}</td>
-                                                <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
-                                                <td class="border-top-0 pl-0">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['account_number']))? $item['bd_bank_account']['account_number']:''}}</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['bank_name']))? $item['bd_bank_account']['bank_name']:''}}</td>
-                                                <td class=" border-top-0 py-4">Branch Name</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['branch_name']))? $item['bd_bank_account']['branch_name']:''}}</td>
-                                            </tr>
-                                            <tr class="font-weight-bold">
-                                                <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['routing_number']))? $item['bd_bank_account']['routing_number']:''}}</td>
-                                                <td class=" border-top-0 py-4">SWIFT</td>
-                                                <td class="border-top-0 pl-0 ">:</td>
-                                                <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['swift']))? $item['bd_bank_account']['swift']:''}}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
+                                        <tr>
+                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Information About Bank Account In Bangladesh</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="font-weight-bold">
+                                            <td class="border-top-0 pl-10 py-4" style="width: 25%">Account Name</td>
+                                            <td class="border-top-0 pl-0">:</td>
+                                            <td class="border-top-0 py-4" style="width: 26%">{{(isset($item['bd_bank_account']['account_name']))? $item['bd_bank_account']['account_name']:''}}</td>
+                                            <td class="border-top-0 py-4" style="width: 25%">Account Number</td>
+                                            <td class="border-top-0 pl-0">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['account_number']))? $item['bd_bank_account']['account_number']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Bank Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['bank_name']))? $item['bd_bank_account']['bank_name']:''}}</td>
+                                            <td class=" border-top-0 py-4">Branch Name</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['branch_name']))? $item['bd_bank_account']['branch_name']:''}}</td>
+                                        </tr>
+                                        <tr class="font-weight-bold">
+                                            <td class=" border-top-0 pl-10 py-4 ">Routing Number</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4">{{(isset($item['bd_bank_account']['routing_number']))? $item['bd_bank_account']['routing_number']:''}}</td>
+                                            <td class=" border-top-0 py-4">SWIFT</td>
+                                            <td class="border-top-0 pl-0 ">:</td>
+                                            <td class="border-top-0 py-4 pr-10">{{(isset($item['bd_bank_account']['swift']))? $item['bd_bank_account']['swift']:''}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Address In Current Country</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Flat Number</td>
                                                 <td class="border-top-0 pl-0">:</td>
@@ -575,18 +575,18 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4">{{(isset($item['current_country_address']['mobile']))? $item['current_country_address']['mobile']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Emergency Contact In Current Country</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr class="font-weight-bold">
                                                 <td class="border-top-0 pl-10 py-4" style="width: 25%">Name</td>
                                                 <td class="border-top-0 pl-0">:</td>
@@ -608,81 +608,81 @@
                                                 <td class="border-top-0 pl-0 ">:</td>
                                                 <td class="border-top-0 py-4" colspan='4'>{{(isset($item['current_country_emergency']['address']))? $item['current_country_emergency']['address']:''}}</td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
-                                            <thead>
+                                <div class="table-responsive">
+                                    <table class="table" style="border: 1px solid #ECF0F3; padding: 5px">
+                                        <thead>
                                             <tr>
                                                 <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Adresses In Bangladesh</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr>
                                                 <td colspan="3">
                                                     <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
                                                         <thead>
-                                                        <tr>
-                                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Mailing Address</th>
-                                                        </tr>
+                                                            <tr>
+                                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Mailing Address</th>
+                                                            </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr class="font-weight-bold">
-                                                            <td class="border-top-0 pl-10 py-4" style="width: 50%">Street/Para</td>
-                                                            <td class="border-top-0 pl-0">:</td>
-                                                            <td class="border-top-0 py-4" style="width: 60%">{{(isset($item['bdPresentAddress']['street']))? $item['bdPresentAddress']['street']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Division</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['division']['title']))? $item['bdPresentAddress']['division']['title_en']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">District</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['district']['title']))? $item['bdPresentAddress']['district']['title_en']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['upazila']['title']))? $item['bdPresentAddress']['upazila']['title_en']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Word/Union</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['union']['title']))? $item['bdPresentAddress']['union']['title_en']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Area/Village</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['area']))? $item['bdPresentAddress']['area']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Post Office</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['post_office']))? $item['bdPresentAddress']['post_office']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Email</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['email']))? $item['bdPresentAddress']['email']:''}}</td>
-                                                        </tr>
-                                                        <tr class="font-weight-bold">
-                                                            <td class=" border-top-0 pl-10 py-4">Contact Number</td>
-                                                            <td class="border-top-0 pl-0 ">:</td>
-                                                            <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['mobile']))? $item['bdPresentAddress']['mobile']:''}}</td>
-                                                        </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class="border-top-0 pl-10 py-4" style="width: 50%">Street/Para</td>
+                                                                <td class="border-top-0 pl-0">:</td>
+                                                                <td class="border-top-0 py-4" style="width: 60%">{{(isset($item['bdPresentAddress']['street']))? $item['bdPresentAddress']['street']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Division</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['division']['title']))? $item['bdPresentAddress']['division']['title_en']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">District</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['district']['title']))? $item['bdPresentAddress']['district']['title_en']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Thana/Upazila</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['upazila']['title']))? $item['bdPresentAddress']['upazila']['title_en']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Word/Union</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['union']['title']))? $item['bdPresentAddress']['union']['title_en']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Area/Village</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['area']))? $item['bdPresentAddress']['area']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Post Office</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['post_office']))? $item['bdPresentAddress']['post_office']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Email</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['email']))? $item['bdPresentAddress']['email']:''}}</td>
+                                                            </tr>
+                                                            <tr class="font-weight-bold">
+                                                                <td class=" border-top-0 pl-10 py-4">Contact Number</td>
+                                                                <td class="border-top-0 pl-0 ">:</td>
+                                                                <td class="border-top-0 py-4">{{(isset($item['bdPresentAddress']['mobile']))? $item['bdPresentAddress']['mobile']:''}}</td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </td>
                                                 <td colspan="3">
                                                     <table class="table" style="border: 0px solid #ECF0F3; padding: 5px">
                                                         <thead>
-                                                        <tr>
-                                                            <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Permanent Address</th>
-                                                        </tr>
+                                                            <tr>
+                                                                <th class="pl-10 font-weight-boldest text-muted py-4" colspan="6" style="font-size: 18px">Permanent Address</th>
+                                                            </tr>
                                                         </thead>
                                                         <tbody>
                                                         <tr class="font-weight-bold">
@@ -734,32 +734,32 @@
                                                     </table>
                                                 </td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end: Invoice header-->
-                    <!-- begin: Invoice body-->
+                </div>
+                <!-- end: Invoice header-->
+                <!-- begin: Invoice body-->
 
-                    <!-- end: Invoice body-->
-                    <!-- begin: Invoice footer-->
-                    <div class="row justify-content-left py-8 px-8 py-md-0 px-md-15">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table" style="border: 0px">
-                                    <tbody>
-                                    {{--                                    <tr class="font-weight-bolder">--}}
-                                    {{--                                        <td style="border: 0px" colspan="2">--}}
-                                    {{--                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal--}}
-                                    {{--                                            consequences due to false declarations, formation or use of fake documents.--}}
-                                    {{--                                        </td>--}}
-                                    {{--                                    </tr>--}}
-                                    {{--                                    <tr class="font-weight-bolder">--}}
-                                    {{--                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>--}}
-                                    {{--                                    </tr>--}}
+                <!-- end: Invoice body-->
+                <!-- begin: Invoice footer-->
+                <div class="row justify-content-left py-8 px-8 py-md-0 px-md-15">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" style="border: 0px">
+                                <tbody>
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px" colspan="2">--}}
+{{--                                            I hereby declare that the above written particulars are true to the best of my knowledge and belief. I am conscious of the legal--}}
+{{--                                            consequences due to false declarations, formation or use of fake documents.--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr class="font-weight-bolder">--}}
+{{--                                        <td style="border: 0px; padding-top: 8rem" colspan="2"></td>--}}
+{{--                                    </tr>--}}
                                     <tr class="font-weight-bolder">
                                         <td style="border: 0px; text-align: center">
                                             Signature of Official
@@ -768,37 +768,37 @@
                                             Applicant's Signature
                                         </td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- end: Invoice footer-->
-                    <!-- begin: Invoice action-->
-                    <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
-                        <div class="col-md-12">
-                            <div class="d-flex justify-content-between" style="padding-left: 44%">
-                                <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();"><i class="fa fa-print"></i>Print</button>
-                                {{--                            <button type="button" class="btn btn-primary font-weight-bold"  onclick="window.print();">Print</button>--}}
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: Invoice action-->
-                    <!-- end: Invoice-->
                 </div>
+                <!-- end: Invoice footer-->
+                <!-- begin: Invoice action-->
+                <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 d-print-none noprint">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between" style="padding-left: 44%">
+                            <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();"><i class="fa fa-print"></i>Print</button>
+{{--                            <button type="button" class="btn btn-primary font-weight-bold"  onclick="window.print();">Print</button>--}}
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Invoice action-->
+                <!-- end: Invoice-->
             </div>
-            <!-- end::Card-->
         </div>
-        <!--end::Container-->
+        <!-- end::Card-->
     </div>
-    <!--end::Entry-->
+    <!--end::Container-->
+</div>
+<!--end::Entry-->
 
 
 @endsection
 @section('scripts')
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-    </script>
+</script>
 @endsection

@@ -23,6 +23,10 @@ class Expat extends Model
     {
         return $this->hasOne('App\Model\ExpatTravelHistory', 'expat_id')->where('travel_type',1);
     }
+    public function departure()
+    {
+        return $this->hasOne('App\Model\ExpatTravelHistory', 'expat_id')->where('travel_type',2);
+    }
     public function bmet()
     {
         return $this->hasOne('App\Model\ExpatBmetInfo', 'expat_id');

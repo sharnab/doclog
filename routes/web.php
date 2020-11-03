@@ -26,7 +26,14 @@ Route::prefix('address')->namespace('Admin')->group(function (){
     Route::get('union_by_upazila', 'AddressController@unionByUpazila');
 });
 
-
+Route::prefix('expat')->namespace('Admin')->group(function (){
+    Route::get('get_expat_personal_data', 'ExpatriateController@get_expat_personal_data');
+    Route::get('get_expat_visa_data','ExpatriateController@get_expat_visa_data');
+    Route::get('get_expat_employee_data', 'ExpatriateController@get_expat_employee_data');
+    Route::get('get_expat_financial_data', 'ExpatriateController@get_expat_financial_data');
+    Route::get('get_contact_info_data','ExpatriateController@get_contact_info_data');
+    Route::get('get_expat_document_data', 'ExpatriateController@get_expat_document_data');
+});
 
 Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
 
@@ -55,6 +62,18 @@ Route::prefix('admin')->middleware(['RoleBuzz', 'auth'])->group(function () {
     Route::get('/expatriate/{id}/show','Admin\ExpatriateController@show')->name('user_show');
     Route::get('/expatriate/{id}/deleteDocument','Admin\ExpatriateController@deleteDocument');
 
+    Route::get('/expatriate/{id}/personal_data_edit','Admin\ExpatriateController@personal_data_edit')->name('personal_data_edit');
+    Route::put('/expatriate/{id}/personal_data_update','Admin\ExpatriateController@personal_data_update')->name('personal_data_update');
+    Route::get('/expatriate/{id}/visa_data_edit','Admin\ExpatriateController@visa_data_edit')->name('visa_data_edit');
+    Route::put('/expatriate/{id}/visa_data_update','Admin\ExpatriateController@visa_data_update')->name('visa_data_update');
+    Route::get('/expatriate/{id}/employee_data_edit','Admin\ExpatriateController@employee_data_edit')->name('employee_data_edit');
+    Route::put('/expatriate/{id}/employee_data_update','Admin\ExpatriateController@employee_data_update')->name('employee_data_update');
+    Route::get('/expatriate/{id}/financial_data_edit','Admin\ExpatriateController@financial_data_edit')->name('financial_data_edit');
+    Route::put('/expatriate/{id}/financial_data_update','Admin\ExpatriateController@financial_data_update')->name('financial_data_update');
+    Route::get('/expatriate/{id}/contact_data_edit','Admin\ExpatriateController@contact_data_edit')->name('contact_data_edit');
+    Route::put('/expatriate/{id}/contact_data_update','Admin\ExpatriateController@contact_data_update')->name('contact_data_update');
+    Route::get('/expatriate/{id}/document_data_edit','Admin\ExpatriateController@document_data_edit')->name('document_data_edit');
+    Route::put('/expatriate/{id}/document_data_update','Admin\ExpatriateController@document_data_update')->name('document_data_update');
 
     /**
      * Remmittance History creation

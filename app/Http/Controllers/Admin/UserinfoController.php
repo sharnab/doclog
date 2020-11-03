@@ -10,6 +10,8 @@ use App\Http\Requests\UserinfoRequest;
 use App\Http\Requests\UserinfoEditRequest;
 
 use App\Model\User;
+use App\Model\Expat;
+use App\Model\ExpatDocument;
 use App\Model\Role\SysUserGroup;
 
 class UserinfoController extends Controller
@@ -85,7 +87,9 @@ class UserinfoController extends Controller
      */
     public function show($id)
     {
-        return view('admin.userinfo.view');
+        $userInfo = Expat::join('religion', 'expat.religion_id', 'religion.id')->find(2);
+        $documents = ExpatDocument::where('expat_id', '2')->get();
+        return view('admin.userinfo.view',compact('userInfo', 'documents'));
     }
 
     /**
