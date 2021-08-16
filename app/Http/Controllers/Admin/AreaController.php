@@ -35,7 +35,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        return view('admin.area.create', compact('allCustomers', 'allNations', 'allSalesExecutives'));
+        return view('admin.area.create');
     }
 
     /**

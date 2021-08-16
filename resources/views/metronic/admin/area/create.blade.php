@@ -89,24 +89,7 @@
                                             </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Area<i style="color: red">*</i></label>
-                                    <div class="col-md-12 {{ $errors->has('area_id') ? 'has-error' : '' }}">
-                                        <select class="form-control select_area_id" id="kt_select_1" name="area_id">
-                                            <option value='null'>Select Area</option>
-                                            @foreach ($areaList as $area)
-                                                <option value="{{ $area['id'] }}">
-                                                    {{ $area['name_en'] }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('area_id'))
-                                            <span class="help-block">
-                                            <strong>{{ $errors->first('area_id') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
+
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <label class="col-4 col-form-label">Is Active<i style="color: red">*</i></label>
