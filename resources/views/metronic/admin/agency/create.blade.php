@@ -31,7 +31,7 @@
                     <li class="breadcrumb-item">
                         <a href="#" class="text-muted">Create New</a>
                     </li>
-                    
+
                 </ul>
                 <!--end::Breadcrumb-->
             </div>
@@ -43,7 +43,7 @@
             <!--begin::Actions-->
             <!-- <a href="#" class="btn btn-light font-weight-bold btn-sm">Actions</a> -->
             <!--end::Actions-->
-            
+
         </div>
         <!--end::Toolbar-->
     </div>
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            
+
                 <!--begin::Card-->
                 <div class="card card-custom example example-compact">
                     <div class="card-header">
@@ -70,8 +70,8 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('agency_store') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                         <div class="card-body">
-                        
-    
+
+
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Agency Name<i style="color: red">*</i></label>
                                 <div class="col-10 {{ $errors->has('agency_name') ? 'has-error' : '' }}">
@@ -82,9 +82,9 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
-                            
+
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Licence No<i style="color: red">*</i></label>
                                 <div class="col-10 {{ $errors->has('licence_no') ? 'has-error' : '' }}">
@@ -95,7 +95,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Agent Name<i style="color: red">*</i></label>
@@ -107,7 +107,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Agent Position<i style="color: red">*</i></label>
@@ -119,7 +119,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Agency Address<i style="color: red">*</i></label>
@@ -131,7 +131,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Agent Address<i style="color: red">*</i></label>
@@ -143,9 +143,9 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
-                            
+
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Email<i style="color: red">*</i></label>
                                 <div class="col-10 {{ $errors->has('email') ? 'has-error' : '' }}">
@@ -156,7 +156,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Land Phone Number<i style="color: red">*</i></label>
@@ -168,7 +168,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Mobile Number<i style="color: red">*</i></label>
@@ -180,13 +180,13 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <!-- {{ Form::label('icon', __('Icon')),['class'=>'col-form-label text-right col-lg-2 col-sm-12'] }} -->
                                 <label class="col-2 col-form-label">Licence Valid Till<i style="color: red">*</i></label>
                                 <div id="datepicker" class="col-10 input-group date {{ $errors->has('renewed_upto_date') ? 'has-error' : '' }}" data-date-format="yyyy-mm-dd">
-                                    
+
                                     <input type="text" class="form-control" placeholder="Licence Valid Date" name='renewed_upto_date' readonly>
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     @if($errors->has('renewed_upto_date'))
@@ -207,7 +207,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Longitude</label>
@@ -219,11 +219,11 @@
                                     </span>
                                     @endif
                                 </div>
-                                   
+
                             </div> -->
-                        
-                            
-                            
+
+
+
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Is Active<i style="color: red">*</i></label>
                                 <div class="col-9">
@@ -234,12 +234,12 @@
                                         <label class="radio">
                                             <input type="radio" name="active_status" value="Inactive" {{ (isset($agency['active_status'])&&$agency['active_status']=='Inactive')||(old('active_status') == 'Inactive')?'checked':'' }}  > No<span></span>
                                         </label>
-                                        
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                            
+
                             <!--end: Code-->
                         </div>
                         <div class="card-footer">
@@ -255,9 +255,9 @@
                     </form>
                 </div>
                 <!--end::Card-->
-                
+
             </div>
-            
+
         </div>
     </div>
     <!--end::Container-->
