@@ -26,7 +26,7 @@
                         <a href="{{ url('/') }}" class="text-muted">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ url('admin/'.$module_route) }}" class="text-muted">Doctor's Information</a>
+                        <a href="{{ route('doctor_info') }}" class="text-muted">Doctor's Information</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#" class="text-muted">Edit</a>
@@ -72,56 +72,30 @@
                     <div class="card-body">
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group row">
-                            <div class="col-md-6">
-                                <label class="col-md-4 col-form-label">Passport Number<i style="color: red">*</i></label>
-                                <div class="col-md-12 {{ $errors->has('expat_id') ? 'has-error' : '' }}">
-                                    <select class="form-control select_expat_id" id="kt_select_1" name="expat_id">
-                                        <option value='null'>Select Passport Number</option>
-                                        @foreach ($expatList as $expat)
-                                        <option value="{{ $expat['id'] }}" {{ $expat['id'] == $item->expat_id ? 'selected' : '' }}>
-                                            {{ $expat['passport_number'] }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('expat_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('expat_id') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
+                            <div class="form-group required col-md-12">
+                                {{ Form::label('name_en', __('Name (In English)')) }}
+                                {{ Form::text('name_en',($item->name_en)?$item->name_en:old('name_en'),['class'=>'form-control','required'=>true]) }}
+                                @if($errors->has('name_en'))
+                                    <label id="title-error" class="error" for="name_en">{{ $errors->first('name_en') }}</label>
+                                @endif
                             </div>
-                            <div class="col-md-6" id='expat_info'>
-                                <div class="col-md-12">
-                                    <div class="col-md-12 col-form-label">Full Name<span id="name" style="padding-left: 50%">{{$item->first_name.' '.$item->last_name}}</span></div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="col-md-12 col-form-label">Contact Number<span id="contact_no" style="padding-left: 39%">{{$item->contact_no}}</span></div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="col-md-12 col-form-label">Category Of Worker<span id="worker_category" style="padding-left: 34%">{{$item->worker_category_id}}</span></div>
-                                </div>
+                            <div class="form-group col-md-12">
+                                {{ Form::label('name_bn', __('Name (In Bangla)')) }}
+                                {{ Form::text('name_bn',($item->name_bn)?$item->name_bn:old('name_en'),['class'=>'form-control','required'=>true]) }}
+                                @if($errors->has('name_bn'))
+                                    <label id="title-error" class="error" for="name_bn">{{ $errors->first('name_bn') }}</label>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6">
-                                <label class="col-md-4 col-form-label">Doctor's Information<i style="color: red">*</i></label>
-                                <div class="col-md-12 {{ $errors->has('feedback') ? 'has-error' : '' }}">
-                                    <textarea class="form-control" name="feedback" required>{{ ($item->feedback)?$item->feedback:old('feedback') }}</textarea>
-                                    @if ($errors->has('feedback'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('feedback') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
                             <div class="col-md-6">
                                 <label class="col-md-4 col-form-label">Area<i style="color: red">*</i></label>
                                 <div class="col-md-12 {{ $errors->has('area_id') ? 'has-error' : '' }}">
                                     <select class="form-control select_area_id" id="kt_select_1" name="area_id">
                                         <option value='null'>Select Area</option>
-                                        @foreach ($areaList as $area)
-                                            <option value="{{ $area['id'] }}">
-                                                {{ $area['name_en'] }}
+                                        @foreach ($allArea as $key=>$value)
+                                            <option value="{{ $key }}" {{ $item->area_id == $key ? 'selected' : '' }}>
+                                                {{ $value }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -133,37 +107,37 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="col-md-4 col-form-label">Speciality<i style="color: red">*</i></label>
-                                <div class="col-md-12 {{ $errors->has('speciality_id') ? 'has-error' : '' }}">
-                                    <select class="form-control select_speciality_id" id="kt_select_1" name="speciality_id">
-                                        <option value='null'>Select Speciality</option>
-                                        @foreach ($specialityList as $speciality)
-                                            <option value="{{ $speciality['id'] }}">
-                                                {{ $speciality['name_en'] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('speciality_id'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('speciality_id') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-12">
                                 <label class="col-md-4 col-form-label">Hospital<i style="color: red">*</i></label>
                                 <div class="col-md-12 {{ $errors->has('hospital_id') ? 'has-error' : '' }}">
                                     <select class="form-control select_hospital_id" id="kt_select_1" name="hospital_id">
                                         <option value='null'>Select Hospital</option>
-                                        @foreach ($hospitalList as $expat)
-                                            <option value="{{ $hospital['id'] }}">
-                                                {{ $hospital['name_en'] }}
+                                        @foreach ($allHospitals as $key=>$value)
+                                            <option value="{{ $key }}" {{ $item->hospital_id == $key ? 'selected' : '' }}>
+                                                {{ $value }}
                                             </option>
                                         @endforeach
                                     </select>
                                     @if ($errors->has('hospital_id'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('hospital_id') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="col-md-4 col-form-label">Speciality<i style="color: red">*</i></label>
+                                <div class="col-md-12 {{ $errors->has('speciality_id') ? 'has-error' : '' }}">
+                                    <select class="form-control select_speciality_id" id="kt_select_1" name="speciality_id">
+                                        <option value='null'>Select Speciality</option>
+                                        @foreach ($allSpecialities as $key=>$value)
+                                            <option value="{{ $key }}" {{ $item->speciality_id == $key ? 'selected' : '' }}>
+                                                {{ $value }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('speciality_id'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('speciality_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -194,7 +168,7 @@
                             <div class="col-10">
                                 <button type="submit" class="btn btn-success mr-2">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
-                                <a href="{{ route('division') }}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ route('doctor_info') }}" class="btn btn-danger">Cancel</a>
                             </div>
                         </div>
                     </div>

@@ -18,7 +18,7 @@
             <!--begin::Page Heading-->
             <div class="d-flex align-items-baseline mr-5">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold my-2 mr-5">Feedback</h5>
+                <h5 class="text-dark font-weight-bold my-2 mr-5">Doctor Info</h5>
                 <!--end::Page Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -26,10 +26,10 @@
                         <a href="{{ url('/') }}" class="text-muted">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ url('admin/'.$module_route) }}" class="text-muted">Feedback</a>
+                        <a href="{{ route('doctor_info') }}" class="text-muted">Doctor Info</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">Create New Feedback</a>
+                        <a href="#" class="text-muted">Create New Doctor Info</a>
                     </li>
 
                 </ul>
@@ -59,57 +59,83 @@
                 <!--begin::Card-->
                 <div class="card card-custom example example-compact">
                     <div class="card-header">
-                        <h3 class="card-title">New {{__($module_title)}}</h3>
+                        <h3 class="card-title">New Doctor's Information</h3>
                         <div class="card-toolbar">
                             <div class="example-tools justify-content-center">
-                            <a href="{{ url('admin/'.$module_route) }}"><button type="button" class='btn btn-primary mr-2'>Back</button></a>
+                            <a href="{{ route('doctor_info') }}"><button type="button" class='btn btn-primary mr-2'>Back</button></a>
                             </div>
                         </div>
                     </div>
                     <!--begin::Form-->
                     @include('layouts.alert')
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('feedback.store') }}" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('doctor_info_store') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group row">
+                                <div class="form-group col-md-12 required">
+                                    {{ Form::label('name_en', __('Name (In English)')) }}
+                                    {{ Form::text('name_en',null,['class'=>'form-control','required'=>true]) }}
+                                    @if($errors->has('name_en'))
+                                        <label id="title-error" class="error" for="name_en">{{ $errors->first('name_en') }}</label>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-12">
+                                    {{ Form::label('name_bn', __('Name (In Bangla)')) }}
+                                    {{ Form::text('name_bn',null,['class'=>'form-control','required'=>true]) }}
+                                    @if($errors->has('name_bn'))
+                                        <label id="title-error" class="error" for="name_bn">{{ $errors->first('name_bn') }}</label>
+                                    @endif
+                                </div>
                                 <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Passport Number<i style="color: red">*</i></label>
-                                    <div class="col-md-12 {{ $errors->has('expat_id') ? 'has-error' : '' }}">
-                                        <select class="form-control select_expat_id" id="kt_select_1" name="expat_id">
-                                            <option value='null'>Select Passport Number</option>
-                                            @foreach ($expatList as $expat)
-                                            <option value="{{ $expat['id'] }}">
-                                                {{ $expat['passport_number'] }}
-                                            </option>
+                                    <label class="col-md-4 col-form-label">Area<i style="color: red">*</i></label>
+                                    <div class="col-md-12 {{ $errors->has('area_id') ? 'has-error' : '' }}">
+                                        <select class="form-control select_area_id" id="kt_select_1" name="area_id">
+                                            <option value='null'>Select Area</option>
+                                            @foreach ($allArea as $key=>$value)
+                                                <option value="{{ $key }}">
+                                                    {{ $value }}
+                                                </option>
                                             @endforeach
                                         </select>
-                                        @if ($errors->has('expat_id'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('expat_id') }}</strong>
+                                        @if ($errors->has('area_id'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('area_id') }}</strong>
                                         </span>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6" id='expat_info'>
-                                    <div class="col-md-12">
-                                        <div class="col-md-12 col-form-label">Full Name<span id="name" style="padding-left: 50%">data</span></div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="col-md-12 col-form-label">Contact Number<span id="contact_no" style="padding-left: 39%">data</span></div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="col-md-12 col-form-label">Category Of Worker<span id="worker_category" style="padding-left: 34%">data</span></div>
+                                <div class="col-md-6">
+                                    <label class="col-md-4 col-form-label">Hospital<i style="color: red">*</i></label>
+                                    <div class="col-md-12 {{ $errors->has('hospital_id') ? 'has-error' : '' }}">
+                                        <select class="form-control select_hospital_id" id="kt_select_1" name="hospital_id">
+                                            <option value='null'>Select Hospital</option>
+                                            @foreach ($allHospitals as $key=>$value)
+                                                <option value="{{ $key }}">
+                                                    {{ $value }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('hospital_id'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('hospital_id') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label class="col-md-4 col-form-label">Feedback<i style="color: red">*</i></label>
-                                    <div class="col-md-12 {{ $errors->has('feedback') ? 'has-error' : '' }}">
-                                        <textarea class="form-control" name="feedback" placeholder="Expact Feedback" required>{{ old('feedback') }}</textarea>
-                                        @if ($errors->has('feedback'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('feedback') }}</strong>
+                                <div class="col-md-12">
+                                    <label class="col-md-4 col-form-label">Speciality<i style="color: red">*</i></label>
+                                    <div class="col-md-12 {{ $errors->has('speciality_id') ? 'has-error' : '' }}">
+                                        <select class="form-control select_speciality_id" id="kt_select_1" name="speciality_id">
+                                            <option value='null'>Select Speciality</option>
+                                            @foreach ($allSpecialities as $key=>$value)
+                                                <option value="{{ $key }}">
+                                                    {{ $value }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('speciality_id'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('speciality_id') }}</strong>
                                         </span>
                                         @endif
                                     </div>
@@ -140,7 +166,7 @@
                                 <div class="col-10">
                                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{ route('division') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('doctor_info') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                         </div>

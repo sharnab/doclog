@@ -133,12 +133,12 @@ class DoctorInfoController extends Controller
      */
     public function edit($id)
     {
-        $doctor_info = DoctorInfo::find($id);
+        $item = DoctorInfo::find($id);
         $allArea = $this->getArea();
         $allSpecialities = $this->getSpecialities();
         $allHospitals = $this->getHospital();
 
-        return view('admin.doctor_info.edit', compact('doctor_info', 'allArea','allSpecialities','allHospitals'));
+        return view('admin.doctor_info.edit', compact('item', 'allArea','allSpecialities','allHospitals'));
     }
 
     /**
@@ -258,11 +258,13 @@ class DoctorInfoController extends Controller
         {
             foreach ($posts as $post){
 
-                $edit =  route('feedback.edit',$post->id);
-                $delete =  route('feedback.destroy',$post->id);
+                $edit =  route('doctor_info_edit',$post->id);
+                $delete =  route('doctor_info_destroy',$post->id);
 
-                $nestedData['passport_number']  = $post->passport_number;
-                $nestedData['feedback']         = $post->feedback;
+                $nestedData['name_en']  = $post->name_en;
+                $nestedData['speciality_name']  = $post->speciality_name;
+                $nestedData['area_name']        = $post->area_name;
+                $nestedData['hospital_name']    = $post->hospital_name;
                 $nestedData['active_status']    = $post->active_status;
                 $nestedData['action']           = "&emsp;<a href='{$edit}' title='Edit' class='btn btn-icon-only purple'><i class='fa fa-edit'></i></a>
                                                 &emsp;<a href='{$delete}' title='Remove' class='btn btn-icon-only red'> <i class='fa fa-times'></i></a>";
